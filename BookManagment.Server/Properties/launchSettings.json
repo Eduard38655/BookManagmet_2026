@@ -20,7 +20,7 @@
         "ASPNETCORE_HOSTINGSTARTUPASSEMBLIES": "Microsoft.AspNetCore.SpaProxy"
       }
     },
-    "https": {
+    "https": { 
       "commandName": "Project",
       "dotnetRunMessages": true,
       "launchBrowser": true,

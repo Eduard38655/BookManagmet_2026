@@ -44,12 +44,17 @@ export default defineConfig({
         alias: {
             '@': fileURLToPath(new URL('./src', import.meta.url))
         }
-    },
-    server: {
+    }, server: {
         proxy: {
-            '^/weatherforecast': {
+            '/weatherforecast': {
                 target,
-                secure: false
+                secure: false,
+                changeOrigin: true
+            },
+            '/product': {
+                target,
+                secure: false,
+                changeOrigin: true
             }
         },
         port: parseInt(env.DEV_SERVER_PORT || '53879'),
@@ -58,4 +63,4 @@ export default defineConfig({
             cert: fs.readFileSync(certFilePath),
         }
     }
-})
+});
