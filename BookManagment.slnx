@@ -1,0 +1,7 @@
+<Solution>
+  <Project Path="bookmanagment.client/bookmanagment.client.esproj">
+    <Build />
+    <Deploy />
+  </Project>
+  <Project Path="BookManagment.Server/BookManagment.Server.csproj" />
+</Solution>
