@@ -1,14 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace BookManagment.Server.Models;
 
 public partial class Review
 {
     public int Id { get; set; }
-
+    [Column("customer_id")]
     public int CustomerId { get; set; }
-
+    [Column("book_id")]
     public int BookId { get; set; }
 
     public int Rating { get; set; }

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace BookManagment.Server.Models;
 
@@ -11,8 +12,12 @@ public partial class Book
 
     public string Title { get; set; } = null!;
 
-    public string? Description { get; set; }
+    [Column("cover_image_url")]
+    public string? CoverImageUrl { get; set; }
 
+    public string? Description { get; set; }
+   
+    [Column("publisher_id")]
     public int? PublisherId { get; set; }
 
     public int? CategoryId { get; set; }

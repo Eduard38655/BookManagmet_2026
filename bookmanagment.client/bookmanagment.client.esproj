@@ -10,5 +10,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Folder Include="src\Book_Comp\" />
+    <Folder Include="src\BookById_comp\" />
+    <Folder Include="src\Pages\" />
   </ItemGroup>
 </Project>

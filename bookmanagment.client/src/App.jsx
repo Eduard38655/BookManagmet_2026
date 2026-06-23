@@ -1,7 +1,9 @@
 import { useEffect } from 'react';
- 
-import BookContent from './Book_Comp/BookContent';
 
+import BookPage from './Pages/BookPage';
+import BookByIdPage from './Pages/BookByIdPage';
+import { Routes, Route } from 'react-router-dom';
+import Footer from "../src/Components/Footer"
 function App() {
 
   
@@ -9,8 +11,15 @@ function App() {
 
     return (
         <>
-            <BookContent />
 
+           
+            <main>
+                <Routes>
+                    <Route path="/browse" element={<BookPage />} />
+                    <Route path="/browse/:id" element={<BookByIdPage />} />
+                </Routes>
+                <Footer />
+            </main>
         </>
     );
 

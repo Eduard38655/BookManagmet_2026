@@ -9,6 +9,8 @@ public partial class Author
 
     public string Name { get; set; } = null!;
 
+    public string? ImageUrl { get; set; }
+
     public string? Nationality { get; set; }
 
     public string? Bio { get; set; }

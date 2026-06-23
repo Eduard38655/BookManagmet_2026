@@ -15,6 +15,8 @@ public partial class User
 
     public string? Phone { get; set; }
 
+    public string? AvatarUrl { get; set; }
+
     public int RoleId { get; set; }
 
     public string Status { get; set; } = null!;

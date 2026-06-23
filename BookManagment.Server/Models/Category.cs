@@ -9,6 +9,8 @@ public partial class Category
 
     public string Name { get; set; } = null!;
 
+    public string? ImageUrl { get; set; }
+
     public int? ParentId { get; set; }
 
     public virtual ICollection<Book> Books { get; set; } = new List<Book>();
