@@ -17,10 +17,10 @@ public partial class Review
     public string? Comment { get; set; }
 
     public string Status { get; set; } = null!;
-
+    [Column("created_at")]
     public string CreatedAt { get; set; } = null!;
 
     public virtual Book Book { get; set; } = null!;
-
+    [Column("customer_id")]
     public virtual Customer Customer { get; set; } = null!;
 }

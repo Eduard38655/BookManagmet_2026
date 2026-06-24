@@ -52,9 +52,10 @@ export default defineConfig({
                 changeOrigin: true
             },
             '/product': {
-                target,
+                target: 'http://localhost:5186',
                 secure: false,
-                changeOrigin: true
+                changeOrigin: true,
+               
             }
         },
         port: parseInt(env.DEV_SERVER_PORT || '53879'),

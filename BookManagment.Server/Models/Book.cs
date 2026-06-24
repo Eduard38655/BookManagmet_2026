@@ -26,6 +26,7 @@ public partial class Book
 
     public string Format { get; set; } = null!;
 
+    [Column("published_year")]
     public int? PublishedYear { get; set; }
 
     public decimal Price { get; set; }

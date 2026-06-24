@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace BookManagment.Server.Models;
 
@@ -14,7 +15,7 @@ public partial class User
     public string PasswordHash { get; set; } = null!;
 
     public string? Phone { get; set; }
-
+    [Column("avatar_url")]
     public string? AvatarUrl { get; set; }
 
     public int RoleId { get; set; }

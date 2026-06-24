@@ -16,7 +16,7 @@ function App() {
             <main>
                 <Routes>
                     <Route path="/browse" element={<BookPage />} />
-                    <Route path="/browse/:id" element={<BookByIdPage />} />
+                    <Route path="/browse/:BookId" element={<BookByIdPage />} />
                 </Routes>
                 <Footer />
             </main>

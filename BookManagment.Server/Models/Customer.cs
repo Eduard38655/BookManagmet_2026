@@ -1,12 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace BookManagment.Server.Models;
 
 public partial class Customer
 {
     public int Id { get; set; }
-
+    [Column("user_id")]
     public int UserId { get; set; }
 
     public int LoyaltyPoints { get; set; }
