@@ -1,5 +1,4 @@
 
-
 :root {
     /* Surface Colors */
     --color-surface: #f8f9fa;
@@ -44,29 +43,106 @@
     --header-bg: #191c1d;
     --text-dark-color: #162839;
     --border-color: #e5e7eb;
+    --back-ground-text: #1628390d;
 }
+
+
 * {
     padding: 0;
     margin: 0;
     box-sizing: border-box;
-    font-family: "Inter", sans-serif; 
-    font-style: normal;
+    
+}
+.Header_Container {
+    width: 100%;
+    height: auto;
+    padding: 15px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    background-color: var( --color-on-secondary);
+    border-bottom: 1px solid var(--border-color)
 }
 
-body {
+    .Header_Container h1 {
+        font-size: 2.6rem;
+        font-weight: 700;
+        color: var(--text-dark-color)
+    }
+
+    .Header_Container ul {
+        width: auto;
+        height: auto;
+        padding: 20px;
+        display: flex;
+        flex-direction: row;
+        gap: 20px;
+        list-style: none;
+        cursor: pointer
+    }
+    .Header_Container ul li a {
+        text-decoration: none;
+    }
+
+    .active a,
+    .active {
+        border-bottom: 2px solid #a55a1d;
+        color: #a55a1d;
+         
+    }
+
+.inactive a, .inactive {
+       
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--color-nav-text);
+    border-bottom: none;
+ 
+  
+
+}
+
+.Header_Icons {
+    width: auto;
+    height: auto;
+    display: flex;
+    flex-direction: row;
+    gap: 25px;
+    align-content:center;
+ 
+align-items:center;
+}
+.Header_Icons button{
+    background:none;
+    border:none;
+    font-size:1.1rem;
+    cursor:pointer;
+}
+
+
+/*Footer*/
+.Footer_Container {
     width: 100%;
-    height: 100%;
+    height: auto;
+    padding: 20px;
+    background: red;
     display: flex;
     flex-direction: column;
-    gap: 25px;
-    justify-content: space-between;
-    background: var(--color-surface);
+    background: var(--color-on-primary-container);
 }
-.main_Container {
-    width: 100%;
-    height: 100%;
-    display:flex;
-    flex-direction: column;
-    gap: 25px;
-    justify-content: space-between
+.Container_Content {
+    width: auto;
+    height: auto;
+    padding: 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content:space-around;
+}
+
+.Footer_Title {
+    width:auto;
+
+}
+.Footer_Title h4{
+    color:var(--color-outline-variant);
 }

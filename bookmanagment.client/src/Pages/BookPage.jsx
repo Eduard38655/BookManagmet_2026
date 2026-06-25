@@ -1,8 +1,8 @@
 import { useState, useEffect } from "react"
 import BookContent from "../Book_Comp/BookContent"
 import FilterBook from "../Book_Comp/FilterBook"
-import Book_Content_Pagination from "../Book_Comp/Book_Content_Pagination" 
-
+import Book_Content_Pagination from "../Book_Comp/Book_Content_Pagination"
+import style from "../Styles/BookPage.module.css"
 function BookPage() {
 
 
@@ -27,11 +27,13 @@ function BookPage() {
 
     }, []) 
     return (
-     
-          <div>
-                <BookContent Book_Data={Book_Data} SetBook_Data={SetBook_Data} />
-                <FilterBook BackUp_Book={BackUp_Book} SetBackUp_Data={SetBackUp_Data} SetBook_Data={SetBook_Data} />
-            </div>
+
+        <article className={style.Main_Container_Book_Page } >
+            {/*                <FilterBook BackUp_Book={BackUp_Book} SetBackUp_Data={SetBackUp_Data} SetBook_Data={SetBook_Data} />
+*/ }
+
+            <BookContent Book_Data={Book_Data} SetBook_Data={SetBook_Data} />
+            </article>
              
       
   );

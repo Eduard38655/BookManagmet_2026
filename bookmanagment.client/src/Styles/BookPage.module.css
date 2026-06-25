@@ -1,0 +1,282 @@
+
+:root {
+    /* Surface Colors */
+    --color-surface: #f8f9fa;
+    --color-surface-dim: #d9dadb;
+    --color-surface-bright: #f8f9fa;
+    --color-surface-container-lowest: #ffffff;
+    --color-surface-container-low: #f3f4f5;
+    --color-surface-container: #ecedee;
+    --color-surface-container-high: #e7e8e9;
+    --color-surface-container-highest: #e1e2e3;
+    --color-on-surface: #1a1c1e;
+    --color-on-surface-variant: #43474e;
+    --color-outline: #73777f;
+    --color-outline-variant: #c3c7cf;
+    /* Primary Brand Colors (Academic Blue) */
+    --color-primary: #2c3e50;
+    --color-on-primary: #ffffff;
+    --color-primary-container: #d3e4ff;
+    --color-on-primary-container: #001c38;
+    /* Secondary Colors (Deep Gray/Blue) */
+    --color-secondary: #535f70;
+    --color-on-secondary: #ffffff;
+    --color-secondary-container: #d7e3f7;
+    --color-on-secondary-container: #101c2b;
+    /* Tertiary Colors (Amber/Gold Accents) /
+  --color-tertiary: #a05a2c; / Used for CTAs and highlights */
+    --color-on-tertiary: #ffffff;
+    --color-tertiary-container: #ffdbca;
+    --color-on-tertiary-container: #331200;
+    /* State Colors */
+    --color-error: #ba1a1a;
+    --color-on-error: #ffffff;
+    --color-success: #2e7d32;
+    --color-warning: #f9a825;
+    --color-info: #0277bd;
+    /* Fixed Accents (Used in the UI for consistent emphasis) */
+    --color-accent-amber: #e67e22;
+    --color-accent-blue: #2980b9;
+    --font_family: 'Cormorant Garamond', serif;
+    --color-nav-text: #43474c;
+    --underline-header: #a55a1d;
+    --header-bg: #191c1d;
+    --text-dark-color: #162839;
+    --border-color: #e5e7eb;
+    --back-ground-text:#1628390d;
+}
+
+
+ 
+.Main_Container_Book_Page {
+    width:100%;
+    height:100%;
+    display:flex;
+    flex-direction:row;
+    padding:20px;
+    gap:30px;
+}
+
+.Aside_Filter_Container {
+    width: 20%;
+    height: 100vh;
+    padding:0;
+    top:0;
+    bottom:0;
+}
+
+.Aside_Content {
+    width: 20%;
+    height: auto;
+    position: fixed;
+ 
+}
+
+.Car_filters {
+    width: auto;
+    height: auto;
+    
+    padding: 20px;
+    background: var(--color-surface-container-low);
+    border:1px solid var(--border-color);
+    border-radius:8px;
+    display:flex;
+    flex-direction:column;
+    gap:25px;
+}
+    .Car_filters h5 {
+        font-size: 1.3rem;
+        color: var(--text-dark-color);
+        font-weight:750;
+    }
+
+    .Car_filters label {
+        font-size: 0.9rem;
+        color: var(--color-nav-text);
+        font-weight: 550;
+    }
+.Container_Optiones {
+    width: auto;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    justify-content: center;
+   
+}
+.Div_Content_op{
+ }
+.Container_Filter_op {
+    width: auto;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    justify-content: center;
+   
+}
+.Div_Price {
+    width: auto;
+    height: auto;
+    display: flex;
+    flex-direction: row;
+    gap: 5px;
+    justify-content: center;
+}
+    .Div_Price input {
+        width: 50%;
+        height: auto;
+        padding:5px;
+    }
+
+    .Div_Price input{
+        border:1px solid var(--border-color);
+        background:white;
+
+    }
+
+        .Div_Price input:focus {
+            outline: none;
+   
+        }
+
+    .Div_Price input::placeholder{
+        font-size:0.8rem;
+        font-weight:650;
+
+    }
+
+    /*BookContent * Componete*/
+
+.Container_Details_Book_Content{
+    width:70%;
+ height:100%;
+display:flex;
+flex-direction:column;
+gap:20px;
+ 
+
+}
+.Div_Filter_By{
+    width:100%;
+    height:auto;
+    padding:10px;
+    display:flex;
+    flex-direction:row;
+    justify-content:center;
+    justify-content:space-between;
+       
+}
+
+    .Div_Filter_By h3 {
+        color: ver(--text-dark-color);
+        font-size:2rem;
+        font-weight:750;
+    }
+
+    .Div_Filter_By div small {
+        font-size: 1rem;
+        font-weight: 650;
+        color:var(--color-on-surface-variant);
+    }
+
+    .Div_Filter_By div select{
+
+        width:150px;
+        height:30px;
+        color:var(--text-dark-color);
+        padding:0px;
+        font-size:1rem;
+        font-weight:650;
+
+    }
+.Container_Content {
+    width:100%;
+    height:auto;
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:20px;
+}
+.Book_Card {
+    width: 250px;
+    height: auto;
+    background: red;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    border-radius: 5px;
+    border: 1px solid var(--border-color);
+    background: var(--color-surface-container-lowest);
+    cursor:pointer;
+    justify-content:space-between;
+}
+    .Book_Card img {
+        width: 100%;
+        height: 300px;
+        object-fit: cover;
+        border-radius: 5px 5px 0px 0px;
+    }
+.Content_Card {
+    width: 100%;
+    height: auto;
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.Div_Categories{
+    width:auto;
+    height:auto;
+    display:flex;
+    flex-direction:row;
+    gap:7px;
+    flex-wrap:wrap;
+}
+    .Div_Categories span {
+        width: auto;
+        height: auto;
+        color: var(--text-dark-color);
+        font-size: 0.7rem;
+        font-weight: 650;
+        padding: 5px;
+        border-radius: 325px;
+        background: var( --back-ground-text);
+        border: 1px solid var(--border-color);
+         
+    }
+.Content_Card h4 {
+    color: var(--text-dark-color);
+    font-size:1.1rem;
+    font-weight: 800;
+
+}
+.Content_Card p {
+    color: var(--color-nav-text);
+    font-size: 0.8rem;
+    font-weight: 650;
+}
+.Div_Buttons {
+    width:100%;
+    height:auto;
+    padding:0px 15px 15px 15px ;
+    display:flex;
+    flex-direction:row;
+     align-content:center;
+   justify-content:space-between;
+  
+ 
+}
+
+.Div_Buttons span{
+    font-size:1.1rem;
+    font-weight:800;
+    color:var(--text-dark-color);
+
+}
+.Div_Buttons button{
+    font-size:1.4rem;
+    color:var(--text-dark-color);
+    background:none;
+    border:none;
+
+}
