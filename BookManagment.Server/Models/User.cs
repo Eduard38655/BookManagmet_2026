@@ -11,7 +11,7 @@ public partial class User
     public string FullName { get; set; } = null!;
 
     public string Email { get; set; } = null!;
-
+    [Column("password_hash")]
     public string PasswordHash { get; set; } = null!;
 
     public string? Phone { get; set; }

@@ -57,7 +57,25 @@ export default defineConfig({
                 changeOrigin: true,
                
             }
-        },
+            ,
+            '/shopping': {
+                target: 'http://localhost:5186',
+                secure: false,
+                changeOrigin: true,
+
+            }
+            ,
+            '/login/user': {
+                target: 'http://localhost:5186',
+                secure: false,
+                changeOrigin: true,
+
+            }
+
+
+
+             
+        },  
         port: parseInt(env.DEV_SERVER_PORT || '53879'),
         https: {
             key: fs.readFileSync(keyFilePath),

@@ -1,8 +1,28 @@
 
 import style from "../Styles/BookPage.module.css"
 function BookByIdContent({ Book_Data, SetBook_Data }) {
+
+
+    function Add_item_Shopping(BookId) {
+        fetch(`http://localhost:5186/shopping/Add/book/${BookId}`, {
+            method: "POST",
+                headers: {
+            "Content-Type": "application/json"
+        },
+            body: JSON.stringify({ BookId: BookId, CustomerId: 1, CreatedAt :"2026/8/52"})
+        })
+        .then((res) => res.text())
+            .then((data) => {
+
+                console.log(data)
+
+
+            })
+    }
+
   return (
-      <div className={style.Container_Book_Details } >
+      <div className={style.Container_Book_Details} >
+
           {Book_Data.map((book) => (
 
               <div key={book.id} className={style.Book_Details } >
@@ -50,7 +70,7 @@ function BookByIdContent({ Book_Data, SetBook_Data }) {
  
                       <div className={style.Div_Buttons_Book_Details}>
 
-                          <button><i className="fa-solid fa-cart-shopping"></i>{" "}Add to Cart</button>
+                          <button onClick={() => Add_item_Shopping(book.id)}><i className="fa-solid fa-cart-shopping"></i>{" "}Add to Cart</button>
                           <button><i className="fa-regular fa-heart"></i>{" "}Add to Wishlist</button>
                       </div>
 

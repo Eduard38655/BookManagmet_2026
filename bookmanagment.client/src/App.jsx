@@ -5,6 +5,8 @@ import BookByIdPage from './Pages/BookByIdPage';
 import { Routes, Route } from 'react-router-dom';
 import Footer from "../src/Components/Footer"
 import Header from "../src/Components/Header"
+import LoginPage from "../src/Pages/LoginPage"
+
 import './index.css'
 function App() {
 
@@ -20,6 +22,7 @@ function App() {
                 <Routes>
                     <Route path="/browse" element={<BookPage />} />
                     <Route path="/browse/:BookId" element={<BookByIdPage />} />
+                    <Route path="/login" element={<LoginPage />} />
                 </Routes>
                 <Footer />
             </main>

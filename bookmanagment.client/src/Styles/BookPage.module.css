@@ -45,17 +45,19 @@
     --border-color: #e5e7eb;
     --back-ground-text: #1628390d;
     --Background-info: #fc8f34;
+    --proegess-background:#944a00;
+    --color-porcentage:74777d;
 }
 
 
  
 .Main_Container_Book_Page {
-    width:100%;
+    width:auto;
     height:100%;
     display:flex;
     flex-direction:row;
     padding:20px;
-    gap:30px;
+    gap:30px; 
 }
 
 .Aside_Filter_Container {
@@ -64,6 +66,7 @@
     padding:0;
     top:0;
     bottom:0;
+
 }
  
 .Aside_Content {
@@ -306,6 +309,10 @@ gap:20px;
     flex-direction: column;
     gap: 20px;
     padding:20px;
+    align-content:center;
+    justify-content:center;
+    align-items:center;
+     
     
 }
 .Container_Book_Details {
@@ -456,9 +463,9 @@ gap:20px;
     width: 100%;
     height: auto;
     display: flex;
-    
     gap: 20px;
- 
+    background: var( --color-on-secondary-container);
+    border-radius:  8px;
 }
 
 .Div_Card {
@@ -466,30 +473,244 @@ gap:20px;
     height: auto;
     display: flex;
     flex-direction: row;
-    gap: 20px;
-    padding: 17px;
+    gap: 5px;
+
+   
 }
     .Div_Card img {
-        width: 40%;
+        width: 35%;
         height: 100%;
         object-fit: cover;
-        border-radius: 7px;
+        border-radius: 8px 0px 0px 8px;
     }
 .AutorInfo {
     width: 100%;
     height: auto;
     flex-direction: column;
     display: flex;
-    gap: 10px;
+    gap: 20px;
+    padding:20px;
 }
 
     .AutorInfo h4 {
         font-weight: 700;
         font-size: 2rem;
-        color: var(--color-on-surface-variant);
+        color: var(--color-outline-variant);
     }
     .AutorInfo p {
-        color: var(--color-nav-text);
+        color: var(--color-outline-variant);
         font-size: 0.9rem;
         font-weight: 500;
     }
+
+    /*Reviews */
+
+
+.Conatiner_Reviews {
+    width:100%;
+    height:auto;
+ display:flex;
+ flex-direction:row-reverse;
+ 
+ justify-content:space-between;
+ align-content:center;
+ align-items:center;
+ padding:20px;
+
+}
+
+.SubContainer {
+    width: 60%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    border-bottom: 1px solid var(--border-color);
+    gap: 10px;
+    padding: 10px;
+}
+
+    .SubContainer img {
+        width: 50px;
+        height: 50px;
+        border:1px solid var(--border-color);
+        border-radius:10px;
+        object-fit:cover;
+    }
+
+.Container_content {
+    width:100%;
+    height:auto;
+    display:flex;
+    flex-direction:row;
+    justify-content:space-between;
+        
+}
+
+.Card_reviews {
+    width:500px;
+    height:auto;
+ 
+    display:flex;
+    flex-direction:row;
+    align-items:center;
+    gap:15px;
+    
+}
+
+.SubContainer p{
+    font-size:0.7rem;
+    font-weight:500;
+    color:var(--color-nav-text);
+}
+
+.autor_title{
+   width:auto;
+   height:auto;
+}
+
+.autor_title h4{
+    font-size:0.8rem;
+    color:var(--text-dark-color);
+
+}
+    .autor_title small {
+        font-size: 0.7rem;
+        color: var(--color-nav-text);
+        font-weight:500;
+    }
+
+.Div_Procentage {
+    width:100%;
+    height:auto;
+    display:flex;
+    flex-direction:column;
+    gap:10px;
+}
+
+    .Div_Procentage progress {
+        width: 250px;
+        height: 7px;
+        -webkit-appearance: none;
+        appearance: none;
+    }
+
+        /* Fondo */
+        .Div_Procentage progress::-webkit-progress-bar {
+            background-color: #e5e7eb;
+            border-radius: 10px;
+        }
+
+        /* Parte llena */
+        .Div_Procentage progress::-webkit-progress-value {
+            background-color: var( --proegess-background);
+            border-radius: 10px;
+        }
+
+        /* Firefox */
+        .Div_Procentage progress::-moz-progress-bar {
+            background-color: red;
+            border-radius: 10px;
+        }
+
+.Div_porcentage_range {
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content:center;
+    gap: 10px;
+  
+    font-weight: 600;
+}
+
+
+    .Div_porcentage_range span {
+        color: var(--text-dark-color);
+        font-size: 0.6rem;
+    }
+
+.Div_porcentage_range label {
+    font-size:0.6rem;
+    color: var( --color-porcentage);
+  
+}
+
+.DivPersantage {
+    width:100%;
+    height:auto;
+    display:flex;
+    gap:5px;
+    
+ 
+ 
+}
+
+.views_Conatiner {
+    width: auto;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
+    justify-content: center;
+    justify-content:space-between;
+   
+    padding:15px;
+}
+    .views_Conatiner button{
+        width:100%;
+        height:auto;
+        padding:10px;
+        font-size:0.7rem;
+        font-weight:500;
+        border:1px solid var(--border-color);
+        border-radius:4px;
+            
+    }
+.SubConatiner {
+    width: auto;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    background: var(--color-surface-container-low);
+    padding: 20px;
+    border: 1px solid var(--border-color);
+    border-radius: 5px;
+}
+.Div_Title_reviews {
+    width: auto;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
+    justify-content: center;
+}
+
+    .Div_Title_reviews small {
+        font-size: 0.8rem;
+        color: var(--color-on-surface-variant);
+        font-weight: 500;
+    }
+    .Div_Title_reviews h4 {
+        font-size: 2rem;
+        font-weight: 550;
+        color: var(--text-dark-color);
+    }
+.DivRtingStar {
+    width: auto;
+    height: auto;
+    display: flex;
+    flex-direction: row;
+    gap: 14px;
+   
+}
+    .DivRtingStar   {
+        font-size: 1rem;
+    }
+.views_Conatiner  h3{
+color:var(--text-dark-color);
+font-size:1.2rem;
+}
