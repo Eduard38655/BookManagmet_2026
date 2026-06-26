@@ -29,8 +29,8 @@ function BookPage() {
     return (
 
         <article className={style.Main_Container_Book_Page } >
-            {/*                <FilterBook BackUp_Book={BackUp_Book} SetBackUp_Data={SetBackUp_Data} SetBook_Data={SetBook_Data} />
-*/ }
+              <FilterBook BackUp_Book={BackUp_Book} SetBackUp_Data={SetBackUp_Data} SetBook_Data={SetBook_Data} />
+ 
 
             <BookContent Book_Data={Book_Data} SetBook_Data={SetBook_Data} />
             </article>

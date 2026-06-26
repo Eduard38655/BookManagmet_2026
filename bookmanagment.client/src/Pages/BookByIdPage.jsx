@@ -3,6 +3,8 @@ import BookByIdContent from "../BookById_comp/BookByIdContent"
 import { useParams } from "react-router-dom";
 import AutorInfo from "../BookById_comp/AutorInfo"
 import Reviews_Customer from "../BookById_comp/Reviews"
+import style from "../Styles/BookPage.module.css"
+
 function BookByIdPage() {
     const { BookId } = useParams();
     const [Book_Data, SetBook_Data] = useState([])
@@ -26,12 +28,12 @@ function BookByIdPage() {
         fetchData()
 
     }, []) 
-  return (
-      <>
+    return (
+        <article className={style.Container_Book_details } >
           <BookByIdContent Book_Data={Book_Data} SetBook_Data={SetBook_Data } />
           <AutorInfo Book_Data={Book_Data} SetBook_Data={SetBook_Data} />
           <Reviews_Customer Book_Data={Book_Data} SetBook_Data={SetBook_Data} />
-      </>
+      </article>
   );
 }
 

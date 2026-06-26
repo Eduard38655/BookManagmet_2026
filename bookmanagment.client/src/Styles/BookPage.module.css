@@ -43,7 +43,8 @@
     --header-bg: #191c1d;
     --text-dark-color: #162839;
     --border-color: #e5e7eb;
-    --back-ground-text:#1628390d;
+    --back-ground-text: #1628390d;
+    --Background-info: #fc8f34;
 }
 
 
@@ -64,7 +65,7 @@
     top:0;
     bottom:0;
 }
-
+ 
 .Aside_Content {
     width: 20%;
     height: auto;
@@ -104,8 +105,16 @@
     justify-content: center;
    
 }
-.Div_Content_op{
- }
+
+.Card_Content {
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    
+}
+
 .Container_Filter_op {
     width: auto;
     height: auto;
@@ -113,15 +122,14 @@
     flex-direction: column;
     gap: 15px;
     justify-content: center;
-   
 }
 .Div_Price {
     width: auto;
     height: auto;
     display: flex;
     flex-direction: row;
-    gap: 5px;
-    justify-content: center;
+    gap: 10px;
+    
 }
     .Div_Price input {
         width: 50%;
@@ -198,7 +206,7 @@ gap:20px;
     gap:20px;
 }
 .Book_Card {
-    width: 250px;
+    width: 240px;
     height: auto;
     background: red;
     display: flex;
@@ -207,7 +215,7 @@ gap:20px;
     border-radius: 5px;
     border: 1px solid var(--border-color);
     background: var(--color-surface-container-lowest);
-    cursor:pointer;
+ 
     justify-content:space-between;
 }
     .Book_Card img {
@@ -215,6 +223,7 @@ gap:20px;
         height: 300px;
         object-fit: cover;
         border-radius: 5px 5px 0px 0px;
+        cursor: pointer;
     }
 .Content_Card {
     width: 100%;
@@ -273,10 +282,214 @@ gap:20px;
     color:var(--text-dark-color);
 
 }
-.Div_Buttons button{
-    font-size:1.4rem;
-    color:var(--text-dark-color);
-    background:none;
-    border:none;
+    .Div_Buttons button {
+        font-size: 1.4rem;
+        color: var(--text-dark-color);
+        background: none;
+        border: none;
+        cursor: pointer;
+     
+ 
+    }
+        .Div_Buttons button:hover {
+            color: var(--color-accent-amber);
+ 
+        }
 
+
+/* BookPage ID */
+
+.Container_Book_details {
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding:20px;
+    
 }
+.Container_Book_Details {
+    width: 100%;
+    height: 100%;
+}
+.Book_Details {
+    width: 100%;
+    height: 100%;
+    display: grid;
+    grid-template-columns: 25% 75%;
+    grid-template-rows: 100% 100%;
+    gap: 20px;
+}
+    .Book_Details img {
+        width: 100%;
+        height: 500px;
+        object-fit: cover;
+        border-radius: 7px;
+        border: 1px solid var(--border-color);
+    }
+.Div_Title {
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+.Div_Title span{
+    color:var(--color-secondary);
+}
+    .Div_Title h4 {
+        font-size: 3rem;
+        font-weight: 700;
+        color: var(--text-dark-color);
+    }
+    .Div_Title p {
+        font-size: 1.2rem;
+        font-weight: 600;
+        color: var(--color-nav-text);
+    }
+.Div_Price {
+    width: auto;
+    height: auto;
+ 
+ 
+}
+    .Div_Price h4 {
+        font-size: 2rem;
+        font-weight: 700;
+        color: var(--color-accent-amber);
+    }
+    .Div_Price div {
+        width: auto;
+        height: auto;
+        display: flex;
+        flex-direction: column;
+    }
+
+        .Div_Price div p span {
+            color: var(--color-success);
+            font-size: 1.1rem;
+        }
+        .Div_Price div p{
+            font-size:1rem;
+            color:var(--text-dark-color);
+        }
+
+        .Div_Price div small {
+            font-size: 0.8rem;
+            color:var(--color-on-surface-variant);
+            font-weight:600;
+        }
+.Line_Book {
+    width: 100%;
+    height: 1px;
+    border-bottom: 1px solid var(--border-color);
+    padding:5px;
+}
+.Div_Category {
+    width: auto;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 10px;
+}
+.Container_Category{
+ 
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: row;
+    gap: 7px;
+}
+
+
+    .Container_Category p span {
+        padding: 5px;
+        background: var(--back-ground-text);
+        border-radius: 15px;
+        color: var(--text-dark-color);
+        font-size: 0.8rem;
+    }
+
+.Div_Buttons_Book_Details {
+    width: auto;
+    height: auto;
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+}
+    .Div_Buttons_Book_Details button {
+        width: 200px;
+        height: auto;
+        padding: 12px 25px;
+        font-weight: 550;
+        font-size: 0.8rem;
+        color: var(--text-dark-color);
+        cursor: pointer;
+        background-color: var(--Background-info);
+        border:1px soilid var(--border-color);
+    }
+
+    .Div_Buttons_Book_Details button:nth-child(1) {
+        
+       
+        background-color: var(--Background-info);
+       
+    }
+        .Div_Buttons_Book_Details button:nth-child(2) {
+            background : none;
+            border: 2px solid var(--border-color);
+        }
+
+.Text_description {
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--color-nav-text);
+    line-height: 1.75; /* espaciado entre líneas generoso */
+     margin-bottom: 1.25rem;
+}
+
+/*Author*/
+
+
+.Container_Author {
+    width: 100%;
+    height: auto;
+    display: flex;
+    
+    gap: 20px;
+ 
+}
+
+.Div_Card {
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    padding: 17px;
+}
+    .Div_Card img {
+        width: 40%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 7px;
+    }
+.AutorInfo {
+    width: 100%;
+    height: auto;
+    flex-direction: column;
+    display: flex;
+    gap: 10px;
+}
+
+    .AutorInfo h4 {
+        font-weight: 700;
+        font-size: 2rem;
+        color: var(--color-on-surface-variant);
+    }
+    .AutorInfo p {
+        color: var(--color-nav-text);
+        font-size: 0.9rem;
+        font-weight: 500;
+    }

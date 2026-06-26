@@ -25,9 +25,9 @@ function BookContent({ Book_Data, SetBook_Data }) {
 
               {Book_Data.map((book) => (
 
-                  <div key={book.id} onClick={() => navigate(`/browse/${book.id}`)} className={style.Book_Card }>
+                  <div key={book.id}   className={style.Book_Card }>
 
-                      <img src={"https://www.tdisdi.com/wp-content/uploads/2025/02/SS_United_States_980x612_1.jpg" || book.coverImageUrl} alt="image_cover" />
+                      <img onClick={() => navigate(`/browse/${book.id}`)}  src={"https://www.tdisdi.com/wp-content/uploads/2025/02/SS_United_States_980x612_1.jpg" || book.coverImageUrl} alt="image_cover" />
  
                       <div className={style.Content_Card}>
                           <div className={style.Div_Categories }>
