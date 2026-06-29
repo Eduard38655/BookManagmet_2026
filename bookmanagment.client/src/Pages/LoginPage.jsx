@@ -1,7 +1,9 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom" 
 import { useContext } from "react"; 
-import  { UserContext } from "../Context/UserContext";
+import { UserContext } from "../Context/UserContext";
+import { useForm } from "react-hook-form"
+
 function LoginPage() {
     const [username, setUsername] = useState("maria.admin@libros.com");
     const [password, setPassword] = useState("$2y$10$adminhash");
@@ -23,15 +25,29 @@ function LoginPage() {
             })
     }
 
+    const {
+        register,
+        handleSubmit,
+        watch,
+        formState: { errors },
+    } = useForm()
+
+    const onSubmit = (data) => console.log(data)
+
+ 
+
+
     return (
         <>
-        <h2>sss</h2>
-            <form>
+    
+            <form onSubmit={handleSubmit(onSubmit)}>
                 <div>
+
+
                     <input
                         type="text"
                         onChange={(e) => setUsername(e.target.value)}
-                        
+                        defaultValue="Email_input" {...register("example")}
                     />
 
                     <input

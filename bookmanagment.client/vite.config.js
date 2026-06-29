@@ -78,9 +78,23 @@ export default defineConfig({
                 changeOrigin: true,
 
             }
-             
+            ,
+            '/customer': {
+                target: 'http://localhost:5186',
+                secure: false,
+                changeOrigin: true,
 
-             
+            }
+
+            ,
+            '/users': {
+                target: 'http://localhost:5186',
+                secure: false,
+                changeOrigin: true,
+
+            }
+
+            
         },  
         port: parseInt(env.DEV_SERVER_PORT || '53879'),
         https: {
