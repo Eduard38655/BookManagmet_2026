@@ -65,14 +65,20 @@ export default defineConfig({
 
             }
             ,
-            '/login/user': {
+            '/user': {
                 target: 'http://localhost:5186',
                 secure: false,
                 changeOrigin: true,
 
             }
+            ,
+            '/salesoverview': {
+                target: 'http://localhost:5186',
+                secure: false,
+                changeOrigin: true,
 
-
+            }
+             
 
              
         },  

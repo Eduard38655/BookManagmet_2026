@@ -73,6 +73,7 @@ namespace BookManagment.Server.Controllers
               b.Format,
               b.Description,
               b.Language,
+              b.Stock,
 
               Rating = r != null ? r.Rating : 0,
               Comment = r != null ? r.Comment : "",

@@ -6,23 +6,32 @@ namespace BookManagment.Server.Models;
 
 public partial class User
 {
+    [Column("id")]
     public int Id { get; set; }
 
+    [Column("full_name")]
     public string FullName { get; set; } = null!;
 
+    [Column("email")]
     public string Email { get; set; } = null!;
+
     [Column("password_hash")]
     public string PasswordHash { get; set; } = null!;
 
+    [Column("phone")]
     public string? Phone { get; set; }
+
     [Column("avatar_url")]
     public string? AvatarUrl { get; set; }
 
+    [Column("role_id")]
     public int RoleId { get; set; }
 
+    [Column("status")]
     public string Status { get; set; } = null!;
 
-    public string CreatedAt { get; set; } = null!;
+    [Column("created_at")]
+    public DateTime CreatedAt { get; set; }
 
     public virtual ICollection<Address> Addresses { get; set; } = new List<Address>();
 

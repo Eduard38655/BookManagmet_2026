@@ -11,7 +11,10 @@
   <ItemGroup>
     <Folder Include="src\Book_Comp\" />
     <Folder Include="src\BookById_comp\" />
+    <Folder Include="src\Context\" />
+    <Folder Include="src\DashboardComps\" />
+    <Folder Include="src\InventoryComps\" />
+    <Folder Include="src\ShoppingCart\" />
     <Folder Include="src\Styles\" />
-    <Folder Include="src\Pages\" />
   </ItemGroup>
 </Project>

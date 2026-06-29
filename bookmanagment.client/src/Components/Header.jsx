@@ -2,10 +2,16 @@ import style from "../Styles/Header.module.css"
 import { Link, useLocation } from "react-router-dom";
 import { useParams } from "react-router-dom";
 import { useEffect } from "react"
+import { UserContext } from "../Context/UserContext";
+import { useContext } from "react";
+import { useNavigate } from "react-router-dom"  
 function Header() {
     const location = useLocation();
-   
     const BookId = location.pathname.split("/")[2];
+    const { user, setUser } = useContext(UserContext)
+    const navigate = useNavigate();
+
+    
 
   return (
       <>
@@ -40,10 +46,14 @@ function Header() {
                   </li>
               </ul>
               <div className={style.Header_Icons}>
-                  <button>
-                      <i className="fa-regular fa-user"></i>
+                  <button onClick={() => navigate("/dashboard") }>
+                      {user && user.length > 0 ? (
+                          user.map((user) => (
+                              <span key={user.id}>{user.avatar}</span>
+                          ))
+                      ) : (<i className="fa-regular fa-user"></i>)}
                   </button>
-                  <button>
+                  <button onClick={() =>   navigate("/shoppingcart")  }>
                       <i className="fa-solid fa-cart-shopping"></i>
                   </button>
                   <button>

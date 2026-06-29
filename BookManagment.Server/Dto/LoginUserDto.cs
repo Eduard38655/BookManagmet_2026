@@ -3,13 +3,10 @@ namespace BookManagment.Server.Dto
 {
     public class LoginUserDto
     {
-       
-            public string Email { get; set; }
+        [Required]
+        public string Email { get; set; } = null!;
 
-            public string PasswordHash { get; set; }
-
-       
- 
-
-}
+        [Required]
+        public string PasswordHash { get; set; } = null!;
+    }
 }

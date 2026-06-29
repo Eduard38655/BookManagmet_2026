@@ -1,20 +1,25 @@
 import { useState } from "react";
-
+import { useNavigate } from "react-router-dom" 
+import { useContext } from "react"; 
+import  { UserContext } from "../Context/UserContext";
 function LoginPage() {
-    const [username, setUsername] = useState("");
-    const [password, setPassword] = useState("");
+    const [username, setUsername] = useState("maria.admin@libros.com");
+    const [password, setPassword] = useState("$2y$10$adminhash");
+    const navigate = useNavigate();
+    const { user, setUser } = useContext(UserContext)
 
     function ValidarUser() {
-        fetch("http://localhost:5186/login/user/finduser", {
+        fetch("http://localhost:5186/user/finduser", {
             method: "POST",
-            headers: { "herader-type": "application/json" },
+            headers: { "Content-Type": "application/json" },
             body: JSON.stringify({ Email: username, PasswordHash: password })
 
         })
-            .then((res) => res.text())
+            .then((res) => res.json())
             .then((data) => {
-
                 console.log(data)
+                setUser(data.user)
+                localStorage.setItem("User_Token", data.token)
             })
     }
 
@@ -26,6 +31,7 @@ function LoginPage() {
                     <input
                         type="text"
                         onChange={(e) => setUsername(e.target.value)}
+                        
                     />
 
                     <input
