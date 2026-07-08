@@ -55,7 +55,7 @@
 
 body {
     width: 100%;
-    height: 100%;
+    height: auto;
     display: flex;
     flex-direction: column;
     gap: 25px;
@@ -64,9 +64,18 @@ body {
 }
 .main_Container {
     width: 100%;
-    height: 100%;
-    display:flex;
+    height: auto;
+    display: flex;
     flex-direction: column;
     gap: 25px;
     justify-content: space-between
+}
+.DashboardContainer {
+    width: 100%;
+    height:auto;
+    display: flex;
+    flex-direction: row;
+    justify-content:space-between;
+    
+   
 }

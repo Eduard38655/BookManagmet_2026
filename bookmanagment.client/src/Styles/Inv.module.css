@@ -1,0 +1,362 @@
+
+:root {
+    /* Surface Colors */
+    --color-surface: #f8f9fa;
+    --color-surface-dim: #d9dadb;
+    --color-surface-bright: #f8f9fa;
+    --color-surface-container-lowest: #ffffff;
+    --color-surface-container-low: #f3f4f5;
+    --color-surface-container: #ecedee;
+    --color-surface-container-high: #e7e8e9;
+    --color-surface-container-highest: #e1e2e3;
+    --color-on-surface: #1a1c1e;
+    --color-on-surface-variant: #43474e;
+    --color-outline: #73777f;
+    --color-outline-variant: #c3c7cf;
+    /* Primary Brand Colors (Academic Blue) */
+    --color-primary: #2c3e50;
+    --color-on-primary: #ffffff;
+    --color-primary-container: #d3e4ff;
+    --color-on-primary-container: #001c38;
+    /* Secondary Colors (Deep Gray/Blue) */
+    --color-secondary: #535f70;
+    --color-on-secondary: #ffffff;
+    --color-secondary-container: #d7e3f7;
+    --color-on-secondary-container: #101c2b;
+    /* Tertiary Colors (Amber/Gold Accents) /
+  --color-tertiary: #a05a2c; / Used for CTAs and highlights */
+    --color-on-tertiary: #ffffff;
+    --color-tertiary-container: #ffdbca;
+    --color-on-tertiary-container: #331200;
+    /* State Colors */
+    --color-error: #ba1a1a;
+    --color-on-error: #ffffff;
+    --color-success: #2e7d32;
+    --color-warning: #f9a825;
+    --color-info: #0277bd;
+    /* Fixed Accents (Used in the UI for consistent emphasis) */
+    --color-accent-amber: #e67e22;
+    --color-accent-blue: #2980b9;
+    --font_family: 'Cormorant Garamond', serif;
+    --color-nav-text: #43474c;
+    --underline-header: #a55a1d;
+    --header-bg: #191c1d;
+    --text-dark-color: #162839;
+    --border-color: #e5e7eb;
+    --back-ground-text: #1628390d;
+    --color-nav-text-golden: #663100;
+    --back-nav-golden: #fc8f34;
+}
+
+
+.Container_Inv{
+    width:100%;
+    height:100%;
+    padding:25px;
+    display:flex;
+    gap:15px;
+    justify-content:space-around;
+    flex-direction:column;
+ 
+}
+.HeaderDiv{
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: row;
+   
+    justify-content:space-between;
+}
+.Title{
+    width:100%;
+    height:auto;
+    display:flex;
+    flex-direction:column;
+    gap:5px;
+}
+.Title h3{
+    font-size:1.4rem;
+    color:var(--text-dark-color);
+}
+    .Title p {
+        color: var(--color-nav-text);
+        font-size:0.8rem;
+        font-weight:500;
+        
+    }
+.Div_Buttons {
+    width: auto;
+    height: auto;
+    display: flex;
+    flex-direction: row;
+   
+   align-items:center;
+   gap:8px;
+}
+    .Div_Buttons button {
+        width: 150px;
+        height: 45px;
+        border-radius: 5px;
+        border: none;
+        font-size: 0.8rem;
+        font-weight: 600;
+        cursor: pointer;
+    }
+.Active_Button {
+    background:var(--color-accent-amber);
+    color:white;
+ 
+    
+}
+.Div_Buttons button:nth-child(1) {
+    background: var(--color-surface-container-highest);
+    border:1px solid var(--border-color);
+    color:var(--color-nav-text);
+}
+
+.DivContainer_Filter{
+    width:100%;
+    height:auto;
+    display:flex;
+    flex-direction:row;
+    border:1px solid var(--border-color);
+    align-items:center;
+    padding:10px;
+    border-radius:5px;
+    gap:15px;
+
+}
+.DivContainer_Input {
+    width: 30%;
+    height: auto;
+    display: flex;
+    flex-direction: row;
+    border: 1px solid gray;
+    align-items: center;
+    padding: 10px;
+    border-radius: 4px;
+}
+
+.DivContainer_Input input{
+    border:none;
+}
+    .DivContainer_Input input:focus{
+        outline:none;
+    }
+    .DivCategory {
+        width: 100%;
+        height: auto;
+        display: flex;
+        gap: 10px;
+    }
+.DivCategory  {
+    width:100%;
+    height:auto;
+    display:flex;
+    flex-direction:row;
+    justify-content:space-between
+}
+
+.DivCategory div{
+    width: auto;
+    height: auto;
+    display: flex;
+    flex-direction: row;
+   
+        gap:10px;
+}
+    .DivCategory div button {
+        border: 1px solid var(--border-color);
+        padding: 8px;
+        border-radius: 5px;
+        background: var( --color-surface-container-highest);
+    color:var(--text-dark-color);
+    font-weight:550;
+    font-size:0.7rem;
+    cursor:pointer;
+        }
+
+    .DivCategory div button:hover{
+        color:white;
+        background:var(--color-nav-text-golden);
+    }
+
+.ButtonFilter {
+    width: 100px;
+    height: auto;
+    padding:10px;
+    font-weight: 550;
+    font-size: 0.7rem;
+    cursor: pointer;
+    background: var(--color-surface-container-highest);
+    border: 1px solid var(--border-color);
+    color: var(--text-dark-color);
+    border-radius:5px
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background: #ffffff;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+}
+
+thead {
+    background: #f8fafc;
+}
+
+th {
+    padding: 16px;
+    text-align: left;
+    font-size: 14px;
+    font-weight: 600;
+    color: #64748b;
+    border-bottom: 1px solid #e2e8f0;
+}
+
+td {
+    padding: 16px;
+    color: #334155;
+    border-bottom: 1px solid #f1f5f9;
+}
+
+tbody tr {
+    transition: background 0.2s;
+}
+
+    tbody tr:hover {
+        background: #f8fafc;
+    }
+
+    tbody tr:last-child td {
+        border-bottom: none;
+    }
+
+.active {
+    background: #dcfce7;
+    color: #166534;
+    padding: 6px 12px;
+    border-radius: 20px;
+}
+
+.inactive {
+    background: #fee2e2;
+    color: #991b1b;
+    padding: 6px 12px;
+    border-radius: 20px;
+}
+
+button {
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    padding: 8px;
+    border-radius: 8px;
+    transition: 0.2s;
+}
+
+    button:first-child {
+        color: #2563eb;
+    }
+
+        button:first-child:hover {
+            background: #dbeafe;
+        }
+
+    button:last-child {
+        color: #dc2626;
+    }
+
+        button:last-child:hover {
+            background: #fee2e2;
+        }
+
+        /*Warning Container*/
+
+.DivContainer_Warning{
+    width:100%;
+    height:250px;
+    display:flex;
+    flex-direction:column;
+    gap:20px;
+ 
+    padding:15px;
+    justify-content:space-between;
+}
+.DivContainer_Warning label{
+    font-size:1.3rem;
+    font-weight:600;
+
+}
+.Div_Card {
+    width: 290px;
+    height: auto;
+    background: var(--color-surface-container-high);
+    padding: 15px;
+    border-radius: 7px;
+    border: 1px solid var(--border-color);
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+ 
+
+.Div_Status  
+{
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: row;
+    gap: 15px;
+    justify-content: space-between;
+    align-items: center;
+ 
+}
+.Container_card {
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: row;
+    gap: 15px;
+    justify-content: space-between;
+}
+.Div_Status label{
+    color:var(--text-dark-color);
+    font-size:0.7rem;
+    font-weight:650;
+}
+
+.Div_Status span{
+    padding:10px;
+     
+    border-radius:100%;
+    font-size:1rem;
+}
+.Div_Card button{
+    width:auto;
+    height:auto;
+    color:var(--color-error);
+    background:none;
+    border:none;
+    text-align:start;
+    cursor:pointer;
+    font-size:0.8rem;
+    background:none;
+
+}
+     
+    .Div_Card p {
+        font-weight: 600;
+        font-size: 0.8rem;
+        color:var(--color-nav-text);
+    }
+
+.Div_Status.agotado {
+    background: var(--color-error);
+}
+
+.Div_Status .low {
+    background: var(--color-warning);
+}

@@ -1,0 +1,133 @@
+.container {
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: 1.1fr 1fr;
+    background: #f8f8f8;
+}
+
+.left {
+    position: relative;
+}
+
+    .left img {
+        width: 100%;
+        height: 100vh;
+        object-fit: cover;
+    }
+
+.overlay {
+    position: absolute;
+    left: 50px;
+    bottom: 50px;
+    color: white;
+}
+
+    .overlay h1 {
+        font-size: 3rem;
+        margin-bottom: 20px;
+    }
+
+    .overlay p {
+        max-width: 450px;
+        line-height: 1.7;
+        font-size: 1.1rem;
+    }
+
+.right {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.formCard {
+    width: 420px;
+}
+
+    .formCard h2 {
+        font-size: 2rem;
+        margin-bottom: 10px;
+    }
+
+    .formCard p {
+        color: #666;
+        margin-bottom: 30px;
+    }
+
+    .formCard label {
+        display: block;
+        margin-bottom: 10px;
+        font-weight: 600;
+    }
+
+.inputBox {
+    height: 55px;
+    border: 1px solid #d8d8d8;
+    border-radius: 10px;
+    background: white;
+    display: flex;
+    align-items: center;
+    padding: 0 15px;
+    gap: 15px;
+    margin-bottom: 8px;
+}
+
+    .inputBox input {
+        flex: 1;
+        border: none;
+        outline: none;
+        font-size: 1rem;
+    }
+
+small {
+    color: crimson;
+}
+
+.remember {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    margin: 25px 0;
+}
+
+.loginBtn {
+    width: 100%;
+    height: 55px;
+    border: none;
+    border-radius: 10px;
+    background: #9a5100;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    font-size: 1rem;
+}
+
+.separator {
+    text-align: center;
+    margin: 35px 0;
+    color: #999;
+}
+
+.socials {
+    display: flex;
+    gap: 20px;
+}
+
+    .socials button {
+        flex: 1;
+        height: 50px;
+        border: 1px solid #d8d8d8;
+        background: white;
+        border-radius: 10px;
+        cursor: pointer;
+    }
+
+.register {
+    text-align: center;
+    margin-top: 35px;
+}
+
+    .register span {
+        color: #9a5100;
+        font-weight: bold;
+        cursor: pointer;
+    }

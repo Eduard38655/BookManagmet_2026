@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import InventoryContent from "../InventoryComps/InvnetoryContent"
 import WarningStock from "../InventoryComps/WarningStock"
+import style from "../Styles/Inv.module.css"
 function InventoryPage() {
     const [Book_Data, SetBook_Data] = useState([]);
     const [BackUp_Book, SetBackUp_Data] = useState([]);
@@ -57,39 +58,44 @@ function InventoryPage() {
 
 
     return (<>
-        <div>
-            <div>
-                <h3>Gestion de Inventario </h3>
-                <p>Administra el calaogo de libros, monitorea el stock y actualiza el precio</p>
+        <article className={style.Container_Inv }>
 
-            </div>
-            <div>
-                <button><i classNAME="fa-solid fa-box-archive"></i>Ajuste de Stock</button>
-                <button><i className="fa-solid fa-plus"></i>Agregar Libro</button>
-            </div>
+            <div className={style.HeaderDiv}>
+                <div className={style.Title}>
+                    <h3>Gestion de Inventario </h3>
+                    <p>Administra el calaogo de libros, monitorea el stock y actualiza el precio</p>
 
-        </div>
-        <div>
-
-            <div>
-                <i className="fa-solid fa-magnifying-glass"></i>
-                < input type="text" placeholder="Search by Title,Autor, Isbn..." />
-            </div>
-
-            <div>
-                <div>
-                    {All_categories.map((ca) => (
-                        <>
-                            <span>{ca }</span>
-                        </>
-                    
-                    ))}
                 </div>
-                <button><i className="fa-solid fa-filter"></i>Filtros</button>
+                <div className={style.Div_Buttons }>
+                    <button><i className="fa-solid fa-file-pdf"></i>{" "}  Exportar PDF</button>
+                    <button className={style.Active_Button } ><i className="fa-solid fa-plus"></i>{" "}Agregar Libro</button>
+                </div>
+
+            </div  >
+            <div className={style.DivContainer_Filter } >
+
+                <div className={style.DivContainer_Input }>
+                    <i className="fa-solid fa-magnifying-glass"></i> {" "}
+                    < input type="text" placeholder="Search by Title,Autor, Isbn..." />
+                </div>
+
+                <div className={style.DivCategory }>
+                    <div>
+                        {All_categories.map((ca,index) => (
+                            <>
+                                <button key={index }>{ca}</button>
+                            </>
+
+                        ))}
+                    </div>
+                    <button className={style.ButtonFilter} ><i className="fa-solid fa-filter"></i> {" "} Filtros</button>
+                </div>
             </div>
-        </div>
-        <InventoryContent Book_Data={Book_Data} SetBook_Data={SetBook_Data} />
-        <WarningStock Book_Data={Book_Data} SetBook_Data={SetBook_Data} />
+            <WarningStock Book_Data={Book_Data} SetBook_Data={SetBook_Data} />
+
+             <InventoryContent Book_Data={Book_Data} SetBook_Data={SetBook_Data} />
+
+        </article>
     </>)
 }
 
