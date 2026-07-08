@@ -75,7 +75,7 @@ function InventoryPage() {
                 <i className="fa-solid fa-magnifying-glass"></i>
                 < input type="text" placeholder="Search by Title,Autor, Isbn..." />
             </div>
-
+            
             <div>
                 <div>
                     {All_categories.map((ca) => (
