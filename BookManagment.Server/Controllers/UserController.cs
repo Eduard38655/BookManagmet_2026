@@ -141,6 +141,21 @@ public class UserController : ControllerBase
 
     }
 
+    [HttpGet("all")]
+    public async Task<IActionResult> ObtenerUsers()
+    {
+        var users = _context.Employees.Include(x => x.User).ToListAsync();
+
+
+        return Ok(new { data = users, ok = true });
+            
+
+
+    }
+
+
+
+
 
 
     [HttpGet("profile")]
