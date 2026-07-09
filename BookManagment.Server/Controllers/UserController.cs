@@ -115,13 +115,7 @@ public class UserController : ControllerBase
 
 
 
-        Response.Cookies.Append("token", token, new CookieOptions
-        {
-            HttpOnly = true,
-            Secure = true,       
-            SameSite = SameSiteMode.Lax,
-            Expires = DateTimeOffset.UtcNow.AddDays(7)
-        });
+     
 
         return Ok(new
         {

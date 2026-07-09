@@ -1,8 +1,9 @@
 using BookManagment.Server.Models;
 using BookManagment.Server.Services;
-using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
+using Npgsql;
 using System.Text;
 
 
@@ -14,10 +15,14 @@ builder.Services.AddDbContext<BookstoreEcommerceDbContext>(options =>
     options.UseNpgsql(
         builder.Configuration.GetConnectionString("DefaultConnection")
     ));
+var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
+
+Console.WriteLine(connectionString);
 
 
+ 
 
-
+ 
 // JWT Service
 builder.Services.AddScoped<IJwtTokenService, JwtTokenService>();
 

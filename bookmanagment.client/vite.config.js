@@ -92,7 +92,31 @@ export default defineConfig({
                 secure: false,
                 changeOrigin: true,
 
+            },
+            '/promos': {
+                target: 'http://localhost:5186',
+                secure: false,
+                changeOrigin: true,
+
             }
+            ,
+            '/salesdetails': {
+                target: 'http://localhost:5186',
+                secure: false,
+                changeOrigin: true,
+
+            }
+            ,
+            '/employees': {
+                target: 'http://localhost:5186',
+                secure: false,
+                changeOrigin: true,
+
+            }
+
+  
+
+         
 
             
         },  

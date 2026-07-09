@@ -24,6 +24,7 @@ function UsersPage() {
                 }
 
                 const data = await response.json();
+                console.log(data)
                 Set_Users(data.data)
                 console.log("Cart data:", data);
             } catch (error) {

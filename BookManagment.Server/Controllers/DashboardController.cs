@@ -19,13 +19,15 @@ namespace BookManagment.Server.Controllers
         public async Task<IActionResult> ObtenerOrders()
         {
 
-
+            
             var Orders = await _context.Orders
       .Include(x => x.Customer)
           .ThenInclude(x => x.User)
+        
       .Include(x => x.OrderItems)
           .ThenInclude(x => x.Book)
           .ThenInclude(x=>x.InventoryMovements)
+        
       .ToListAsync();
 
 

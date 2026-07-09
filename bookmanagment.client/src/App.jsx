@@ -12,7 +12,13 @@ import DashboardPage from '../src/Pages/DashboardPage';
 import InventoryPage from "../src/Pages/InventoryPage"
 import CustomerPage from "../src/Pages/CustomerPage"
 import DashMenu from "../src/Components/DashMenu"
+import PromotionsPage from "../src/Pages/PromotionsPage"
+import SalesPage from "../src/Pages/SalesPage"
+import OrdersPage from '../src/Pages/OrdersPage';
+import UsersPage from '../src/Pages/UsersPage';
+import EmpleadosPage from '../src/Pages/EmpleadosPage';
 import './index.css'
+ 
 function App() {
 
     const location = useLocation();
@@ -45,14 +51,16 @@ function App() {
                     <Route path="/dashboard" element={<DashboardPage /> } />
                     <Route path="/inventory" element={<InventoryPage />} />
                     <Route path="/Customer" element={<CustomerPage />} />
-
-
+                    <Route path="/orders" element={<OrdersPage />} />
+                    <Route path="/promotions" element={<PromotionsPage />} />
+                    <Route path="/sales" element={<SalesPage />} />
+                    <Route path="/clientes" element={<UsersPage />} />
+                    <Route path="/usuarios" element={<EmpleadosPage />} />
                 </Routes>
                
 
                 {Routes_Dashboard.includes((location.pathname).toLowerCase()) && <Footer />}
-              
-
+               
             </main>
                 
         </>
