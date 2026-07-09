@@ -1,0 +1,106 @@
+:root {
+    /* Surface Colors */
+    --color-surface: #f8f9fa;
+    --color-surface-dim: #d9dadb;
+    --color-surface-bright: #f8f9fa;
+    --color-surface-container-lowest: #ffffff;
+    --color-surface-container-low: #f3f4f5;
+    --color-surface-container: #ecedee;
+    --color-surface-container-high: #e7e8e9;
+    --color-surface-container-highest: #e1e2e3;
+    --color-on-surface: #1a1c1e;
+    --color-on-surface-variant: #43474e;
+    --color-outline: #73777f;
+    --color-outline-variant: #c3c7cf;
+    /* Primary Brand Colors (Academic Blue) */
+    --color-primary: #2c3e50;
+    --color-on-primary: #ffffff;
+    --color-primary-container: #d3e4ff;
+    --color-on-primary-container: #001c38;
+    /* Secondary Colors (Deep Gray/Blue) */
+    --color-secondary: #535f70;
+    --color-on-secondary: #ffffff;
+    --color-secondary-container: #d7e3f7;
+    --color-on-secondary-container: #101c2b;
+    /* Tertiary Colors (Amber/Gold Accents) /
+  --color-tertiary: #a05a2c; / Used for CTAs and highlights */
+    --color-on-tertiary: #ffffff;
+    --color-tertiary-container: #ffdbca;
+    --color-on-tertiary-container: #331200;
+    /* State Colors */
+    --color-error: #ba1a1a;
+    --color-on-error: #ffffff;
+    --color-success: #2e7d32;
+    --color-warning: #f9a825;
+    --color-info: #0277bd;
+    /* Fixed Accents (Used in the UI for consistent emphasis) */
+    --color-accent-amber: #e67e22;
+    --color-accent-blue: #2980b9;
+    --font_family: 'Cormorant Garamond', serif;
+    --color-nav-text: #43474c;
+    --underline-header: #a55a1d;
+    --header-bg: #191c1d;
+    --text-dark-color: #162839;
+    --border-color: #e5e7eb;
+    --back-ground-text: #1628390d;
+}
+
+.Navbar_Container {
+    background-color: #1628390d;
+    max-width: 350px;
+    max-height: 100vh;
+    border: 1px solid #e5e7eb;
+    --font_family: 'Cormorant Garamond', serif;
+    padding: 30px;
+}
+
+.Navbar_Header {
+    border-bottom: 2px solid #e5e7eb;
+    padding: 15px;
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    align-items: center;
+}
+
+.Navbar_Header img {
+    max-height: 50px;
+    max-width: 50px;
+    background-color: black;
+    border-radius: 10px;
+}
+
+.Navbar_Content {
+    margin-top: 20px;
+    margin-bottom: 50px;
+    font-weight: bold;
+    color: #43474c;
+}
+
+.Navbar_Content ul {
+    list-style-type: none;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.Navbar_Content li {
+    border: 1px solid black;
+    height: 50px;
+    width: 300px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+
+
+
+
+
+
+

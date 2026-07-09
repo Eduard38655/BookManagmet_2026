@@ -65,6 +65,22 @@ function InventoryPage() {
                     <h3>Gestion de Inventario </h3>
                     <p>Administra el calaogo de libros, monitorea el stock y actualiza el precio</p>
 
+</div>
+        <div>
+
+            <div>
+                <i className="fa-solid fa-magnifying-glass"></i>
+                < input type="text" placeholder="Search by Title,Autor, Isbn..." />
+            </div>
+            
+            <div>
+                <div>
+                    {All_categories.map((ca) => (
+                        <>
+                            <span>{ca }</span>
+                        </>
+                    ))}
+
                 </div>
                 <div className={style.Div_Buttons }>
                     <button><i className="fa-solid fa-file-pdf"></i>{" "}  Exportar PDF</button>

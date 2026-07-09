@@ -3,6 +3,7 @@ import { useLocation } from "react-router-dom";
 import BookPage from './Pages/BookPage';
 import BookByIdPage from './Pages/BookByIdPage';
 import { Routes, Route } from 'react-router-dom';
+import Navbar from "../src/Components/Navbar"
 import Footer from "../src/Components/Footer"
 import Header from "../src/Components/Header"
 import LoginPage from "../src/Pages/LoginPage"
@@ -23,8 +24,17 @@ function App() {
         <>
 
 
-            <main className={Routes_Dashboard.includes((location.pathname).toLowerCase()) ? "main_Container" : "DashboardContainer"  }   >
-                {Routes_Dashboard.includes((location.pathname).toLowerCase()) ? (<><Header />  </>) : (<><DashMenu /></>)}
+<main className={Routes_Dashboard.includes((location.pathname).toLowerCase()) ? "main_Container" : "DashboardContainer"  }   >
+                {Routes_Dashboard.includes((location.pathname).toLowerCase()) ? (
+                    <>
+                        <Header />
+                        <Navbar />
+                    </>
+                ) : (
+                    <>
+                        <DashMenu />
+                    </>
+                )}
                 
                 <Routes>
                     <Route path="/browse" element={<BookPage />} />

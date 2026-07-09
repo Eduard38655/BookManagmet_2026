@@ -1,38 +1,43 @@
 import { useEffect } from "react";
+import style from "../Styles/DashboardPage.module.css"
 
 function DasboardContent({ Orders, SetOrders }) {
 
 
     if (!Orders?.data) return null;
- 
+
 
     return (
-        <div>
+        <div className={style.Container_Table}>
 
-            <label>Recent Orders</label>
+            <div className={style.Table_tittle}>
+                <label>Recent Orders</label>
+                
+            </div>
+            
+
 
             <table>
 
-                <thead>
+                <thead className={style.Container_thead}>
                     <tr>
-                        <th>Order ID</th>
-                        <th>Customer</th>
-                        <th>Date</th>
-                        <th>Status</th>
-                        <th>Total</th>
-                        <th>Action</th>
+                        <th>ORDER ID</th>
+                        <th>CUSTOMER</th>
+                        <th>DATE</th>
+                        <th>STATUS</th>
+                        <th>TOTAL</th>
+                        <th>ACTION</th>
                     </tr>
+
                 </thead>
-
-
                 <tbody>
 
                     {Orders.data.map((order, index) => (
 
                         <tr key={index}>
 
-                            <td>
-                                {order.orderNumber}
+                            <td className={ style.Container_Order_Number}>
+                                #{order.orderNumber}
                             </td>
 
                             <td>
@@ -44,11 +49,13 @@ function DasboardContent({ Orders, SetOrders }) {
                             </td>
 
                             <td>
-                                {order.paymentStatus}
+                                <span className={`${style.badge} ${style[order.paymentStatus?.toLowerCase()] || ''}`}>
+                                    {order.paymentStatus}
+                                </span>
                             </td>
 
                             <td>
-                                {order.total}
+                                <strong>${order.total}</strong>
                             </td>
 
                             <td>
