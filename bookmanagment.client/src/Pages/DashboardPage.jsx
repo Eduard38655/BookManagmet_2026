@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import style from "../Styles/DashboardPage.module.css"
 import DasboardContent from "../DashboardComps/DasboardContent"
 import SalesCards from "../DashboardComps/OverView"
 function dashboardPage() {
@@ -37,20 +38,22 @@ function dashboardPage() {
     }, [])
     return (
         <>
-            <div>
-                <div>
+            <div className={style.DashboardPage_Container}>
+                <div className={style.DashboardPage_Tittle}>
                     <h2>Dashboard Overview</h2>
-                    <p>Monitor your bookstore's daily perfomance , track recent shipments, and review inventry alerts</p>
+                    <p>Monitor your bookstore's daily performance, track recent shipments, and review inventory alerts</p>
                 </div>
 
-                <div>
+                <div className={style.DashboardPage_Calendar}>
                     <input type="calendar" />
                 </div>
+
             </div>
 
-            <DasboardContent Orders={Orders} SetOrders={SetOrders} />
             <SalesCards Orders={Orders} SetOrders={SetOrders} />
+            <DasboardContent Orders={Orders} SetOrders={SetOrders} />
         </>
+
   );
 }
 

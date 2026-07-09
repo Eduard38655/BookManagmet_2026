@@ -1,0 +1,192 @@
+:root {
+    /* Surface Colors */
+    --color-surface: #f8f9fa;
+    --color-surface-dim: #d9dadb;
+    --color-surface-bright: #f8f9fa;
+    --color-surface-container-lowest: #ffffff;
+    --color-surface-container-low: #f3f4f5;
+    --color-surface-container: #ecedee;
+    --color-surface-container-high: #e7e8e9;
+    --color-surface-container-highest: #e1e2e3;
+    --color-on-surface: #1a1c1e;
+    --color-on-surface-variant: #43474e;
+    --color-outline: #73777f;
+    --color-outline-variant: #c3c7cf;
+    /* Primary Brand Colors (Academic Blue) */
+    --color-primary: #2c3e50;
+    --color-on-primary: #ffffff;
+    --color-primary-container: #d3e4ff;
+    --color-on-primary-container: #001c38;
+    /* Secondary Colors (Deep Gray/Blue) */
+    --color-secondary: #535f70;
+    --color-on-secondary: #ffffff;
+    --color-secondary-container: #d7e3f7;
+    --color-on-secondary-container: #101c2b;
+    /* Tertiary Colors (Amber/Gold Accents) */
+    --color-on-tertiary: #ffffff;
+    --color-tertiary-container: #ffdbca;
+    --color-on-tertiary-container: #331200;
+    /* State Colors */
+    --color-error: #ba1a1a;
+    --color-on-error: #ffffff;
+    --color-success: #2e7d32;
+    --color-warning: #f9a825;
+    --color-info: #0277bd;
+    /* Fixed Accents (Used in the UI for consistent emphasis) */
+    --color-accent-amber: #e67e22;
+    --color-accent-blue: #2980b9;
+    --font_family: 'Cormorant Garamond', serif;
+    --color-nav-text: #43474c;
+    --underline-header: #a55a1d;
+    --header-bg: #191c1d;
+    --text-dark-color: #162839;
+    --border-color: #e5e7eb;
+    --back-ground-text: #1628390d;
+    --Background-info: #fc8f34;
+    --proegess-background: #944a00;
+    --color-porcentage: 74777d;
+}
+
+.DashboardPage_Container {
+    max-height: 100%;
+    max-width: 100%;
+    padding: 50px;
+    background-color: var(--color-surface);
+}
+
+.Container_Cards {
+    margin-top: 70px;
+    height: 250px;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    gap: 25px;
+}
+
+.Content_Card {
+    height: 180px;
+    width: 100%;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    border: 2px solid var(--border-color); 
+    border-radius: 10px;
+    background-color: var(--color-surface-container-lowest);
+}
+
+.Content_Card span {
+    color: var(--color-nav-text); 
+    font-size: 12px;
+    font-weight: bold;
+    margin-bottom: 40px;
+}
+
+.Content_Card h2 {
+    color: var(--color-primary);
+    font-family: var(--font_family);
+}
+
+.Content_Card p {
+    margin-top: 10px;
+    width: 190px;
+    border: 1px solid var(--color-outline-variant);
+    display: inline-flex;
+    align-items: center;
+    color: var(--color-success); 
+    border-radius: 10px;
+    background-color: var(--color-surface-container-low);
+    font-weight: 500;
+}
+
+
+.Container_Table {
+    margin: 40px;
+    width: calc(100% - 80px); 
+}
+
+.Table_tittle {
+    height: 80px;
+    width: 100%;
+    padding: 25px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: 2px solid var(--border-color); 
+    border-radius: 10px 10px 0 0;
+    font-size: 28px;
+    font-family: var(--font_family);
+    color: var(--color-primary);
+    background-color: var(--color-surface-container-lowest);
+    box-sizing: border-box;
+}
+
+.Container_Table table {
+    width: 100%; 
+    border-collapse: collapse; 
+    border: 1px solid var(--border-color); 
+    background-color: var(--color-surface-container-lowest);
+}
+
+.Container_Table thead {
+    text-align: left;
+    background-color: var(--color-surface-container-low);
+}
+
+.Container_Table thead th{
+    padding-left: 25px;
+}
+
+.Container_Table thead tr {
+    font-size:small;
+    height: 50px;
+    color: var(--color-on-surface-variant);
+}
+
+.Container_Table tbody tr {
+    height: 70px;
+    border-bottom: 1px solid var(--color-surface-container-low);
+}
+
+.Container_Table tbody td {
+    padding-left: 25px;;
+}
+
+.badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 6px 14px;
+    border-radius: 50px; 
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase; 
+    letter-spacing: 0.5px;
+    border: 1px solid transparent;
+}
+
+.badge.paid {
+    background-color: var(--color-secondary-container); 
+    color: var(--color-accent-blue);
+    border-color: rgba(41, 128, 185, 0.2);
+}
+
+
+.badge.shipped {
+    background-color: var(--color-secondary-container);
+    color: var(--color-accent-blue);
+    border-color: rgba(41, 128, 185, 0.2);
+}
+
+
+.badge.pending {
+    background-color: var(--color-surface-container-highest);
+    color: var(--color-on-surface-variant);
+    border-color: var(--color-outline-variant);
+}
+
+
+.badge.processing {
+    background-color: var(--color-tertiary-container); 
+    color: var(--color-accent-amber);
+    border-color: rgba(230, 126, 34, 0.2);
+}

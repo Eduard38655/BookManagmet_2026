@@ -3,6 +3,7 @@ import { useEffect } from 'react';
 import BookPage from './Pages/BookPage';
 import BookByIdPage from './Pages/BookByIdPage';
 import { Routes, Route } from 'react-router-dom';
+import Navbar from "../src/Components/Navbar"
 import Footer from "../src/Components/Footer"
 import Header from "../src/Components/Header"
 import LoginPage from "../src/Pages/LoginPage"
@@ -21,6 +22,7 @@ function App() {
 
             <main className="main_Container">
                 <Header />
+                <Navbar/>
                 <Routes>
                     <Route path="/browse" element={<BookPage />} />
                     <Route path="/browse/:BookId" element={<BookByIdPage />} />

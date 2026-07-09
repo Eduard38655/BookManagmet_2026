@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using Microsoft.EntityFrameworkCore;
 
@@ -45,8 +45,6 @@ public partial class BookstoreEcommerceDbContext : DbContext
 
     public virtual DbSet<Promotion> Promotions { get; set; }
 
-    public virtual DbSet<PromotionBook> PromotionBooks { get; set; }
-
     public virtual DbSet<Publisher> Publishers { get; set; }
 
     public virtual DbSet<PurchaseOrder> PurchaseOrders { get; set; }
@@ -73,7 +71,7 @@ public partial class BookstoreEcommerceDbContext : DbContext
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see https://go.microsoft.com/fwlink/?LinkId=723263.
-        => optionsBuilder.UseNpgsql("Host=localhost;Database=bookstore_ecommerce_db;User Id=postgres;Password=e-267Lcdx;TrustServerCertificate=True;");
+        => optionsBuilder.UseNpgsql("Host=localhost;Database=bookstore_ecommerce_db;User Id=postgres;Password=admin;TrustServerCertificate=True;");
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
@@ -131,7 +129,7 @@ public partial class BookstoreEcommerceDbContext : DbContext
                 .HasColumnName("action");
             entity.Property(e => e.CreatedAt)
                 .HasDefaultValueSql("now()")
-                .HasColumnType("timestamp with time zone")
+                .HasColumnType("timestamp without time zone")
                 .HasColumnName("created_at");
             entity.Property(e => e.Details).HasColumnName("details");
             entity.Property(e => e.EntityId).HasColumnName("entity_id");
@@ -296,7 +294,7 @@ public partial class BookstoreEcommerceDbContext : DbContext
             entity.Property(e => e.Id).HasColumnName("id");
             entity.Property(e => e.CreatedAt)
                 .HasDefaultValueSql("now()")
-                .HasColumnType("timestamp with time zone")
+                .HasColumnType("timestamp without time zone")
                 .HasColumnName("created_at");
             entity.Property(e => e.LoyaltyPoints)
                 .HasDefaultValue(0)
@@ -322,7 +320,7 @@ public partial class BookstoreEcommerceDbContext : DbContext
 
             entity.Property(e => e.Id).HasColumnName("id");
             entity.Property(e => e.HiredAt)
-                .HasColumnType("timestamp with time zone")
+                .HasColumnType("timestamp without time zone")
                 .HasColumnName("hired_at");
             entity.Property(e => e.Position)
                 .HasMaxLength(80)
@@ -352,7 +350,7 @@ public partial class BookstoreEcommerceDbContext : DbContext
             entity.Property(e => e.BookId).HasColumnName("book_id");
             entity.Property(e => e.CreatedAt)
                 .HasDefaultValueSql("now()")
-                .HasColumnType("timestamp with time zone")
+                .HasColumnType("timestamp without time zone")
                 .HasColumnName("created_at");
             entity.Property(e => e.MovementType)
                 .HasMaxLength(20)
@@ -381,7 +379,7 @@ public partial class BookstoreEcommerceDbContext : DbContext
             entity.Property(e => e.Id).HasColumnName("id");
             entity.Property(e => e.CreatedAt)
                 .HasDefaultValueSql("now()")
-                .HasColumnType("timestamp with time zone")
+                .HasColumnType("timestamp without time zone")
                 .HasColumnName("created_at");
             entity.Property(e => e.IsRead)
                 .HasDefaultValue(0)
@@ -413,7 +411,7 @@ public partial class BookstoreEcommerceDbContext : DbContext
             entity.Property(e => e.AddressId).HasColumnName("address_id");
             entity.Property(e => e.CreatedAt)
                 .HasDefaultValueSql("now()")
-                .HasColumnType("timestamp with time zone")
+                .HasColumnType("timestamp without time zone")
                 .HasColumnName("created_at");
             entity.Property(e => e.CustomerId).HasColumnName("customer_id");
             entity.Property(e => e.Discount)
@@ -498,7 +496,7 @@ public partial class BookstoreEcommerceDbContext : DbContext
                 .HasColumnName("method");
             entity.Property(e => e.OrderId).HasColumnName("order_id");
             entity.Property(e => e.PaidAt)
-                .HasColumnType("timestamp with time zone")
+                .HasColumnType("timestamp without time zone")
                 .HasColumnName("paid_at");
             entity.Property(e => e.Status)
                 .HasMaxLength(20)
@@ -532,7 +530,7 @@ public partial class BookstoreEcommerceDbContext : DbContext
                 .HasPrecision(12, 2)
                 .HasColumnName("discount_value");
             entity.Property(e => e.EndDate)
-                .HasColumnType("timestamp with time zone")
+                .HasColumnType("timestamp without time zone")
                 .HasColumnName("end_date");
             entity.Property(e => e.ImageUrl)
                 .HasMaxLength(255)
@@ -544,37 +542,31 @@ public partial class BookstoreEcommerceDbContext : DbContext
                 .HasMaxLength(120)
                 .HasColumnName("name");
             entity.Property(e => e.StartDate)
-                .HasColumnType("timestamp with time zone")
+                .HasColumnType("timestamp without time zone")
                 .HasColumnName("start_date");
             entity.Property(e => e.Status)
                 .HasMaxLength(20)
                 .HasDefaultValueSql("'active'::character varying")
                 .HasColumnName("status");
 
-            entity.HasMany(d => d.PromotionBooks).WithOne(p => p.Promotion)
-                .HasForeignKey(d => d.PromotionId)
-                .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("promotion_books_promotion_id_fkey");
-        });
-
-        modelBuilder.Entity<PromotionBook>(entity =>
-        {
-            entity.HasKey(e => new { e.PromotionId, e.BookId }).HasName("promotion_books_pkey");
-
-            entity.ToTable("promotion_books");
-
-            entity.Property(e => e.PromotionId).HasColumnName("promotion_id");
-            entity.Property(e => e.BookId).HasColumnName("book_id");
-
-            entity.HasOne(d => d.Book).WithMany(p => p.PromotionBooks)
-                .HasForeignKey(d => d.BookId)
-                .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("promotion_books_book_id_fkey");
-
-            entity.HasOne(d => d.Promotion).WithMany(p => p.PromotionBooks)
-                .HasForeignKey(d => d.PromotionId)
-                .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("promotion_books_promotion_id_fkey");
+            entity.HasMany(d => d.Books).WithMany(p => p.Promotions)
+                .UsingEntity<Dictionary<string, object>>(
+                    "PromotionBook",
+                    r => r.HasOne<Book>().WithMany()
+                        .HasForeignKey("BookId")
+                        .OnDelete(DeleteBehavior.ClientSetNull)
+                        .HasConstraintName("promotion_books_book_id_fkey"),
+                    l => l.HasOne<Promotion>().WithMany()
+                        .HasForeignKey("PromotionId")
+                        .OnDelete(DeleteBehavior.ClientSetNull)
+                        .HasConstraintName("promotion_books_promotion_id_fkey"),
+                    j =>
+                    {
+                        j.HasKey("PromotionId", "BookId").HasName("promotion_books_pkey");
+                        j.ToTable("promotion_books");
+                        j.IndexerProperty<int>("PromotionId").HasColumnName("promotion_id");
+                        j.IndexerProperty<int>("BookId").HasColumnName("book_id");
+                    });
         });
 
         modelBuilder.Entity<Publisher>(entity =>
@@ -612,13 +604,13 @@ public partial class BookstoreEcommerceDbContext : DbContext
             entity.Property(e => e.Id).HasColumnName("id");
             entity.Property(e => e.EmployeeId).HasColumnName("employee_id");
             entity.Property(e => e.OrderedAt)
-                .HasColumnType("timestamp with time zone")
+                .HasColumnType("timestamp without time zone")
                 .HasColumnName("ordered_at");
             entity.Property(e => e.PoNumber)
                 .HasMaxLength(30)
                 .HasColumnName("po_number");
             entity.Property(e => e.ReceivedAt)
-                .HasColumnType("timestamp with time zone")
+                .HasColumnType("timestamp without time zone")
                 .HasColumnName("received_at");
             entity.Property(e => e.Status)
                 .HasMaxLength(20)
@@ -678,7 +670,7 @@ public partial class BookstoreEcommerceDbContext : DbContext
             entity.Property(e => e.Comment).HasColumnName("comment");
             entity.Property(e => e.CreatedAt)
                 .HasDefaultValueSql("now()")
-                .HasColumnType("timestamp with time zone")
+                .HasColumnType("timestamp without time zone")
                 .HasColumnName("created_at");
             entity.Property(e => e.CustomerId).HasColumnName("customer_id");
             entity.Property(e => e.Rating).HasColumnName("rating");
@@ -723,11 +715,11 @@ public partial class BookstoreEcommerceDbContext : DbContext
                 .HasMaxLength(80)
                 .HasColumnName("carrier");
             entity.Property(e => e.DeliveredAt)
-                .HasColumnType("timestamp with time zone")
+                .HasColumnType("timestamp without time zone")
                 .HasColumnName("delivered_at");
             entity.Property(e => e.OrderId).HasColumnName("order_id");
             entity.Property(e => e.ShippedAt)
-                .HasColumnType("timestamp with time zone")
+                .HasColumnType("timestamp without time zone")
                 .HasColumnName("shipped_at");
             entity.Property(e => e.Status)
                 .HasMaxLength(20)
@@ -751,7 +743,7 @@ public partial class BookstoreEcommerceDbContext : DbContext
             entity.Property(e => e.Id).HasColumnName("id");
             entity.Property(e => e.CreatedAt)
                 .HasDefaultValueSql("now()")
-                .HasColumnType("timestamp with time zone")
+                .HasColumnType("timestamp without time zone")
                 .HasColumnName("created_at");
             entity.Property(e => e.CustomerId).HasColumnName("customer_id");
             entity.Property(e => e.Status)
@@ -811,7 +803,7 @@ public partial class BookstoreEcommerceDbContext : DbContext
             entity.Property(e => e.Id).HasColumnName("id");
             entity.Property(e => e.CreatedAt)
                 .HasDefaultValueSql("now()")
-                .HasColumnType("timestamp with time zone")
+                .HasColumnType("timestamp without time zone")
                 .HasColumnName("created_at");
             entity.Property(e => e.CustomerId).HasColumnName("customer_id");
             entity.Property(e => e.Priority)
@@ -825,7 +817,7 @@ public partial class BookstoreEcommerceDbContext : DbContext
                 .HasColumnName("subject");
             entity.Property(e => e.UpdatedAt)
                 .HasDefaultValueSql("now()")
-                .HasColumnType("timestamp with time zone")
+                .HasColumnType("timestamp without time zone")
                 .HasColumnName("updated_at");
 
             entity.HasOne(d => d.Customer).WithMany(p => p.SupportTickets)
@@ -848,7 +840,7 @@ public partial class BookstoreEcommerceDbContext : DbContext
                 .HasColumnName("avatar_url");
             entity.Property(e => e.CreatedAt)
                 .HasDefaultValueSql("now()")
-                .HasColumnType("timestamp with time zone")
+                .HasColumnType("timestamp without time zone")
                 .HasColumnName("created_at");
             entity.Property(e => e.Email)
                 .HasMaxLength(150)
@@ -883,7 +875,7 @@ public partial class BookstoreEcommerceDbContext : DbContext
             entity.Property(e => e.Id).HasColumnName("id");
             entity.Property(e => e.CreatedAt)
                 .HasDefaultValueSql("now()")
-                .HasColumnType("timestamp with time zone")
+                .HasColumnType("timestamp without time zone")
                 .HasColumnName("created_at");
             entity.Property(e => e.CustomerId).HasColumnName("customer_id");
 
@@ -903,7 +895,7 @@ public partial class BookstoreEcommerceDbContext : DbContext
             entity.Property(e => e.BookId).HasColumnName("book_id");
             entity.Property(e => e.CreatedAt)
                 .HasDefaultValueSql("now()")
-                .HasColumnType("timestamp with time zone")
+                .HasColumnType("timestamp without time zone")
                 .HasColumnName("created_at");
             entity.Property(e => e.WishlistId).HasColumnName("wishlist_id");
 
@@ -923,4 +915,3 @@ public partial class BookstoreEcommerceDbContext : DbContext
 
     partial void OnModelCreatingPartial(ModelBuilder modelBuilder);
 }
-

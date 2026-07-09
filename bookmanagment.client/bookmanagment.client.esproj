@@ -15,6 +15,5 @@
     <Folder Include="src\DashboardComps\" />
     <Folder Include="src\InventoryComps\" />
     <Folder Include="src\ShoppingCart\" />
-    <Folder Include="src\Styles\" />
   </ItemGroup>
 </Project>

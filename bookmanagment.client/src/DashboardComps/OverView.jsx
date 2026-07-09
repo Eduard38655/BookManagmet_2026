@@ -1,3 +1,5 @@
+import style from "../Styles/DashboardPage.module.css"
+
 import { useEffect, useState } from "react";
 
 function OverView({ Orders, SetOrders }) {
@@ -55,7 +57,6 @@ function OverView({ Orders, SetOrders }) {
                     </h2>
                 </div>
 
-
                 <div>
                     <label>Customers</label>
                     <i className={OverView.customer_icon}></i>
@@ -64,7 +65,6 @@ function OverView({ Orders, SetOrders }) {
                         {OverView.users}
                     </h2>
                 </div>
-
 
                 <div>
                     <label>Low Stock</label>
