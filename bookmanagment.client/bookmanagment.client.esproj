@@ -13,7 +13,6 @@
     <Folder Include="src\BookById_comp\" />
     <Folder Include="src\Context\" />
     <Folder Include="src\DashboardComps\" />
-    <Folder Include="src\InventoryComps\" />
     <Folder Include="src\CustomerComp\" />
     <Folder Include="src\UserComps\" />
     <Folder Include="src\ShoppingCart\" />

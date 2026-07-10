@@ -1,31 +1,35 @@
 import { useState, useEffect } from "react";
-import { ReactPaginate } from "react-paginate";
 import style from "../Styles/Inv.module.css";
 
-function InvnetoryContent({ Book_Data }) {
-    const itemsPerPage = 12;
+function InventoryContent({ Book_Data, SetBook_Data }) {
+    const itemsPerPage = 5;
     const [currentItems, setCurrentItems] = useState([]);
     const [pageCount, setPageCount] = useState(0);
-    const [itemOffset, setItemOffset] = useState(0);
+    const [currentPage, setCurrentPage] = useState(0);
+
+    // Un solo efecto: corrige la página si Book_Data cambió y la página
+    // quedó fuera de rango, y luego arma currentItems a partir de Book_Data.
+   
+
 
     useEffect(() => {
-        const endOffset = itemOffset + itemsPerPage;
-        setCurrentItems(Book_Data.slice(itemOffset, endOffset));
-        setPageCount(Math.ceil(Book_Data.length / itemsPerPage));
-    }, [itemOffset, itemsPerPage, Book_Data]);
+        const totalPages = Math.max(1, Math.ceil(Book_Data.length / itemsPerPage));
+        const correctedPage = currentPage > totalPages - 1 ? 0 : currentPage;
 
-    // Si Book_Data cambia (filtro/búsqueda) y el offset actual quedó fuera de rango,
-    // lo reseteamos a 0 para evitar una tabla vacía.
-    useEffect(() => {
-        const maxOffset = Math.max(0, (Math.ceil(Book_Data.length / itemsPerPage) - 1) * itemsPerPage);
-        if (itemOffset > maxOffset) {
-            setItemOffset(0);
+        if (correctedPage !== currentPage) {
+            setCurrentPage(correctedPage);
+            return;
         }
-    }, [Book_Data, itemsPerPage, itemOffset]);
 
-    const handlePageClick = (event) => {
-        const newOffset = event.selected * itemsPerPage;
-        setItemOffset(newOffset);
+        const start = correctedPage * itemsPerPage;
+        const end = start + itemsPerPage;
+        setCurrentItems(Book_Data.slice(start, end));
+        setPageCount(totalPages);
+    }, [currentPage, itemsPerPage, Book_Data]);
+
+    const goToPage = (page) => {
+        if (page < 0 || page > pageCount - 1) return;
+        setCurrentPage(page);
     };
 
     return (
@@ -33,7 +37,6 @@ function InvnetoryContent({ Book_Data }) {
             <table>
                 <thead>
                     <tr>
-                         
                         <th>Titulo/Autor</th>
                         <th>ISBN</th>
                         <th>Category</th>
@@ -47,7 +50,6 @@ function InvnetoryContent({ Book_Data }) {
                 <tbody>
                     {currentItems.map((book) => (
                         <tr key={book.id}>
-                         
                             <td>
                                 <img
                                     src={
@@ -92,24 +94,41 @@ function InvnetoryContent({ Book_Data }) {
                 </tbody>
             </table>
 
-            {pageCount > 1 && (
-                <div>
-                    <ReactPaginate
-                        breakLabel="..."
-                        nextLabel="Siguiente >"
-                        onPageChange={handlePageClick}
-                        pageRangeDisplayed={2}
-                        marginPagesDisplayed={1}
-                        pageCount={pageCount}
-                        previousLabel="< Anterior"
-                        containerClassName="pagination"
-                        activeClassName="active"
-                        forcePage={Math.floor(itemOffset / itemsPerPage)}
-                    />
+            
+                <div className={style.paginationContainer}>
+                    <button
+                        className={style.pageLink}
+                        onClick={() => goToPage(currentPage - 1)}
+                        disabled={currentPage === 0}
+                    >
+                        ← Anterior
+                    </button>
+
+                    {Array.from({ length: pageCount }, (_, i) => (
+                        <button
+                            key={i}
+                            className={
+                                i === currentPage
+                                    ? `${style.pageLink} ${style.activePage}`
+                                    : style.pageLink
+                            }
+                            onClick={() => goToPage(i)}
+                        >
+                            {i + 1}
+                        </button>
+                    ))}
+
+                    <button
+                        className={style.pageLink}
+                        onClick={() => goToPage(currentPage + 1)}
+                        disabled={currentPage === pageCount - 1}
+                    >
+                        Siguiente →
+                    </button>
                 </div>
-            )}
+            
         </>
     );
 }
 
-export default InvnetoryContent;
+export default InventoryContent;

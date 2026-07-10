@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import InventoryContent from "../InventoryComps/InvnetoryContent";
+import InventoryContent from "../InventoryComps/InventoryContent";
 import WarningStock from "../InventoryComps/WarningStock";
 import style from "../Styles/Inv.module.css";
 
@@ -64,6 +64,14 @@ function InventoryPage() {
         fetchData();
     }, []);
 
+
+
+    useEffect(() => {
+
+        console.log(BackUp_Book)
+
+
+    }, [BackUp_Book])
     useEffect(() => {
 
         const categories = [
