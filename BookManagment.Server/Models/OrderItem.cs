@@ -20,6 +20,5 @@ public partial class OrderItem
     public decimal Total { get; set; }
 
     public virtual Book Book { get; set; } = null!;
-
     public virtual Order Order { get; set; } = null!;
 }

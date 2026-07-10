@@ -56,7 +56,7 @@
     
 }
 .Header_Container {
-    width: 100%;
+    width: 100vh;
     height: auto;
     padding: 15px;
     display: flex;
@@ -67,8 +67,8 @@
 }
 
     .Header_Container h1 {
-        font-size: 2.6rem;
-        font-weight: 700;
+        font-size: 1.6rem;
+        font-weight: 800;
         color: var(--text-dark-color)
     }
 
@@ -111,15 +111,19 @@
     flex-direction: row;
     gap: 25px;
     align-content:center;
+     
  
 align-items:center;
 }
-.Header_Icons button{
-    background:none;
-    border:none;
-    font-size:1.1rem;
-    cursor:pointer;
-}
+    .Header_Icons button {
+        background: none;
+        border: none;
+        font-size: 1.1rem;
+        cursor: pointer;
+        border: 1px solid var(--border-color);
+        padding: 7px;
+        border-radius: 30px;
+    }
 
 
 /*Footer*/
@@ -242,12 +246,13 @@ align-items:center;
     border: 1px solid var(--border-color)
 }
     .Header_Container div {
-        width: 100%;
+        width: auto;
         height: auto;
     
         display: flex;
-        flex-direction: column;
-        gap: 5px;
+        flex-direction: row;
+        gap: 30px;
+        justify-content:space-between;
     }
 
     .Header_Container div h3 {

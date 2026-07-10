@@ -71,7 +71,7 @@ public partial class BookstoreEcommerceDbContext : DbContext
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see https://go.microsoft.com/fwlink/?LinkId=723263.
-        => optionsBuilder.UseNpgsql("Host=localhost;Database=bookstore_ecommerce_db;User Id=postgres;Password=e-267Lcdx;TrustServerCertificate=True;");
+        => optionsBuilder.UseNpgsql("Host=localhost;Port=5432;Database=bookstore_ecommerce_db;Username=postgres;Password=e-267Lcdx");
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
@@ -417,6 +417,7 @@ public partial class BookstoreEcommerceDbContext : DbContext
             entity.Property(e => e.Discount)
                 .HasPrecision(12, 2)
                 .HasColumnName("discount");
+            entity.Property(e => e.EmployeeId).HasColumnName("employee_id");
             entity.Property(e => e.OrderNumber)
                 .HasMaxLength(30)
                 .HasColumnName("order_number");
@@ -448,6 +449,11 @@ public partial class BookstoreEcommerceDbContext : DbContext
                 .HasForeignKey(d => d.CustomerId)
                 .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("orders_customer_id_fkey");
+
+            entity.HasOne(d => d.Employee).WithMany(p => p.Orders)
+                .HasForeignKey(d => d.EmployeeId)
+                .OnDelete(DeleteBehavior.ClientSetNull)
+                .HasConstraintName("orders_employee_id_fkey");
         });
 
         modelBuilder.Entity<OrderItem>(entity =>
@@ -474,11 +480,6 @@ public partial class BookstoreEcommerceDbContext : DbContext
                 .HasForeignKey(d => d.BookId)
                 .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("order_items_book_id_fkey");
-
-            entity.HasOne(d => d.Order).WithMany(p => p.OrderItems)
-                .HasForeignKey(d => d.OrderId)
-                .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("order_items_order_id_fkey");
         });
 
         modelBuilder.Entity<Payment>(entity =>
@@ -504,11 +505,6 @@ public partial class BookstoreEcommerceDbContext : DbContext
             entity.Property(e => e.TransactionRef)
                 .HasMaxLength(80)
                 .HasColumnName("transaction_ref");
-
-            entity.HasOne(d => d.Order).WithMany(p => p.Payments)
-                .HasForeignKey(d => d.OrderId)
-                .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("payments_order_id_fkey");
         });
 
         modelBuilder.Entity<Promotion>(entity =>
@@ -727,11 +723,6 @@ public partial class BookstoreEcommerceDbContext : DbContext
             entity.Property(e => e.TrackingNumber)
                 .HasMaxLength(80)
                 .HasColumnName("tracking_number");
-
-            entity.HasOne(d => d.Order).WithMany(p => p.Shipments)
-                .HasForeignKey(d => d.OrderId)
-                .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("shipments_order_id_fkey");
         });
 
         modelBuilder.Entity<ShoppingCart>(entity =>

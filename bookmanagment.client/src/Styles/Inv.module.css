@@ -63,16 +63,17 @@
     width: 100%;
     height: auto;
     display: flex;
-    flex-direction: row;
+    flex-direction:row;
    
-    justify-content:space-between;
+   gap:80px;
 }
 .Title{
     width:100%;
-    height:auto;
+    height:100px;
     display:flex;
-    flex-direction:column;
+    flex-direction:row;
     gap:5px;
+    background:red;
 }
 .Title h3{
     font-size:1.4rem;
@@ -84,24 +85,28 @@
         font-weight:500;
         
     }
+
+
+.SearchSection {
+  
+}
 .Div_Buttons {
     width: auto;
     height: auto;
     display: flex;
     flex-direction: row;
-   
-   align-items:center;
-   gap:8px;
+    align-items: center;
+    gap: 8px;
 }
-    .Div_Buttons button {
-        width: 150px;
-        height: 45px;
-        border-radius: 5px;
-        border: none;
-        font-size: 0.8rem;
-        font-weight: 600;
-        cursor: pointer;
-    }
+.Container_Inv .Div_Buttons button {
+    width: 150px;
+    height: 45px;
+    border-radius: 5px;
+    border: none;
+    font-size: 0.8rem;
+    font-weight: 600;
+    cursor: pointer;
+}
 .Active_Button {
     background:var(--color-accent-amber);
     color:white;
@@ -248,7 +253,7 @@ tbody tr {
     border-radius: 20px;
 }
 
-button {
+.Container_Inv > button {
     border: none;
     background: transparent;
     cursor: pointer;
@@ -265,9 +270,9 @@ button {
             background: #dbeafe;
         }
 
-    button:last-child {
-        color: #dc2626;
-    }
+.Container_Inv button:last-child {
+    color: #dc2626;
+}
 
         button:last-child:hover {
             background: #fee2e2;

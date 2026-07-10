@@ -56,9 +56,7 @@ function Header() {
                   <button onClick={() =>   navigate("/shoppingcart")  }>
                       <i className="fa-solid fa-cart-shopping"></i>
                   </button>
-                  <button>
-                      <i className="fa-regular fa-heart"></i>
-                  </button>
+                
               </div>
 
           </header>

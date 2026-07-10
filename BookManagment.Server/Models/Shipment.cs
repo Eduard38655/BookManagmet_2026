@@ -18,6 +18,4 @@ public partial class Shipment
     public DateTime? ShippedAt { get; set; }
 
     public DateTime? DeliveredAt { get; set; }
-
-    public virtual Order Order { get; set; } = null!;
 }

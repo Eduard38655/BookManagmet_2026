@@ -92,30 +92,20 @@ function InventoryPage() {
             <div className={style.HeaderDiv}>
 
                 <div className={style.Title}>
-                    <h3>Gestión de Inventario</h3>
-                    <p>
-                        Administra el catálogo de libros, monitorea el stock y
-                        actualiza los precios.
-                    </p>
-                </div>
+                    <div>
+                        <h3>Gestión de Inventario</h3>
+                        <p>
+                            Administra el catálogo de libros, monitorea el stock y
+                            actualiza los precios.
+                        </p>
 
-                <div>
-
+                    </div>
                     <div>
                         <i className="fa-solid fa-magnifying-glass"></i>{" "}
                         <input
                             type="text"
                             placeholder="Buscar por título, autor o ISBN..."
                         />
-                    </div>
-
-                    <div>
-
-                        <div>
-                            {All_categories.map((ca, index) => (
-                                <span key={index}>{ca}</span>
-                            ))}
-                        </div>
 
                         <div className={style.Div_Buttons}>
                             <button>
@@ -128,8 +118,10 @@ function InventoryPage() {
                                 Agregar Libro
                             </button>
                         </div>
-
-                    </div>
+                </div>
+                <div/>
+             
+                    
 
                     <div className={style.DivContainer_Filter}>
 

@@ -17,6 +17,8 @@ public partial class Employee
 
     public DateTime HiredAt { get; set; }
 
+    public virtual ICollection<Order> Orders { get; set; } = new List<Order>();
+
     public virtual ICollection<PurchaseOrder> PurchaseOrders { get; set; } = new List<PurchaseOrder>();
 
     public virtual User User { get; set; } = null!;

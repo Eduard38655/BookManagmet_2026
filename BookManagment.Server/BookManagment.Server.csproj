@@ -30,6 +30,8 @@
 
   <ItemGroup>
     <Folder Include="Middleware\" />
+    <Folder Include="Migrations\" />
+    <Folder Include="TempModels\" />
   </ItemGroup>
 
 </Project>

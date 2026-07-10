@@ -29,13 +29,13 @@ public partial class Order
 
     public DateTime CreatedAt { get; set; }
 
+    public int EmployeeId { get; set; }
+
     public virtual Address Address { get; set; } = null!;
 
     public virtual Customer Customer { get; set; } = null!;
 
-    public virtual ICollection<OrderItem> OrderItems { get; set; } = new List<OrderItem>();
+    public virtual Employee Employee { get; set; } = null!;
+    public virtual ICollection<OrderItem> OrderItems { get; set; }
 
-    public virtual ICollection<Payment> Payments { get; set; } = new List<Payment>();
-
-    public virtual ICollection<Shipment> Shipments { get; set; } = new List<Shipment>();
 }

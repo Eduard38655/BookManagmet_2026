@@ -18,12 +18,14 @@ import OrdersPage from '../src/Pages/OrdersPage';
 import UsersPage from '../src/Pages/UsersPage';
 import EmpleadosPage from '../src/Pages/EmpleadosPage';
 import './index.css'
- 
+import { useParams,Outlet } from "react-router-dom" 
 function App() {
+    const { BookId } = useParams(); 
 
+    console.log(BookId,"locao")
     const location = useLocation();
-    const Routes_Dashboard = ["/browse", "/browse/:BookId", "/browse/: BookId","/cart","/login","/home"]
-
+    const Routes_Dashboard = ["/browse", "/browse", `/browse/:${BookId }`,"/cart","/login","/home"]
+ 
    
     
     return (
@@ -34,17 +36,20 @@ function App() {
                 {Routes_Dashboard.includes((location.pathname).toLowerCase()) ? (
                     <>
                         <Header />
-                        <Navbar />
+                        
                     </>
                 ) : (
                     <>
-                        <DashMenu />
+                         <DashMenu />
                     </>
                 )}
                 
                 <Routes>
-                    <Route path="/browse" element={<BookPage />} />
-                    <Route path="/browse/:BookId" element={<BookByIdPage />} />
+                    <Route path="/browse" element={<BookPage />} >
+                        <Route path=":BookId" element={<BookByIdPage />} />
+
+                    </Route>
+                   
                     <Route path="/login" element={<LoginPage />} />
                  
                     <Route path="/cart" element={<ShoppingPage />} />

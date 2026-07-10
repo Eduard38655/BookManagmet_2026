@@ -2,8 +2,8 @@ import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 import { useContext } from "react";
 import { UserContext } from "../Context/UserContext";
- import style from "../Styles/Login.module.css";
-
+import style from "../Styles/Login.module.css";
+import Imagen from "../Images/enrico-bet-lc7xcWebECc-unsplash.jpg"
 function LoginPage() {
     const navigate = useNavigate();
     const { setUser } = useContext(UserContext);
@@ -56,7 +56,7 @@ function LoginPage() {
             {/* IZQUIERDA */}
             <div className={style.left}>
                 <img
-                    src="/images/library.jpg"
+                    src={Imagen }
                     alt="Library"
                 />
 
@@ -79,7 +79,7 @@ function LoginPage() {
             {/* DERECHA */}
             <div className={style.right}>
                 <div className={style.formCard}>
-                    <h2>Sign In</h2>
+                    <h2>Modern Library</h2>
                     <p>
                         Welcome back! Sign in to
                         your account.
@@ -115,7 +115,7 @@ function LoginPage() {
                                 }
                             </small>
                         )}
-
+                        <br />
                         {/* PASSWORD */}
                         <label>Password</label>
 
@@ -191,11 +191,11 @@ function LoginPage() {
                         }
                     >
                         <button>
-                            Google
+                            <i className="fa-brands fa-google"></i> { " "} Google
                         </button>
 
                         <button>
-                            Apple
+                            <i className="fa-brands fa-apple"></i> {" "} Apple
                         </button>
                     </div>
 

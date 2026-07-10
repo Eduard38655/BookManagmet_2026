@@ -45,6 +45,12 @@ function DashMenu() {
 
 
               <ul>
+                  <li className={location.pathname === "/home" ? style.activo : style.inactivo}>
+                      <Link to="/home">
+                          <i class="fa-solid fa-house"></i> Home
+                      </Link>
+                  </li>
+
                   <li className={location.pathname === "/dashboard" ? style.activo : style.inactivo}>
                       <Link to="/dashboard">
                           <i className="fa-solid fa-grip-vertical"></i> Dashboard

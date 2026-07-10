@@ -1,18 +1,27 @@
 .container {
-    min-height: 100vh;
-    display: grid;
-    grid-template-columns: 1.1fr 1fr;
-    background: #f8f8f8;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: row;
+    align-content: center;
+ 
+    padding: 25px;
+    justify-content: center;
 }
 
 .left {
+    width: 35%;
+    height: auto;
     position: relative;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
 }
 
     .left img {
         width: 100%;
-        height: 100vh;
+        height: 92.8vh;
         object-fit: cover;
+        border-radius: 8px 0px 0px 8px;
+       
     }
 
 .overlay {
@@ -23,7 +32,7 @@
 }
 
     .overlay h1 {
-        font-size: 3rem;
+        font-size: 2rem;
         margin-bottom: 20px;
     }
 
@@ -34,13 +43,22 @@
     }
 
 .right {
+    width: 40%;
+    border-radius: 0px 8px 8px 0px;
     display: flex;
     justify-content: center;
     align-items: center;
+    background: var(--color-surface);
+    border: 1px solid var( --border-color);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
 }
 
 .formCard {
-    width: 420px;
+    width: 85%;
+    height:auto;
+   
+   
+     
 }
 
     .formCard h2 {
@@ -57,10 +75,11 @@
         display: block;
         margin-bottom: 10px;
         font-weight: 600;
+        font-size: 0.8rem;
     }
 
 .inputBox {
-    height: 55px;
+    height: 50px;
     border: 1px solid #d8d8d8;
     border-radius: 10px;
     background: white;
@@ -79,6 +98,7 @@
     }
 
 small {
+    font-size:0.8rem;
     color: crimson;
 }
 
@@ -87,30 +107,34 @@ small {
     gap: 10px;
     align-items: center;
     margin: 25px 0;
+    font-size: 0.9rem;
+    color: var(--color-secondary);
 }
 
 .loginBtn {
     width: 100%;
-    height: 55px;
+    height: 50px;
     border: none;
     border-radius: 10px;
     background: #9a5100;
     color: white;
     font-weight: bold;
     cursor: pointer;
-    font-size: 1rem;
+    font-size: 0.9rem;
 }
 
 .separator {
     text-align: center;
-    margin: 35px 0;
+    margin: 25px 0;
     color: #999;
+    font-size: 0.8rem;
 }
+    
 
-.socials {
-    display: flex;
-    gap: 20px;
-}
+    .socials {
+        display: flex;
+        gap: 15px;
+    }
 
     .socials button {
         flex: 1;
@@ -119,11 +143,13 @@ small {
         background: white;
         border-radius: 10px;
         cursor: pointer;
+        color:blue;
     }
 
 .register {
     text-align: center;
     margin-top: 35px;
+    font-size: 0.8rem;
 }
 
     .register span {
