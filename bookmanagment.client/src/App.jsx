@@ -53,9 +53,15 @@ function App() {
                     <Route path="/login" element={<LoginPage />} />
                  
                     <Route path="/cart" element={<ShoppingPage />} />
-                    <Route path="/dashboard" element={<DashboardPage /> } />
-                    <Route path="/inventory" element={<InventoryPage />} />
-                    <Route path="/Customer" element={<CustomerPage />} />
+                    <Route path="/dashboard" element={<DashboardPage />} />
+
+                   
+                        <Route path="/inventory" element={<InventoryPage />} />
+                    
+                    
+
+
+                        <Route path="/Customer" element={<CustomerPage />} />
                     <Route path="/orders" element={<OrdersPage />} />
                     <Route path="/promotions" element={<PromotionsPage />} />
                     <Route path="/sales" element={<SalesPage />} />

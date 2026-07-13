@@ -164,11 +164,11 @@ const createdAt = watch("createdAt");
                         </legend>
 
                         <div className={style.SubSection_part1}>
-                            <div className={style.DivImg}>
+                          
 
-                                <  EmpImagen src={avatarUrl} />
+                                < EmpImagen src={avatarUrl} />
                                 
-                            </div>
+                           
 
                             <div className={style.DivPersonal_Info}>
                                 <div className={style.Field}>

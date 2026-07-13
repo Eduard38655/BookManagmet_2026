@@ -159,65 +159,7 @@ th {
     font-size: 0.8rem;
 }
  
-
-   
-/*Empleados Pagination*/
-.DivPagination_Container {
-    width: 100%;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px;
-    background: var(--color-surface-container-low);
-    border-radius: 0px 0px 7px 7px;
-}
-    .DivPagination_Container span {
-        color: var(--color-outline);
-        font-size: 0.8rem;
-font-weight:550;
-    }
-
-.paginationContainer {
-    width: auto;
-    display: flex;
-    gap: 10px;
-    align-content: center;
-}
-
-
-.DivPagination_Container button {
-    padding: 10px;
-    border: none;
-    border-radius: 5px;
-    font-size: 1rem;
-    cursor: pointer;
-}
-.activePage {
-    width: 35px;
-    height: 37px;
-    border: none;
-    border-radius: 5px;
-    font-size: 0.8rem;
-    background: var(--color-primary);
-    color: #96a9be;
-    font-weight: 600;
-}
-.pageLink {
-    width: 40px;
-    height: 40px;
-}
-.pageLink, .pageLink_button {
-    background: none;
-    color: #74777d;
-}
-
-   
-
-    .pageLink:hover, .pageLink_button:hover {
-        background-color: var( --color-outline-variant);
-    }
-
+ 
  /*FilterEmp*/
 .DivFilter_Container {
     width: 100%;

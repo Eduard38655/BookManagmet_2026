@@ -4,7 +4,7 @@ import EmpleadosContent from "../Comp_Empleados/EmpleadosContent";
 import { useEffect, useState } from "react";
 import style from "../Styles/Empleados.module.css"
 function EmpPagination({ AllEmployee,  currentItems, setCurrentItems }) {
-    const itemsPerPage = 2;
+    const itemsPerPage = 10;
     const [pageCount, setPageCount] = useState(0);
     const [currentPage, setCurrentPage] = useState(0);
    

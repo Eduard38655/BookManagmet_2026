@@ -14,6 +14,7 @@
     <Folder Include="src\Context\" />
     <Folder Include="src\DashboardComps\" />
     <Folder Include="src\CustomerComp\" />
+    <Folder Include="src\Comp_Sales\" />
     <Folder Include="src\UserComps\" />
     <Folder Include="src\ShoppingCart\" />
   </ItemGroup>

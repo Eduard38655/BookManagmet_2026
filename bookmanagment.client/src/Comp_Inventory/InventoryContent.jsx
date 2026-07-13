@@ -1,12 +1,13 @@
 import { useState, useEffect } from "react";
 import style from "../Styles/Inv.module.css";
-
-function InventoryContent({ Book_Data, SetBook_Data }) {
+import { useNavigate } from "react-router-dom" 
+ 
+function InventoryContent({ Book_Data, SetBook_Data, SetDialog }) {
     const itemsPerPage = 5;
     const [currentItems, setCurrentItems] = useState([]);
     const [pageCount, setPageCount] = useState(0);
     const [currentPage, setCurrentPage] = useState(0);
-
+    const navigate = useNavigate()
     // Un solo efecto: corrige la página si Book_Data cambió y la página
     // quedó fuera de rango, y luego arma currentItems a partir de Book_Data.
    
@@ -34,7 +35,7 @@ function InventoryContent({ Book_Data, SetBook_Data }) {
 
     return (
         <>
-            <table>
+            <table className={style.DivInvTable }>
                 <thead>
                     <tr>
                         <th>Titulo/Autor</th>
@@ -59,8 +60,8 @@ function InventoryContent({ Book_Data, SetBook_Data }) {
                                     alt={book.title}
                                     width="40"
                                 />
-                                {" "}
-                                {book.title} - {book.author}
+                                <span> {book.title} <br />  <small> {book.author}</small></span>
+                                
                             </td>
 
                             <td>{book.isbn}</td>
@@ -81,10 +82,11 @@ function InventoryContent({ Book_Data, SetBook_Data }) {
                             </td>
 
                             <td>
-                                <button>
+                                <button onClick={() => { SetDialog(true) } } >
                                     <i className="fa-solid fa-pen"></i>
                                 </button>
 
+                                {"  "}
                                 <button>
                                     <i className="fa-regular fa-trash-can"></i>
                                 </button>
@@ -95,37 +97,7 @@ function InventoryContent({ Book_Data, SetBook_Data }) {
             </table>
 
             
-                <div className={style.paginationContainer}>
-                    <button
-                        className={style.pageLink}
-                        onClick={() => goToPage(currentPage - 1)}
-                        disabled={currentPage === 0}
-                    >
-                        ← Anterior
-                    </button>
-
-                    {Array.from({ length: pageCount }, (_, i) => (
-                        <button
-                            key={i}
-                            className={
-                                i === currentPage
-                                    ? `${style.pageLink} ${style.activePage}`
-                                    : style.pageLink
-                            }
-                            onClick={() => goToPage(i)}
-                        >
-                            {i + 1}
-                        </button>
-                    ))}
-
-                    <button
-                        className={style.pageLink}
-                        onClick={() => goToPage(currentPage + 1)}
-                        disabled={currentPage === pageCount - 1}
-                    >
-                        Siguiente →
-                    </button>
-                </div>
+                
             
         </>
     );

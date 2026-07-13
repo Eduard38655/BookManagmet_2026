@@ -18,9 +18,7 @@ function WarningStock({ Book_Data }) {
     return (
         <>
             <div className={style.DivContainer_Warning }>
-                <label>Alertas de stock bajo</label>
-
-                <div className={style.Container_card }>
+                
                     {warning.map((b,index) => (
                         <div key={index} className={style.Div_Card}>
 
@@ -42,9 +40,9 @@ function WarningStock({ Book_Data }) {
                             </div>
 
 
-                            <h4>{b.title}</h4>
+                            <p>{b.title}</p>
 
-                            <p>{b.author}</p>
+                            <small>{b.author}</small>
 
                             <button>
                                 Reordenar {" " }
@@ -54,7 +52,7 @@ function WarningStock({ Book_Data }) {
                         </div>
                     ))}
                 </div>
-            </div>
+             
         </>
     );
 }

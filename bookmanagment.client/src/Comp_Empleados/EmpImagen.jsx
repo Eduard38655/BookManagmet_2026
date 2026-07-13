@@ -1,8 +1,16 @@
+import style from "../Styles/Empleados.module.css";
+
 function EmpImagen({ src }) {
     return (
 
         <>
-            < img src={src} alt="Foto de perfil del empleado" />
+
+            <div className={style.DivImg}>
+
+                < img src={src} alt="Foto de perfil del empleado" />
+
+            </div>
+           
 
         </>
   );
