@@ -1,0 +1,1108 @@
+
+:root {
+    /* Surface Colors */
+    --color-surface: #f8f9fa;
+    --color-surface-dim: #d9dadb;
+    --color-surface-bright: #f8f9fa;
+    --color-surface-container-lowest: #ffffff;
+    --color-surface-container-low: #f3f4f5;
+    --color-surface-container: #ecedee;
+    --color-surface-container-high: #e7e8e9;
+    --color-surface-container-highest: #e1e2e3;
+    --color-on-surface: #1a1c1e;
+    --color-on-surface-variant: #43474e;
+    --color-outline: #73777f;
+    --color-outline-variant: #c3c7cf;
+    /* Primary Brand Colors (Academic Blue) */
+    --color-primary: #2c3e50;
+    --color-on-primary: #ffffff;
+    --color-primary-container: #d3e4ff;
+    --color-on-primary-container: #001c38;
+    /* Secondary Colors (Deep Gray/Blue) */
+    --color-secondary: #535f70;
+    --color-on-secondary: #ffffff;
+    --color-secondary-container: #d7e3f7;
+    --color-on-secondary-container: #101c2b;
+    /* Tertiary Colors (Amber/Gold Accents) /
+  --color-tertiary: #a05a2c; / Used for CTAs and highlights */
+    --color-on-tertiary: #ffffff;
+    --color-tertiary-container: #ffdbca;
+    --color-on-tertiary-container: #331200;
+    /* State Colors */
+    --color-error: #ba1a1a;
+    --color-on-error: #ffffff;
+    --color-success: #2e7d32;
+    --color-warning: #f9a825;
+    --color-info: #0277bd;
+    /* Fixed Accents (Used in the UI for consistent emphasis) */
+    --color-accent-amber: #e67e22;
+    --color-accent-blue: #2980b9;
+    --font_family: 'Cormorant Garamond', serif;
+    --color-nav-text: #43474c;
+    --underline-header: #a55a1d;
+    --header-bg: #191c1d;
+    --text-dark-color: #162839;
+    --border-color: #e5e7eb;
+    --back-ground-text: #1628390d;
+    --color-nav-text-golden: #663100;
+    --back-nav-golden: #fc8f34;
+    --secondary-border-color: #C5C7CE;
+}
+
+.DivTable_Container {
+    width: 100%;
+    height: 100%;
+    border: 1px solid var(--secondary-border-color);
+    border-radius: 7px;
+   
+}
+
+.Container_Page_Emp {
+    width: 100%;
+    height: 100%;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    justify-content: space-between;
+}
+
+
+table {
+    width: 100%;
+    height: 100%;
+    border-radius: 35px;
+    border-collapse: collapse;
+ 
+}
+
+thead {
+    background: #f8fafc;
+    height: 100%;
+ 
+}
+
+th {
+    height: 100%;
+    padding: 16px;
+    text-align: left;
+    font-size: 14px;
+    font-weight: 600;
+    color: #64748b;
+    border-radius: 7px;
+    background: var(--color-surface-container-low);
+}
+
+ 
+
+ 
+    .Container_Page_Emp table button {
+        background: none;
+        border: none;
+        text-align: end;
+        font-size: 0.9rem;
+        cursor: pointer;
+    }
+
+    .Container_Page_Emp table button:hover{
+        background:none;
+    }
+    .Container_Page_Emp table td img {
+        width: 50px;
+        height: 50px;
+        object-fit: cover;
+        border-radius: 10px;
+        border: 1px solid var(--border-color);
+    }
+.Container_Page_Emp table td:nth-child(1) {
+    height: 100%;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+   
+}
+    .Container_Page_Emp table td:nth-child(1) span {
+        color: var(--text-dark-color);
+        font-size: 0.9rem;
+    }
+        .Container_Page_Emp table td:nth-child(1) span small {
+            color: var(--color-outline);
+        }
+        .Container_Page_Emp table tbody tr {
+            padding: 16px;
+            border-bottom: 1px solid var(--secondary-border-color);
+        }
+
+.Container_Page_Emp table td {
+    height: 100%;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var( --color-outline);
+    padding: 16px;
+    
+}
+.Container_Page_Emp table th {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--text-dark-color);
+    border-bottom: 1px solid var(--secondary-border-color);
+}
+
+.Container_Page_Emp table .active {
+    text-transform: capitalize;
+    color: var(--color-accent-amber);
+   font-size:0.8rem;
+}
+.Container_Page_Emp table .inactive {
+    text-transform: capitalize;
+    color: var(--color-on-surface-variant);
+    font-size: 0.8rem;
+}
+ 
+
+   
+/*Empleados Pagination*/
+.DivPagination_Container {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    background: var(--color-surface-container-low);
+    border-radius: 0px 0px 7px 7px;
+}
+    .DivPagination_Container span {
+        color: var(--color-outline);
+        font-size: 0.8rem;
+font-weight:550;
+    }
+
+.paginationContainer {
+    width: auto;
+    display: flex;
+    gap: 10px;
+    align-content: center;
+}
+
+
+.DivPagination_Container button {
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+}
+.activePage {
+    width: 35px;
+    height: 37px;
+    border: none;
+    border-radius: 5px;
+    font-size: 0.8rem;
+    background: var(--color-primary);
+    color: #96a9be;
+    font-weight: 600;
+}
+.pageLink {
+    width: 40px;
+    height: 40px;
+}
+.pageLink, .pageLink_button {
+    background: none;
+    color: #74777d;
+}
+
+   
+
+    .pageLink:hover, .pageLink_button:hover {
+        background-color: var( --color-outline-variant);
+    }
+
+ /*FilterEmp*/
+.DivFilter_Container {
+    width: 100%;
+    height: auto;
+    display: flex;
+    padding: 15px;
+    background-color: var( --color-surface);
+    border : 1px solid var(--secondary-border-color);
+    border-radius: 7px;
+    align-items: center;
+    gap: 10px;
+}
+.SearchInput {
+    width: 40%;
+    height: 40px;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    background: #ffffff;
+    padding: 0px 10px;
+    border-radius: 5px;
+    border: 1px solid var(--secondary-border-color);
+}
+    .SearchInput input {
+        width: 100%;
+        border: none;
+        background: none;
+        color: var(--text-dark-color);
+        font-size: 1rem;
+    }
+        .SearchInput input::placeholder {
+            color: var(--color-outline);
+            font-size: 0.8rem;
+        }
+        .SearchInput input:focus {
+            outline: none;
+        }
+
+
+.SearchBySelect {
+    width:60%;
+    display:flex;
+    gap:10px;
+    align-items:center;
+}
+    .SearchBySelect div {
+        padding: 5px;
+        display: flex;
+        align-items: center;
+        border: 1px solid var(--secondary-border-color);
+        border-radius: 4px;
+    }
+
+    .SearchBySelect select {
+        width: auto;
+        padding: 5px;
+        background: none;
+        border: none;
+         
+    }
+        .SearchBySelect select option {
+            width:100%;
+         
+        }
+       
+    .SearchBySelect select:focus{
+        outline:none;
+    }
+
+.DivFilter_Container button {
+    width: 155px;
+    height: 40px;
+    background: var(--color-primary);
+    color: #ffffff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/*EmpOver View*/
+.ContainerEmpOverView {
+    width: 100%;
+   
+    display:flex;
+    flex-direction:row;
+    justify-content:space-between;
+    gap:10px;
+}
+
+    .ContainerEmpOverView .Div_Cards {
+        width: 100%;
+        height: 100px;
+        background: #ffffff;
+        padding: 20px;
+        gap: 5px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        border: 1px solid var(--secondary-border-color);
+        border-radius: 7px;
+    }
+
+        .ContainerEmpOverView .Div_Cards span {
+            font-size: 1.6rem;
+            color: var(--text-dark-color);
+            font-weight: 600;
+        }
+    .ContainerEmpOverView .Div_Text {
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+       
+    }
+
+        .ContainerEmpOverView .Div_Text label {
+            font-size: 1rem;
+            color: var(--color-outline);
+       
+            font-weight: 600;
+        }
+
+ 
+
+        /*TitleEmp*/
+
+.DivTitleEmp {
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction:row;
+    justify-content:space-between;
+
+}
+    .DivTitleEmp div {
+        width: auto;
+        height: auto;
+        display: flex;
+        flex-direction: column;
+       gap:6px;
+    }
+    .DivTitleEmp button {
+        width: auto;
+        height: 40px;
+        background: var(--color-accent-amber);
+        color: #ffffff;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 0.8rem;
+        font-weight:550;
+        padding:10px;
+    }
+
+    /*Ediatr profile*/
+:root {
+    /* Surface Colors */
+    --color-surface: #f8f9fa;
+    --color-surface-dim: #d9dadb;
+    --color-surface-bright: #f8f9fa;
+    --color-surface-container-lowest: #ffffff;
+    --color-surface-container-low: #f3f4f5;
+    --color-surface-container: #ecedee;
+    --color-surface-container-high: #e7e8e9;
+    --color-surface-container-highest: #e1e2e3;
+    --color-on-surface: #1a1c1e;
+    --color-on-surface-variant: #43474e;
+    --color-outline: #73777f;
+    --color-outline-variant: #c3c7cf;
+    /* Primary Brand Colors (Academic Blue) */
+    --color-primary: #2c3e50;
+    --color-on-primary: #ffffff;
+    --color-primary-container: #d3e4ff;
+    --color-on-primary-container: #001c38;
+    /* Secondary Colors (Deep Gray/Blue) */
+    --color-secondary: #535f70;
+    --color-on-secondary: #ffffff;
+    --color-secondary-container: #d7e3f7;
+    --color-on-secondary-container: #101c2b;
+    /* Tertiary Colors (Amber/Gold Accents) /
+  --color-tertiary: #a05a2c; / Used for CTAs and highlights */
+    --color-on-tertiary: #ffffff;
+    --color-tertiary-container: #ffdbca;
+    --color-on-tertiary-container: #331200;
+    /* State Colors */
+    --color-error: #ba1a1a;
+    --color-on-error: #ffffff;
+    --color-success: #2e7d32;
+    --color-warning: #f9a825;
+    --color-info: #0277bd;
+    /* Fixed Accents (Used in the UI for consistent emphasis) */
+    --color-accent-amber: #e67e22;
+    --color-accent-blue: #2980b9;
+    --font_family: 'Cormorant Garamond', serif;
+    --color-nav-text: #43474c;
+    --underline-header: #a55a1d;
+    --header-bg: #191c1d;
+    --text-dark-color: #162839;
+    --border-color: #e5e7eb;
+    --back-ground-text: #1628390d;
+    --color-nav-text-golden: #663100;
+    --back-nav-golden: #fc8f34;
+    --secondary-border-color: #C5C7CE;
+}
+
+.DivTable_Container {
+    width: 100%;
+    height: 100%;
+    border: 1px solid var(--secondary-border-color);
+    border-radius: 7px;
+}
+
+.Container_Page_Emp {
+    width: 100%;
+    height: 100%;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    justify-content: space-between;
+}
+
+
+table {
+    width: 100%;
+    height: 100%;
+    border-radius: 35px;
+    border-collapse: collapse;
+}
+
+thead {
+    background: #f8fafc;
+    height: 100%;
+}
+
+th {
+    height: 100%;
+    padding: 16px;
+    text-align: left;
+    font-size: 14px;
+    font-weight: 600;
+    color: #64748b;
+    border-radius: 7px;
+    background: var(--color-surface-container-low);
+}
+
+
+
+
+.Container_Page_Emp table button {
+    background: none;
+    border: none;
+    text-align: end;
+    font-size: 0.9rem;
+    cursor: pointer;
+}
+
+    .Container_Page_Emp table button:hover {
+        background: none;
+    }
+
+.Container_Page_Emp table td img {
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+    border-radius: 10px;
+    border: 1px solid var(--border-color);
+}
+
+.Container_Page_Emp table td:nth-child(1) {
+    height: 100%;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+    .Container_Page_Emp table td:nth-child(1) span {
+        color: var(--text-dark-color);
+        font-size: 0.9rem;
+    }
+
+        .Container_Page_Emp table td:nth-child(1) span small {
+            color: var(--color-outline);
+        }
+
+.Container_Page_Emp table tbody tr {
+    padding: 16px;
+    border-bottom: 1px solid var(--secondary-border-color);
+}
+
+.Container_Page_Emp table td {
+    height: 100%;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var( --color-outline);
+    padding: 16px;
+}
+
+.Container_Page_Emp table th {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--text-dark-color);
+    border-bottom: 1px solid var(--secondary-border-color);
+}
+
+.Container_Page_Emp table .active {
+    text-transform: capitalize;
+    color: var(--color-accent-amber);
+    font-size: 0.8rem;
+}
+
+.Container_Page_Emp table .inactive {
+    text-transform: capitalize;
+    color: var(--color-on-surface-variant);
+    font-size: 0.8rem;
+}
+
+
+
+/*Empleados Pagination*/
+.DivPagination_Container {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    background: var(--color-surface-container-low);
+    border-radius: 0px 0px 7px 7px;
+}
+
+    .DivPagination_Container span {
+        color: var(--color-outline);
+        font-size: 0.8rem;
+        font-weight: 550;
+    }
+
+.paginationContainer {
+    width: auto;
+    display: flex;
+    gap: 10px;
+    align-content: center;
+}
+
+
+.DivPagination_Container button {
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+.activePage {
+    width: 35px;
+    height: 37px;
+    border: none;
+    border-radius: 5px;
+    font-size: 0.8rem;
+    background: var(--color-primary);
+    color: #96a9be;
+    font-weight: 600;
+}
+
+.pageLink {
+    width: 40px;
+    height: 40px;
+}
+
+.pageLink, .pageLink_button {
+    background: none;
+    color: #74777d;
+}
+
+
+
+    .pageLink:hover, .pageLink_button:hover {
+        background-color: var( --color-outline-variant);
+    }
+
+/*FilterEmp*/
+.DivFilter_Container {
+    width: 100%;
+    height: auto;
+    display: flex;
+    padding: 15px;
+    background-color: var( --color-surface);
+    border: 1px solid var(--secondary-border-color);
+    border-radius: 7px;
+    align-items: center;
+    gap: 10px;
+}
+
+.SearchInput {
+    width: 40%;
+    height: 40px;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    background: #ffffff;
+    padding: 0px 10px;
+    border-radius: 5px;
+    border: 1px solid var(--secondary-border-color);
+}
+
+    .SearchInput input {
+        width: 100%;
+        border: none;
+        background: none;
+        color: var(--text-dark-color);
+        font-size: 1rem;
+    }
+
+        .SearchInput input::placeholder {
+            color: var(--color-outline);
+            font-size: 0.8rem;
+        }
+
+        .SearchInput input:focus {
+            outline: none;
+        }
+
+
+.SearchBySelect {
+    width: 60%;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+    .SearchBySelect div {
+        padding: 5px;
+        display: flex;
+        align-items: center;
+        border: 1px solid var(--secondary-border-color);
+        border-radius: 4px;
+    }
+
+    .SearchBySelect select {
+        width: auto;
+        padding: 5px;
+        background: none;
+        border: none;
+    }
+
+        .SearchBySelect select option {
+            width: 100%;
+        }
+
+        .SearchBySelect select:focus {
+            outline: none;
+        }
+
+.DivFilter_Container button {
+    width: 155px;
+    height: 40px;
+    background: var(--color-primary);
+    color: #ffffff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/*EmpOver View*/
+.ContainerEmpOverView {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+    .ContainerEmpOverView .Div_Cards {
+        width: 100%;
+        height: 100px;
+        background: #ffffff;
+        padding: 20px;
+        gap: 5px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        border: 1px solid var(--secondary-border-color);
+        border-radius: 7px;
+    }
+
+        .ContainerEmpOverView .Div_Cards span {
+            font-size: 1.6rem;
+            color: var(--text-dark-color);
+            font-weight: 600;
+        }
+
+    .ContainerEmpOverView .Div_Text {
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+        .ContainerEmpOverView .Div_Text label {
+            font-size: 1rem;
+            color: var(--color-outline);
+            font-weight: 600;
+        }
+
+
+
+/*TitleEmp*/
+
+.DivTitleEmp {
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+    .DivTitleEmp div {
+        width: auto;
+        height: auto;
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+    }
+
+    .DivTitleEmp button {
+        width: auto;
+        height: 40px;
+        background: var(--color-accent-amber);
+        color: #ffffff;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 0.8rem;
+        font-weight: 550;
+        padding: 10px;
+    }
+
+/*Ediatr profile*/
+
+ 
+.ContainerEdit {
+    --dossier-ink: var(--color-on-surface);
+    --dossier-ink-soft: var(--color-outline);
+    --dossier-surface: var(--color-surface-container-lowest);
+    --dossier-surface-alt: var(--color-surface-container-low);
+    --dossier-accent: var(--color-primary);
+    --dossier-accent-dark: var(--color-on-primary-container);
+    --dossier-accent-tint: var(--color-primary-container);
+    --dossier-tab: var(--color-accent-amber);
+    --dossier-tab-ink: var(--color-nav-text-golden);
+    --dossier-danger: var(--color-error);
+    --dossier-success: var(--color-success);
+    --dossier-line: var(--border-color);
+    width: 100%;
+    height: 100%;
+    background: rgba(26, 28, 30, 0.55);
+    backdrop-filter: blur(3px);
+    position: absolute;
+    inset: 0;
+    z-index: 100000;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* ============================================
+   Card shell — folder-tab signature element
+   ============================================ */
+.FormContainer {
+    position: relative;
+    width: min(720px, 100%);
+    max-height: min(92vh, 820px);
+    background: var(--dossier-surface);
+    border-radius: 10px;
+    display: flex;
+    align-items: stretch;
+    box-shadow: 0 24px 60px rgba(26, 28, 30, 0.35);
+    overflow: hidden;
+}
+
+.RecordTab {
+    flex: 0 0 40px;
+    background: var(--dossier-tab);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+    .RecordTab span {
+        writing-mode: vertical-rl;
+        transform: rotate(180deg);
+        font-family: "IBM Plex Mono", monospace;
+        font-size: 11px;
+        letter-spacing: 0.28em;
+        color: var(--dossier-tab-ink);
+        font-weight: 500;
+    }
+
+.FormBody {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 26px;
+    padding: 20px;
+    overflow-y: auto;
+}
+
+/* ============================================
+   Header
+   ============================================ */
+.Header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 16px;
+}
+
+.Eyebrow {
+    display: block;
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 11.5px;
+    letter-spacing: 0.06em;
+    color: var(--dossier-ink-soft);
+    text-transform: uppercase;
+    margin-bottom: 6px;
+}
+
+.Tittle {
+    font-family: "Space Grotesk", sans-serif;
+    font-weight: 600;
+    font-size: 21px;
+    color: var(--dossier-ink);
+    margin: 0;
+}
+
+.CloseBtn {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    border: 1px solid var(--dossier-line);
+    background: var(--dossier-surface);
+    color: var(--dossier-ink-soft);
+    font-size: 18px;
+    line-height: 1;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.15s ease, color 0.15s ease;
+}
+
+    .CloseBtn:hover {
+        background: var(--dossier-surface-alt);
+        color: var(--dossier-ink);
+    }
+
+/* ============================================
+   Sections
+   ============================================ */
+.Section_Part1,
+.Section_Part2 {
+    border: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.SectionLabel {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-family: "Space Grotesk", sans-serif;
+    font-weight: 600;
+    font-size: 13px;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: var(--dossier-accent-dark);
+    padding: 0 0 10px;
+    border-bottom: 1px solid var(--dossier-line);
+    width: 100%;
+}
+
+    .SectionLabel i {
+        color: var(--dossier-accent);
+        font-size: 13px;
+    }
+
+/* ============================================
+   Fields
+   ============================================ */
+.SubSection_part1 {
+    display: flex;
+    flex-direction: row;
+    gap: 24px;
+    padding: 20px;
+}
+
+.DivImg {
+    flex: 0 0 120px;
+    width: 120px;
+    height: 120px;
+    border: 1px solid var(--dossier-line);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+    .DivImg img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+.DivPersonal_Info {
+    flex: 1;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+}
+
+.Field {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+    .Field label {
+        font-size: 12.5px;
+        font-weight: 500;
+        color: var(--dossier-ink-soft);
+    }
+
+    .Field input {
+        height: 50px;
+        padding: 10px;
+        border-radius: 6px;
+        border: 1px solid var(--dossier-line);
+        font-size: 14px;
+        color: var(--dossier-ink);
+        background: var(--dossier-surface);
+        transition: border-color 0.15s ease, box-shadow 0.15s ease;
+    }
+
+        .Field input::placeholder {
+            color: #b3b8c2;
+        }
+
+        .Field input:focus {
+            outline: none;
+            border-color: var(--dossier-accent);
+            box-shadow: 0 0 0 3px var(--dossier-accent-tint);
+        }
+
+.DivSelect {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 12px;
+    background: var(--dossier-surface);
+    border: 1px solid var(--dossier-line);
+    border-radius: 6px;
+    transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+    .DivSelect:focus-within {
+        border-color: var(--dossier-accent);
+        box-shadow: 0 0 0 3px var(--dossier-accent-tint);
+    }
+
+    .DivSelect select {
+        flex: 1;
+        border: none;
+        font-size: 14px;
+        color: var(--dossier-ink);
+        background: transparent;
+    }
+
+        .DivSelect select:focus {
+            outline: none;
+        }
+
+.StatusDot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--dossier-ink-soft);
+    flex-shrink: 0;
+}
+
+.StatusActive .StatusDot {
+    background: var(--dossier-success);
+}
+
+.StatusInactive .StatusDot {
+    background: var(--dossier-danger);
+}
+
+.ErrorMsg {
+    font-size: 12px;
+    color: var(--dossier-danger);
+}
+
+.SubSection_part2 {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+    padding: 15px;
+}
+
+/* ============================================
+   Footer actions
+   ============================================ */
+.DivButton {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    gap: 10px;
+    padding-top: 6px;
+    border-top: 1px solid var(--dossier-line);
+    padding: 15px;
+}
+
+.BtnGhost,
+.BtnPrimary {
+    padding: 10px 20px;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background 0.15s ease, border-color 0.15s ease, transform 0.05s ease;
+}
+
+.BtnGhost {
+    background: var(--dossier-surface);
+    border: 1px solid var(--dossier-line);
+    color: var(--dossier-ink-soft);
+}
+
+    .BtnGhost:hover {
+        background: var(--dossier-surface-alt);
+        color: var(--dossier-ink);
+    }
+
+.BtnPrimary {
+    background: var(--dossier-accent);
+    border: 1px solid var(--dossier-accent);
+    color: #ffffff;
+}
+
+    .BtnPrimary:hover {
+        background: var(--dossier-accent-dark);
+        border-color: var(--dossier-accent-dark);
+    }
+
+    .BtnGhost:active,
+    .BtnPrimary:active {
+        transform: scale(0.98);
+    }
+
+/* ============================================
+   Responsive
+   ============================================ */
+@media (max-width: 640px) {
+    .SubSection_part1 {
+        flex-direction: column;
+    }
+
+    .DivPersonal_Info {
+        grid-template-columns: 1fr;
+    }
+
+    .SubSection_part2 {
+        grid-template-columns: 1fr;
+    }
+
+    .DivImg {
+        width: 88px;
+        height: 88px;
+        flex: 0 0 88px;
+    }
+
+    .FormBody {
+        padding: 24px 20px 20px;
+    }
+}

@@ -1,6 +1,13 @@
-function EmpleadosContent({ AllEmployee }) {
+import style from "../Styles/Empleados.module.css";
+import { useEffect, useState, useContext } from "react";
+import { useNavigate } from "react-router-dom";
+import { IDsContext } from "../Context/IDsContext.jsx"  
+function EmpleadosContent({ AllEmployee, SetAllEmployee, SetShowDialog,   SetOperation }) {
+    const { EmployeeId, setEmployeeId } = useContext  (IDsContext);
+
+    const navigate = useNavigate();
     return (
-        <table>
+        <table coll>
 
             <thead>
                 <tr>
@@ -18,16 +25,19 @@ function EmpleadosContent({ AllEmployee }) {
                 {AllEmployee.map((emp,index) => (
 
                     <tr key={index}>
-
-                        <td>{emp.fullname}</td>
+                        <td>
+                            <img src={emp.avatarUrl} />
+                            <span>{emp.fullName}  <br />  <small>{emp.email}  </small> </span>
+                        </td>
+                        
                         <td>{emp.phone}</td>
-                        <td>{emp.role}</td>
-                        <td>{emp.posicion}</td>
-                        <td>{emp.status}</td>
+                        <td>{emp.role?.name}</td>
+                        <td>{emp.position}</td>
+                        <td className={emp.status ? style.active : style.inactive}   ><span> ● </span>     {emp.status}</td>
 
                         <td>
 
-                            <button>
+                            <button onClick={() => { SetShowDialog(true), setEmployeeId(emp.id), SetOperation("update") }} >
                                 <i className="fa-solid fa-pen"></i>
                             </button>
 

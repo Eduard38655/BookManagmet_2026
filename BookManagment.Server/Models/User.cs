@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.ComponentModel.DataAnnotations.Schema;
 
 namespace BookManagment.Server.Models;
 
@@ -16,7 +15,7 @@ public partial class User
     public string? Phone { get; set; }
 
     public string? AvatarUrl { get; set; }
-
+    [Column("role_id")]
     public int RoleId { get; set; }
 
     public string Status { get; set; } = null!;

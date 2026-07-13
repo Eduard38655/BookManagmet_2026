@@ -199,7 +199,7 @@
     border-radius:5px
 }
 
-table {
+/**table {
     width: 100%;
     border-collapse: collapse;
     background: #ffffff;
@@ -237,7 +237,7 @@ tbody tr {
 
     tbody tr:last-child td {
         border-bottom: none;
-    }
+    }*/
 
 .active {
     background: #dcfce7;
@@ -262,21 +262,21 @@ tbody tr {
     transition: 0.2s;
 }
 
-    button:first-child {
-        color: #2563eb;
-    }
+.Container_Inv button:first-child {
+    color: #2563eb;
+}
 
-        button:first-child:hover {
-            background: #dbeafe;
-        }
+.Container_Inv button:first-child:hover {
+    background: #dbeafe;
+}
 
 .Container_Inv button:last-child {
     color: #dc2626;
 }
 
-        button:last-child:hover {
-            background: #fee2e2;
-        }
+    .Container_Inv button:last-child:hover {
+        background: #fee2e2;
+    }
 
         /*Warning Container*/
 

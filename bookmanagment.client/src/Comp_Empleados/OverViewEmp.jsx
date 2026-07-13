@@ -1,38 +1,44 @@
-
+import style from "../Styles/Empleados.module.css"
 
 import { useEffect, useState } from "react";
  
 function OverViewEmp({ AllEmployee }) {
     const [FilterData, SetFilterData] = useState([])
 
-        useEffect(() => {
-            const info=[]
+    useEffect(() => {
+        
+     
+            
+            let open = 0;
+            let posicion = 100;
+           
 
-            const staff = 0;
-            const open = 0;
-            const posicion = 100;
 
-            const Filter = AllEmployee.map((emp) => {
-
-                staff = emp.lenngth
-                open = emp.status === "Activo" ? open + 1 : open
-                posicion = posicion - emp.lenngth
+            let Filter = AllEmployee.map((emp) => {
+                
+                open = emp.status === "active" ? open + 1 : open
+                
             })
 
 
             SetFilterData({
-                Empleados: staff, Active:open, OpenPosicion: posicion
+                Empleados: AllEmployee.length, Active: open, OpenPosicion: posicion - AllEmployee.length
             })
 
     }, [])
- 
+  
+
+
+
+
 
   return (
       <>
-          <div>
-              <div>
+          <div className={style.ContainerEmpOverView}>
 
-                  <div>
+              <div className={style.Div_Cards }>
+
+                  <div className={style.Div_Text}>
                       <label>Total Staff</label>
                       <i className="fa-solid fa-user-group"></i>
                   </div>
@@ -40,21 +46,21 @@ function OverViewEmp({ AllEmployee }) {
               </div>
 
 
-              <div>
-                  <div>
+              <div className={style.Div_Cards}>
+                  <div className={style.Div_Text}>
                       <label>Active Now</label>
                       <i className="fa-solid fa-bolt"></i>
                   </div>
                   <span> {FilterData?.Active}</span>
               </div>
 
-              <div>
-                  <div>
+              <div className={style.Div_Cards}>
+                  <div className={style.Div_Text}>
                       <label>Open Positions</label>
                       <i className="fa-solid fa-briefcase"></i>
                   </div>
                   <span> {FilterData?.OpenPosicion}</span>
-                  <small>Ver vacantes Activas</small>
+                 
               </div>
 
 

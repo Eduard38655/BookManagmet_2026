@@ -45,17 +45,33 @@ function DashMenu() {
 
 
               <ul>
-                  <li className={location.pathname === "/home" ? style.activo : style.inactivo}>
-                      <Link to="/home">
-                          <i class="fa-solid fa-house"></i> Home
-                      </Link>
-                  </li>
-
                   <li className={location.pathname === "/dashboard" ? style.activo : style.inactivo}>
                       <Link to="/dashboard">
                           <i className="fa-solid fa-grip-vertical"></i> Dashboard
                       </Link>
                   </li>
+                  <li className={location.pathname === "/home" ? style.activo : style.inactivo}>
+                      <Link to="/home">
+                          <i className="fa-solid fa-house"></i> Home
+                      </Link>
+                  </li>
+
+                  <li className={location.pathname === "/customer" ? style.activo : style.inactivo}>
+                      <Link to="/customer">
+                          <i className="fa-solid fa-house"></i> Clientes
+                      </Link>
+                  </li>
+
+
+
+                  <li className={location.pathname === "/employee" ? style.activo : style.inactivo}>
+                      <Link to="/employee">
+                          <i className="fa-solid fa-house"></i> Empleados
+                      </Link>
+                  </li>
+
+
+                 
                   <li className={location.pathname === "/profile" ? style.activo : style.inactivo}>
                       <Link to="/profile">
                           <i className="fa-solid fa-users"></i> {" "} Profile
