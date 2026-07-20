@@ -7,7 +7,7 @@ function EmpleadosContent({ AllEmployee, SetAllEmployee, SetShowDialog,   SetOpe
 
     const navigate = useNavigate();
     return (
-        <table coll>
+        <table  >
 
             <thead>
                 <tr>

@@ -5,7 +5,7 @@ import style from "../Styles/Inv.module.css";
 import EmpPagination from "../Comp_Empleados/EmpPagination";
 import DialogInv from "../Comp_Inventory/DialogInv"
 import { useForm } from "react-hook-form"
-
+ 
 
 function InventoryPage() {
     const [Book_Data, SetBook_Data] = useState([]);
@@ -14,6 +14,8 @@ function InventoryPage() {
     const [currentItems, setCurrentItems] = useState([]);
     const [ShowDialog, SetDialog] = useState(false)
 
+    /*Editar Articulos */
+  
     useEffect(() => {
         const fetchData = async () => {
             try {
@@ -74,8 +76,7 @@ function InventoryPage() {
 
     return (<>
 
-        {ShowDialog && <DialogInv /> }
-
+         
         <article className={style.Container_Inv}>
 
             <div className={style.SubContainer}>
@@ -158,6 +159,7 @@ function InventoryPage() {
                         Book_Data={currentItems}
                         SetBook_Data={SetBook_Data}
                         SetDialog={SetDialog}
+                      
                     />
                     <EmpPagination currentItems={currentItems} setCurrentItems={setCurrentItems} AllEmployee={Book_Data} />
 

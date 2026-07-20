@@ -2,16 +2,13 @@ import { useState, useEffect } from "react";
 import style from "../Styles/Inv.module.css";
 import { useNavigate } from "react-router-dom" 
  
-function InventoryContent({ Book_Data, SetBook_Data, SetDialog }) {
+function InventoryContent({ Book_Data, SetBook_Data, SetDialog  }) {
     const itemsPerPage = 5;
     const [currentItems, setCurrentItems] = useState([]);
     const [pageCount, setPageCount] = useState(0);
     const [currentPage, setCurrentPage] = useState(0);
     const navigate = useNavigate()
-    // Un solo efecto: corrige la página si Book_Data cambió y la página
-    // quedó fuera de rango, y luego arma currentItems a partir de Book_Data.
-   
-
+    
 
     useEffect(() => {
         const totalPages = Math.max(1, Math.ceil(Book_Data.length / itemsPerPage));
@@ -38,13 +35,13 @@ function InventoryContent({ Book_Data, SetBook_Data, SetDialog }) {
             <table className={style.DivInvTable }>
                 <thead>
                     <tr>
-                        <th>Titulo/Autor</th>
-                        <th>ISBN</th>
-                        <th>Category</th>
-                        <th>Stock</th>
-                        <th>Precio</th>
-                        <th>Estado</th>
-                        <th>Acciones</th>
+                        <th style={{ width:"30%" }} >Titulo/Autor</th>
+                        <th style={{ width: "15%" }}>ISBN</th>
+                        <th style={{ width: "15%" }}>Category</th>
+                        <th style={{ width: "8%" }}>Stock</th>
+                        <th style={{ width: "10%" }}>Precio</th>
+                        <th style={{ width: "8%" }}>Estado</th>
+                        <th style={{ width: "8%" }}>Acciones</th>
                     </tr>
                 </thead>
 
@@ -82,7 +79,7 @@ function InventoryContent({ Book_Data, SetBook_Data, SetDialog }) {
                             </td>
 
                             <td>
-                                <button onClick={() => { SetDialog(true) } } >
+                                <button onClick={() => { SetDialog(true), navigate(`/inventory/${book.id}`)   } } >
                                     <i className="fa-solid fa-pen"></i>
                                 </button>
 

@@ -208,21 +208,21 @@ align-items:center;
 /*Dashboard Nav*/
 
 .nav_Container {
-    width: 16%;
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
+    width: 17%;
+    height: 100%;
     background: var(--color-surface-container-low);
-    
+    position: sticky;
+    top: 0;
+   
 }
+
 .SubContainer {
     width: 100%;
     height: 100%;
     display: flex;
     flex-direction: column;
     gap: 20px;
-    padding-top: 20px;
-    border-right: 2px solid var(--border-color);
+   
 }
 
 .Header_Container {
@@ -268,7 +268,7 @@ align-items:center;
     }
 
 .nav_Container ul {
-   
+   width:100%;
     list-style: none;
     padding: 15px;
     display: flex;
@@ -277,30 +277,20 @@ align-items:center;
  
    
 }
- 
-.nav_Container ul li {
-    padding: 10px;
+
+
+
+
+.nav_Container li a {
+    display: block;
+    text-decoration: none;
+    font-size: 1rem;
+    font-weight: 550;
+    color: var(--color-nav-text);
+    padding:10px;
 }
 
-.nav_Container li:hover {
-    padding: 10px;
-    color: var(--color-nav-text-golden);
-    background: var(--back-nav-golden);
-    border-radius:4px;
-}
-
-    .nav_Container li a {
-       
-        text-decoration: none;
-        font-size: 1rem;
-        font-weight: 550;
-        color: var(--color-nav-text);
         
-    }
-
-        .nav_Container li a:hover {
-             
-        }
 
 .DivLogout {
     width: 100%;
@@ -327,8 +317,19 @@ font-weight:550;
     cursor:pointer;
 }
 /**/
-.SubContainer > ul .activo {
+
+ 
+ 
+.SubContainer ul li a:hover {
+    padding: 10px;
     color: var(--color-nav-text-golden);
     background: var(--back-nav-golden);
+}
+.SubContainer ul .activo {
+    color: var(--color-nav-text-golden);
+    background: var(--back-nav-golden);
+    display: block;
+    padding: 10px;
     border-radius: 4px;
+    text-decoration: none;
 }

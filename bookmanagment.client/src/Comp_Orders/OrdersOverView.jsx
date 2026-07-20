@@ -1,5 +1,6 @@
-import { useState, useEffect} from "react";
- 
+import { useState, useEffect } from "react";
+
+import style from "../Styles/Orders.module.css"
 
 function OrdersOverView({ AllOrders, SetAllOrders }) {
     const [Satatus_Orders, SetOrders] = useState([])  
@@ -11,7 +12,8 @@ function OrdersOverView({ AllOrders, SetAllOrders }) {
             shipped: 0,
             delivered: 0,
             pending: 0,
-            paid:0
+            paid: 0,
+            canceled:0
         };
 
         const FilterStatus = AllOrders.map((order) => {
@@ -29,9 +31,15 @@ function OrdersOverView({ AllOrders, SetAllOrders }) {
             else if (data[i] === "paid") {
                 counts.paid++;
             }
+            else if (data[i] === "canceled") {
+                counts.canceled++;
+            }
             else {
                 counts.pending++;
             }
+
+
+            
         }
 
         SetOrders(counts);
@@ -41,7 +49,7 @@ function OrdersOverView({ AllOrders, SetAllOrders }) {
 
   return (
       <>
-          <div>
+          <div className={style.DivContainer_Orders }>
               <div>
                   <label>Delivered</label>
                   <span>{Satatus_Orders.delivered}</span>
@@ -60,6 +68,11 @@ function OrdersOverView({ AllOrders, SetAllOrders }) {
               <div>
                   <label>Pending</label>
                   <span>{Satatus_Orders.pending}</span>
+              </div>
+
+              <div>
+                  <label>Cancelada</label>
+                  <span>{Satatus_Orders.canceled}</span>
               </div>
 
 

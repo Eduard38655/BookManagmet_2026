@@ -19,30 +19,56 @@ namespace BookManagment.Server.Controllers
         public async Task<IActionResult> ObtenerOrders()
         {
 
-            
-            var Orders = await _context.Orders
-      .Include(x => x.Customer)
-          .ThenInclude(x => x.User)
-        
-      .Include(x => x.OrderItems)
-          .ThenInclude(x => x.Book)
-          .ThenInclude(x=>x.InventoryMovements)
-        
+
+            var orders = await _context.Orders
+      .Select(o => new
+      {
+          o.OrderNumber,
+          o.PaymentStatus,
+          o.CreatedAt,
+          o.Total,
+          o.Status,
+
+          Customer = new
+          {
+
+              o.Customer.User.FullName,
+
+          },
+          Employee = new
+          {
+
+              o.Employee.User.FullName
+
+          },
+          Items = o.OrderItems.Select(oi => new
+          {
+              oi.Quantity,
+
+              Book = new
+              {
+                  oi.Book.Id,
+                  oi.Book.Title,
+                  oi.Book.Price,
+
+                  Inventory = oi.Book.InventoryMovements.Select(im => new
+                  {
+                      im.Id,
+                      im.Quantity,
+                      im.MovementType,
+                      im.Reason
+                  })
+              }
+          })
+      })
       .ToListAsync();
 
 
-            var Customers = await (
-    from u in _context.Users
-    where u.Status == "active"
-    select new
-    {
-        u.FullName
-    }
-).ToListAsync();
 
 
 
-            return Ok(new {data=Orders,ok=true,customer= Customers });
+
+            return Ok(new { data = orders, ok = true });
         }
     }
 }

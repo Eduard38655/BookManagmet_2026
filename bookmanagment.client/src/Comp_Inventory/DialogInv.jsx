@@ -1,238 +1,94 @@
-import { useForm } from "react-hook-form";
+import { useForm, FormProvider } from "react-hook-form";
 import style from "../Styles/Inv.module.css";
+import { useEffect, useState } from "react";
+import Author from "../Comp_Inventory/Author"
+import InvPrice from "../Comp_Inventory/InvPrice"
+import PublisherInv from "../Comp_Inventory/PublisherInv"
+import BookInfo from "../Comp_Inventory/BookInfo"
 
-function DialogInv() {
+function DialogInv({ SetDialog, Book_Data, SelectedId, SetSelectedID, onSave }) {
+    const [page, setPage] = useState(0);
+    const methods = useForm();
+
     const {
-        register,
         handleSubmit,
-        watch,
-        formState: { errors },
-    } = useForm();
+        reset,
+    } = methods;
+    useEffect(() => {
+        if (SelectedId == null) {
+            reset({});
+            return;
+        }
 
-    const onSubmit = (data) => console.log(data);
+        const book = Book_Data.find((b) => String(b.id) === String(SelectedId));
+        if (book) {
+            reset(book);
+        }
+    }, [SelectedId, Book_Data, reset]);
 
-    const coverUrl = watch("coverUrl");
+    const onSubmit = (data) => {
+        onSave?.(data, SelectedId);
+    };
 
+    const handleCancel = () => {
+        SetSelectedID?.(null);
+        SetDialog(false);
+    };
+
+ 
+ 
     return (
-        <div className={style.DivContainerDialogInv}>
-            <div className={style.SubContainerDialogInv}>
-                <form onSubmit={handleSubmit(onSubmit)}>
+  
+        <>
+            <FormProvider {...methods}>
+            <aside className={style.ContainerEdit}>
 
-                    <div>
+
+
+                    <form className={style.FormContainer} onSubmit={handleSubmit(onSubmit)}>
+                        <label className={style.PageTitle }>Modo Edicion</label>
+
+                        {page === 0 ? (
+                            <>
+                                <BookInfo />
+                                <InvPrice />
+                            </>
+                        ) : (
+                                <>
+                                    <PublisherInv />
+                                <Author />
+                                 
+                            </>
+                        )}
+                    
                         
-
-                        <label><i className="fa-solid fa-book-bookmark"></i>Book Informacion</label>
-
-                        <div>
-
-                            <div>
-                                <label>Book cover</label>
-                                < img src="" />
-
-                            </div>
-
-
-
-
-                            <div>
-
-
-
-                                <div>
-                                    <label>Title</label>
-                                    <input
-                                        {...register("title", {
-                                            required: "El título es obligatorio",
-                                        })}
-                                    />
-                                    {errors.title && <span>{errors.title.message}</span>}
-                                </div>
-
-
-                                <div>
-                                    <label>ISBN</label>
-                                    <input
-                                        {...register("isbn", {
-                                            required: "El ISBN es obligatorio",
-                                            pattern: {
-                                                value: /^(97(8|9))?\d{9}(\d|X)$/,
-                                                message: "ISBN inválido",
-                                            },
-                                        })}
-                                    />
-                                    {errors.isbn && <span>{errors.isbn.message}</span>}
-                                </div>
-
-
-                                <div>
-                                    <label>Description</label>
-                                    <input {...register("description")} />
-                                </div>
-
-                                <div>
-                                    <label>Language</label>
-                                    <div>
-                                        <select {...register("category")}>
-                                            <option value="">Category</option>
-                                        </select
-
-                                </div>
-                                </div>
-
-
-
-
-                                <div>
-                                    <label>Category</label>
-                                    <div>
-                                        <select {...register("category")}>
-                                            <option value="">Category</option>
-                                        </select>
-                                    </div>
-                                </div>
-
-
-                                <div>
-                                    <label>Format</label>
-                                    <div>
-                                        <select {...register("format")}>
-                                            <option value="">Format</option>
-                                        </select>
-                                    </div>
-                                </div>
-
-
-
-
-
-                            </div>
-
-
-                        </div>
-
-
-                    </div>
-                   
-
-
-                   
-
-                    <div>
-
-
-                        <label><i className="fa-solid fa-money-bill-wave"></i>Pricing & Stock</label>
-
-                        <div>
-
-                            <div>
-                                <label>Price</label>
-                                <input
-                                    type="number"
-                                    step="0.01"
-                                    {...register("price", {
-                                        required: "El precio es obligatorio",
-                                    })}
-                                />
-                                {errors.price && <span>{errors.price.message}</span>}
-                            </div>
-
-
-                            <div>
-                                <label>Cost price</label>
-                                <input
-                                    type="number"
-                                    step="0.01"
-                                    {...register("costPrice")}
-                                />
-                            </div>
-
-                            <div>
-                                <label>Stock</label>
-                                <input type="number" {...register("stock")} />
-                            </div>
-
-
-                            <div>
-                                <label>Status</label>
-                                <div>
-                                    <select {...register("status")}>
-                                        <option value="inactive">Inactive</option>
-                                        <option value="active">Active</option>
-                                    </select>
-                                </div>
-                            </div>
-
-                        </div>
-
-                    </div>
-                   
-
-                   
-
-                    <div>
-
-                        <label> <i className="fa-solid fa-building-flag"></i>Publisher Details</label>
-
-
-                        <div>
-
-
-                            
-
-
-
-                            <div>
-                                <label>Publisher name</label>
-                                <input {...register("publisherName")} />
-                            </div>
-
-                            <div>
-                                <label>Publisher logo URL</label>
-                                <input {...register("publisherLogoUrl")} />
-                            </div>
-
-                            <div>
-                                <label>Publisher email</label>
-                                <input type="email" {...register("publisherEmail")} />
-                            </div>
-
-                            <div>
-                                <label>Publisher phone</label>
-                                <input {...register("publisherPhone")} />
-                            </div>
-
-                            <div>
-                                <label>Publisher website</label>
-                                <input {...register("publisherWebsite")} />
-                            </div>
-
-
-                        </div>
-
-
-                    </div>
- 
-
-                   
-
                     
+                    <div className={style.ButtonRow}>
+                            <button type="button" className={style.BtnCancel} onClick={handleCancel}>
+                                Cancel
+                            </button>
+                            <button type="submit" className={style.BtnSave}>
+                                <i className="fa-solid fa-floppy-disk"></i> {" "}Guardar
+                            </button>
+                            <button className={style.ButtonGo }
+                                type="button"
+                                onClick={() => setPage(page === 0 ? 1 : 0)}
+                            >
+                                <i
+                                    className={`fa-solid ${page === 0 ? "fa-right-long" : "fa-left-long"
+                                        }`}
+                                />
+                            </button>
 
-                  
 
-                  
 
-                    
-
-                 
- 
-
-                    <div>
-                        <button type="submit">Cancel</button>
-                        <button type="submit"> <i className="fa-solid fa-floppy-disk"></i> {" "}Guardar</button>
+                           
                     </div>
                 </form>
-            </div>
-        </div>
+
+            </aside>
+            </FormProvider>
+            </>
     );
 }
 
