@@ -448,24 +448,140 @@
 
 
 /*/
-
+    Dialog Inventario
 */
 
-.DivContainerDialogInv {
+
+.ContainerEdit {
+ 
+    width: 100%;
+    height: 100%;
+    background: rgba(26, 28, 30, 0.55);
+    backdrop-filter: blur(3px);
+    position: fixed;
+    inset: 0;
+    z-index: 100000;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* ============================================
+   Card shell — folder-tab signature element
+   ============================================ */
+.FormContainer {
+    width: 55%;
+    height: 100%;
+    position: relative;
+    background: white;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    box-shadow: 0 24px 60px rgba(26, 28, 30, 0.35);
+   
+    padding: 20px;
+}
+
+.Section_Part1 {
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction:column;
+    gap: 20px;
+}
+.DivContainerInfo {
     width: 100%;
     height: 100%;
     display: flex;
-    
-    z-index: 100000;
-    position: absolute;
-    background: rgba(0, 0, 0, 0.5);
-    padding:20px;
-    align-items:center;
-    justify-content:center;
+   
+    gap: 20px;
+    justify-content:space-between;
+     
 }
 
-.SubContainerDialogInv {
-    width: 70%;
-    height: 100%;
-    background:blue;
+.BookInfo_Section1 div label, .DivCover label{
+    color: var(--color-nav-text);
+    font-size: 0.8rem;
+    font-weight: 550;
 }
+.DivCover {
+    width: 20vh;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+   
+}
+    .DivCover img {
+        width: 100%;
+        height: 100%;
+        border: 1px solid red;
+    }
+.BookInfo_Section1 {
+    width: 100%;
+    height: auto;
+    display: grid;
+    grid-template-columns: repeat(4, auto); /* 4 equal columns */
+   
+
+    gap: 10px;
+}
+    .BookInfo_Section1 div {
+        width: auto;
+        height: auto;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+       
+    }
+.BookDes {
+    width: 100%;
+    height: 1500px;
+    border-radius: 3px;
+    grid-column: 1 /4;
+}
+
+.DivLeng {
+    width: 70px;
+    grid-column: 1 / 2;
+  
+}
+.DivCatg {
+    width: 70px;
+
+    grid-column: 2 / 3;
+ 
+}
+.DivForm {
+    width: 70px;
+    grid-column: 3/3;
+   
+}
+
+.BookInfo_Section1 div input {
+    width: auto;
+    height: auto;
+    padding: 8px;
+   
+}
+.BookInfo_Section1 div input {
+    border: 1px solid var(--secondary-border-color);
+    border-radius:3px;
+    
+}
+    .BookInfo_Section1 div div {
+        width: auto;
+        height: auto;
+        padding: 8px;
+        border: 1px solid var(--secondary-border-color);
+          border-radius:3px;
+    }
+.BookInfo_Section1 div div select{
+    border:none;
+
+}
+    .BookInfo_Section1 div div select:focus, input:focus {
+        outline: none
+    }
