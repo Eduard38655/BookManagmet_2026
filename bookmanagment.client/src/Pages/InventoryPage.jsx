@@ -4,6 +4,8 @@ import WarningStock from "../Comp_Inventory/WarningStock";
 import style from "../Styles/Inv.module.css";
 import EmpPagination from "../Comp_Empleados/EmpPagination";
 import DialogInv from "../Comp_Inventory/DialogInv"
+import { useForm } from "react-hook-form"
+
 
 function InventoryPage() {
     const [Book_Data, SetBook_Data] = useState([]);
