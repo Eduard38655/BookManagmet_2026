@@ -18,9 +18,10 @@ function OrdersContent({ AllOrders, SetAllOrders }) {
                 <thead className={style.Container_thead}>
                     <tr>
                         <th>ORDER ID</th>
-                        <th>CUSTOMER</th>
+                        <th>EMPLOYEE </th>
                         <th>DATE</th>
                         <th>STATUS</th>
+                        <th>CUSTOMER</th>
                         <th>TOTAL</th>
                         <th>ACTION</th>
                     </tr>
@@ -35,10 +36,8 @@ function OrdersContent({ AllOrders, SetAllOrders }) {
                             <td className={style.Container_Order_Number}>
                                 #{order.orderNumber}
                             </td>
-
-                            <td>
-                                {order.customer?.user?.fullName}
-                            </td>
+                            <td>{order.employee.fullName} </td>
+                           
 
                             <td>
                                 {new Date(order.createdAt).toLocaleDateString()}
@@ -51,7 +50,11 @@ function OrdersContent({ AllOrders, SetAllOrders }) {
                             </td>
 
                             <td>
-                                <strong>${order.total}</strong>
+                                <td>{order.customer.fullName} </td>
+                            </td>
+
+                            <td>
+                                ${order.total} 
                             </td>
 
                             <td>

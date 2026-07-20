@@ -1,8 +1,5 @@
 ﻿using BookManagment.Server.Models;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.CodeAnalysis.FlowAnalysis;
-using Microsoft.EntityFrameworkCore;
-using System.Net;
 
 namespace BookManagment.Server.Controllers
 {
@@ -22,7 +19,7 @@ namespace BookManagment.Server.Controllers
 
 
         [HttpGet("get")]
-   
+
         public IActionResult Get()
         {
             try
@@ -157,7 +154,14 @@ namespace BookManagment.Server.Controllers
                  b.Price,
                  b.Status,
                  b.CoverImageUrl,
+                 b.Stock,
+                 BookStatus = b.Status,
+                 b.CostPrice,
 
+                 p.LogoUrl,
+                 p.Email,
+                 p.Phone,
+                 p.Website,
                  Author = a.Name,
                  Category = c.Name,
                  Publisher = p.Name,

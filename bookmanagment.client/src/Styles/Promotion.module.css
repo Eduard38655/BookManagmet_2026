@@ -1,0 +1,517 @@
+:root {
+    /* Surface Colors */
+    --color-surface: #f8f9fa;
+    --color-surface-dim: #d9dadb;
+    --color-surface-bright: #f8f9fa;
+    --color-surface-container-lowest: #ffffff;
+    --color-surface-container-low: #f3f4f5;
+    --color-surface-container: #ecedee;
+    --color-surface-container-high: #e7e8e9;
+    --color-surface-container-highest: #e1e2e3;
+    --color-on-surface: #1a1c1e;
+    --color-on-surface-variant: #43474e;
+    --color-outline: #73777f;
+    --color-outline-variant: #c3c7cf;
+    /* Primary Brand Colors (Academic Blue) */
+    --color-primary: #2c3e50;
+    --color-on-primary: #ffffff;
+    --color-primary-container: #d3e4ff;
+    --color-on-primary-container: #001c38;
+    /* Secondary Colors (Deep Gray/Blue) */
+    --color-secondary: #535f70;
+    --color-on-secondary: #ffffff;
+    --color-secondary-container: #d7e3f7;
+    --color-on-secondary-container: #101c2b;
+    /* Tertiary Colors (Amber/Gold Accents) */
+    --color-on-tertiary: #ffffff;
+    --color-tertiary-container: #ffdbca;
+    --color-on-tertiary-container: #331200;
+    /* State Colors */
+    --color-error: #ba1a1a;
+    --color-on-error: #ffffff;
+    --color-success: #2e7d32;
+    --color-warning: #f9a825;
+    --color-info: #0277bd;
+    /* Fixed Accents (Used in the UI for consistent emphasis) */
+    --color-accent-amber: #e67e22;
+    --color-accent-blue: #2980b9;
+    --font_family: 'Cormorant Garamond', serif;
+    --color-nav-text: #43474c;
+    --underline-header: #a55a1d;
+    --header-bg: #191c1d;
+    --text-dark-color: #162839;
+    --border-color: #e5e7eb;
+    --back-ground-text: #1628390d;
+    --Background-info: #fc8f34;
+    --proegess-background: #944a00;
+    --color-porcentage: 74777d;
+}
+ 
+.Container_Page_Emp {
+    width: 100%;
+    height: 100%;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    justify-content: space-between;
+}
+
+
+table {
+    width: 100%;
+    height: 100%;
+    border-radius: 35px;
+    border-collapse: collapse;
+}
+
+thead {
+    background: #f8fafc;
+    height: 100%;
+}
+
+th {
+    height: 100%;
+    padding: 16px;
+    text-align: left;
+    font-size: 14px;
+    font-weight: 600;
+    color: #64748b;
+    border-radius: 7px;
+    background: var(--color-surface-container-low);
+}
+
+
+
+
+.Container_Page_Emp table button {
+    background: none;
+    border: none;
+    text-align: end;
+    font-size: 0.9rem;
+    cursor: pointer;
+}
+
+    .Container_Page_Emp table button:hover {
+        background: none;
+    }
+
+.Container_Page_Emp table td img {
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+    border-radius: 10px;
+    border: 1px solid var(--border-color);
+}
+
+.Container_Page_Emp table td:nth-child(1) {
+    height: 100%;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+    .Container_Page_Emp table td:nth-child(1) span {
+        color: var(--text-dark-color);
+        font-size: 0.9rem;
+    }
+
+        .Container_Page_Emp table td:nth-child(1) span small {
+            color: var(--color-outline);
+        }
+
+.Container_Page_Emp table tbody tr {
+    padding: 16px;
+    border-bottom: 1px solid var(--secondary-border-color);
+}
+
+.Container_Page_Emp table td {
+    height: 100%;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var( --color-outline);
+    padding: 16px;
+}
+
+.Container_Page_Emp table th {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--text-dark-color);
+    border-bottom: 1px solid var(--secondary-border-color);
+}
+
+.Container_Page_Emp table .active {
+    text-transform: capitalize;
+    color: var(--color-accent-amber);
+    font-size: 0.8rem;
+}
+
+.Container_Page_Emp table .inactive {
+    text-transform: capitalize;
+    color: var(--color-on-surface-variant);
+    font-size: 0.8rem;
+}
+
+.DivTable_Container {
+    width: 100%;
+    height: 100%;
+    border: 1px solid var(--secondary-border-color);
+    border-radius: 7px;
+}
+ 
+
+.DivFilter_Container {
+    width: 100%;
+    height: auto;
+    display: flex;
+    padding: 15px;
+    background-color: var( --color-surface);
+    border: 1px solid var(--secondary-border-color);
+    border-radius: 7px;
+    align-items: center;
+    gap: 10px;
+}
+
+.SearchInput {
+    width: 40%;
+    height: 40px;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    background: #ffffff;
+    padding: 0px 10px;
+    border-radius: 5px;
+    border: 1px solid var(--secondary-border-color);
+}
+
+
+.DivSearchDate {
+    width: 40%;
+    height: 40px;
+    display: flex;
+    flex-direction:row;
+    gap: 10px;
+    align-items: center;
+    
+    padding: 0px 10px;
+    border-radius: 5px;
+    border: 1px solid var(--secondary-border-color);
+}
+    .DivSearchDate input{
+        background:none;
+        border:none;
+    }
+        .DivSearchDate input:focus {
+        outline:none;
+        }
+        .SearchInput input {
+            width: 100%;
+            border: none;
+            background: none;
+            color: var(--text-dark-color);
+            font-size: 1rem;
+        }
+
+        .SearchInput input::placeholder {
+            color: var(--color-outline);
+            font-size: 0.8rem;
+        }
+
+        .SearchInput input:focus {
+            outline: none;
+        }
+
+
+.DivSelect {
+    width: auto;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+.DivSearchDate{
+    width:auto;
+}
+
+.DivSelect div {
+    padding: 5px;
+    display: flex;
+    align-items: center;
+    border: 1px solid var(--secondary-border-color);
+    border-radius: 4px;
+}
+
+    .DivSelect select {
+        width: auto;
+        padding: 5px;
+        background: none;
+        border: none;
+    }
+
+        .DivSelect select option {
+            width: 100%;
+        }
+
+.DivSelect select:focus {
+    outline: none;
+}
+
+
+.Description_Page{
+    width:100%;
+    display:flex;
+    flex-direction:row;
+    justify-content:space-between;
+}
+    .Description_Page div {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        gap:5px;
+    }
+        .Description_Page div h3{
+            font-size:2rem;
+            color:var(--text-dark-color);
+        }
+        .Description_Page div p {
+            color: var(--color-nav-text);
+            font-size:0.9rem;
+            font-weight:400;
+        }
+            .Description_Page button {
+                border-radius: 5px;
+                font-size: 0.9rem;
+
+                font-weight:550;
+                cursor: pointer;
+                border: 1px solid var(--border-color);
+                width: 200px;
+                height:50px;
+                color: white;
+                padding: 10px;
+                background: var(--color-accent-amber);
+            }
+    .Description_Page div {
+
+    }
+
+.DivFilter_Container button {
+    color: white;
+    padding: 5px;
+    width: auto;
+    height: 40px;
+    border: 1px solid var(--secondary-border-color);
+    border-radius: 5px;
+    cursor: pointer;
+    color: var(--text-dark-color);
+    background: none;
+    font-size: 0.9rem;
+}
+.DivFilter_Container button:hover {
+    color: white;
+    background: var(--proegess-background);
+   
+    border:1px solid var(--border-color);
+     
+}
+
+.Description_Page button i {
+    margin-right: 5px;
+}
+
+/*Mangment of promotions*/
+
+.MainContainerSection_Page {
+    width: 100%;
+    height: 100%;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    justify-content: space-between;
+}
+.Container_Promo {
+    width: 100%;
+    height: 100%;
+    padding: 20px;
+    display: grid;
+ 
+    gap: 30px;
+}
+
+.FormContainer {
+    display: grid;
+    grid-template-columns: repeat(auto, 1fr);
+    grid-template-rows: repeat(auto, 1fr);
+    gap: 30px;
+}
+ 
+.PersonalInfo_Promo {
+    width: 100%;
+    height: 100%;
+    padding: 20px;
+    display: grid;
+    grid-column: 1/5;
+    border: 1px solid red;
+    gap: 20px;
+    background: white;
+    border: 1px solid var( --border-color);
+    border-radius: 5px;
+}
+
+.FormContainer label {
+    font-size: 0.8rem;
+    color: var(--color-nav-text);
+    font-weight: 500;
+}
+.FormContainer .SecTittle {
+    font-size: 1rem;
+    color: var(--text-dark-color);
+    font-weight: 600;
+}
+.DivInput, .DivTextarea {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+}
+
+  .DivSelect_Promo {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+    
+}
+    .DivSelect_Promo select {
+        width: 100%;
+        border: none;
+    }
+    .DivSelect_Promo div {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid var( --border-color);
+    }
+    .PersonalInfo_Promo button {
+        padding: 8px;
+        border: 1px solid var( --border-color);
+        font-size: 1rem;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+ 
+.addInfo {
+    font-size: 0.7rem;
+    color: var(--color-nav-text);
+}
+
+.FormContainer input:focus,button:focus,select:focus,textarea:focus{
+    outline:none;
+}
+
+.DivInput input {
+    border: 1px solid var( --border-color);
+    padding: 10px;
+    border-radius: 5px;
+}
+
+    .DivTextarea textarea {
+        border: 1px solid var( --border-color);
+        padding: 10px;
+        height:100px;
+        border-radius: 5px;
+    }
+
+   
+.Container_type {
+    width: 100%;
+    height: 100%;
+    padding: 20px;
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+   
+    background: white;
+    border: 1px solid var( --border-color);
+    border-radius: 5px;
+    grid-column: 1/5;
+    gap: 20px;
+}
+.TypeDesc, .ProgrammingInfo {
+     
+    display:grid;
+    gap:20px;
+    
+}
+.DivSearchButton {
+    width:100%;
+  }
+
+.PromoCategory {
+    width: auto;
+    height: 50%;
+   
+    display: grid;
+    grid-template-rows: repeat(1,1fr);
+   
+    
+    grid-column: 2/3;
+    grid-row: 1/2;
+    gap:30px;
+}
+.ContainerCategory{
+   display:flex;
+   flex-direction:column;
+   gap:20px;
+}
+.DivContainerCheckBox {
+    width: auto;
+    height: 100%;
+    background: white;
+    border: 1px solid var( --border-color);
+    flex-direction: column;
+    background: white;
+    padding: 20px;
+    display: grid;
+    gap: 30px;
+    border-radius: 5px;
+}
+.DivInputCheck {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    overflow: auto;
+    scroll-behavior: smooth;
+}
+    .DivInputCheck div {
+        display: flex;
+        flex-direction:row;
+        gap: 8px;
+    }
+    .DivInputCheck div label{
+        color:var(--color-nav-text);
+       font-size:0.8rem;
+       font-weight:550;
+    }
+
+.PromoCategory button{
+    background:var(--color-accent-amber);
+    color:white;
+    border:1px solid var(--border-color);
+    padding:5px;
+    border-radius:5px;
+    cursor:pointer
+}
+
+.DivBanner_Container {
+    width: auto;
+    height: 100%;
+    background: white;
+    border: 1px solid var( --border-color);
+    flex-direction: column;
+    background: white;
+    padding: 20px;
+    display: grid;
+    gap: 30px;
+    border-radius: 5px;
+}
+.DivBanner_Container img{
+    width:100px;
+}

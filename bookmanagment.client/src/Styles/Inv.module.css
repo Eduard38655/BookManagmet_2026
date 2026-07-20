@@ -227,7 +227,7 @@
 
 
 .DivInvTable {
-    width: 100%;
+    width: auto;
     height: 100%;
     border-radius: 35px;
     border-collapse: collapse;
@@ -316,7 +316,7 @@
 }
 
 .DivTable_Container {
-    width: 100%;
+    width:auto;
     height: 100%;
     border: 1px solid var(--secondary-border-color);
     border-radius: 7px;
@@ -450,138 +450,382 @@
 /*/
     Dialog Inventario
 */
+/* Inv.module.css */
+:root {
+    --color-surface: #f8f9fa;
+    --color-surface-dim: #d9dadb;
+    --color-surface-bright: #f8f9fa;
+    --color-surface-container-lowest: #ffffff;
+    --color-surface-container-low: #f3f4f5;
+    --color-surface-container: #ecedee;
+    --color-surface-container-high: #e7e8e9;
+    --color-surface-container-highest: #e1e2e3;
+    --color-on-surface: #1a1c1e;
+    --color-on-surface-variant: #43474e;
+    --color-outline: #73777f;
+    --color-outline-variant: #c3c7cf;
+    --color-primary: #2c3e50;
+    --color-on-primary: #ffffff;
+    --color-primary-container: #d3e4ff;
+    --color-on-primary-container: #001c38;
+    --color-secondary: #535f70;
+    --color-on-secondary: #ffffff;
+    --color-secondary-container: #d7e3f7;
+    --color-on-secondary-container: #101c2b;
+    --color-tertiary: #a05a2c;
+    --color-on-tertiary: #ffffff;
+    --color-tertiary-container: #ffdbca;
+    --color-on-tertiary-container: #331200;
+    --color-error: #ba1a1a;
+    --color-on-error: #ffffff;
+    --color-success: #2e7d32;
+    --color-warning: #f9a825;
+    --color-info: #0277bd;
+    --color-accent-amber: #e67e22;
+    --color-accent-blue: #2980b9;
+    --font_family: 'Cormorant Garamond', serif;
+    --color-nav-text: #43474c;
+    --underline-header: #a55a1d;
+    --header-bg: #191c1d;
+    --text-dark-color: #162839;
+    --border-color: #e5e7eb;
+    --back-ground-text: #1628390d;
+    --color-nav-text-golden: #663100;
+    --back-nav-golden: #fc8f34;
+    --secondary-border-color: #C5C7CE;
+}
 
+/* ============ CONTENEDOR DE PÁGINA ============ */
+.PageWrapper {
+    max-width: 1180px;
+    margin: 0 auto;
+    padding: 1.75rem 2rem 3rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
 
-.ContainerEdit {
- 
-    width: 100%;
-    height: 100%;
-    background: rgba(26, 28, 30, 0.55);
-    backdrop-filter: blur(3px);
-    position: fixed;
-    inset: 0;
-    z-index: 100000;
-    padding: 20px;
+/* ============ HEADER ============ */
+.PageHeader {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    padding-bottom: 1.25rem;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.Breadcrumb {
+    display: block;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--color-outline);
+    margin-bottom: 0.35rem;
+}
+
+.PageTitle {
+    font-family: var(--font_family);
+    font-size: 2rem;
+    font-weight: 600;
+    color: var(--color-primary);
+    margin: 0;
+}
+
+.HeaderActions {
+    display: flex;
+    gap: 0.75rem;
+}
+
+/* ============ TARJETAS (compartida por todas las secciones) ============ */
+.Section_Part1,
+.Container_Prices,
+.Section_Publisher,
+.DivConatiner_Autor {
+    background: var(--color-surface-container-lowest);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    padding: 1.75rem;
+    box-shadow: 0 1px 2px rgba(22, 40, 57, 0.04);
+}
+
+    .DivConatiner_Autor{
+        width:600px;
+    }
+.GridLayout .SectionLabel {
     display: flex;
     align-items: center;
-    justify-content: center;
-}
-
-/* ============================================
-   Card shell — folder-tab signature element
-   ============================================ */
-.FormContainer {
-    width: 55%;
-    height: 100%;
-    position: relative;
-    background: white;
-    border-radius: 10px;
-    display: flex;
-    flex-direction: column;
-    align-items: stretch;
-    box-shadow: 0 24px 60px rgba(26, 28, 30, 0.35);
-   
-    padding: 20px;
-}
-
-.Section_Part1 {
-    width: 100%;
-    height: auto;
-    display: flex;
-    flex-direction:column;
-    gap: 20px;
-}
-.DivContainerInfo {
-    width: 100%;
-    height: 100%;
-    display: flex;
-   
-    gap: 20px;
-    justify-content:space-between;
-     
-}
-
-.BookInfo_Section1 div label, .DivCover label{
-    color: var(--color-nav-text);
-    font-size: 0.8rem;
-    font-weight: 550;
-}
-.DivCover {
-    width: 20vh;
-    height: auto;
-    display: flex;
-    flex-direction: column;
     gap: 10px;
-   
+    font-size:1rem;
+    font-weight: 600;
+    color:var(--color-nav-text);
+    margin-bottom: 1.25rem;
 }
-    .DivCover img {
-        width: 100%;
-        height: 100%;
-        border: 1px solid red;
+
+    .SectionLabel i {
+        color: var(--text-dark-color);
+        font-size: 1rem;
     }
-.BookInfo_Section1 {
-    width: 100%;
-    height: auto;
+
+/* ============ GRID PRINCIPAL ============ */
+.GridLayout {
     display: grid;
-    grid-template-columns: repeat(4, auto); /* 4 equal columns */
-   
-
-    gap: 10px;
+    grid-template-columns: 1.4fr 1fr;
+    gap: 1.5rem;
+    align-items: start;
 }
-    .BookInfo_Section1 div {
-        width: auto;
-        height: auto;
-        display: flex;
-        flex-direction: column;
-        gap: 10px;
-       
-    }
-.BookDes {
+
+.ColLeft,
+.ColRight {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+/* ============ CAMPOS DE FORMULARIO (global) ============ */
+.PageWrapper label {
+    display: block;
+    font-size: 0.82rem;
+    font-weight: 500;
+    color: var(--color-on-surface-variant);
+    margin-bottom: 0.35rem;
+}
+
+.PageWrapper input,
+.PageWrapper select,
+.PageWrapper textarea {
     width: 100%;
-    height: 1500px;
-    border-radius: 3px;
-    grid-column: 1 /4;
+    box-sizing: border-box;
+    font-size: 0.92rem;
+    color: var(--color-on-surface);
+    background: var(--color-surface-container-lowest);
+    border: 1px solid var(--color-outline-variant);
+    border-radius: 8px;
+    padding: 0.6rem 0.8rem;
+    transition: border-color 0.15s ease, box-shadow 0.15s ease;
 }
 
-.DivLeng {
-    width: 70px;
-    grid-column: 1 / 2;
+    .PageWrapper input:focus,
+    .PageWrapper select:focus,
+    .PageWrapper textarea:focus {
+        outline: none;
+        border-color: var(--color-accent-blue);
+        box-shadow: 0 0 0 3px rgba(41, 128, 185, 0.15);
+    }
+
+.PageWrapper span {
+    font-size: 0.75rem;
+    color: var(--color-error);
+}
+
+/* ============ INFO DEL LIBRO ============ */
+.DivContainerInfo {
+    display: grid;
+    grid-template-columns: 210px 1fr;
+    gap: 1.75rem;
+}
+
+.DivCover img {
+    width: 100%;
+    aspect-ratio: 4 / 5;
+    object-fit: cover;
+    border-radius: 8px;
+    border: 1px solid var(--border-color);
+}
+
+.BookInfo_Section1 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.1rem 1.25rem;
+}
+
+.Sect_btn1 {
+    grid-column: 1 / -1;
+}
+
+.Sect_btn2, .DivStatus, .DivLeng, .DivCatg, .DivForm {
+    display: flex;
+    flex-direction: column;
+}
+
+.BookDes {
+    grid-column: 1 / -1;
+}
+
+.description {
+    resize: vertical;
+    min-height: 100px;
+    font-family: inherit;
+}
+
+/* ============ PRECIOS / STOCK ============ */
+.Container_div_Price {
+    display: flex;
+    flex-direction: column;
+    gap: 1.1rem;
+}
+
+.MargenRow {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 0.75rem;
+    margin-top: 0.25rem;
+    border-top: 1px solid var(--border-color);
+    font-size: 0.9rem;
+    color: var(--color-on-surface-variant);
+}
+
+.MargenValue {
+    font-weight: 700;
+    color: var(--color-success);
+}
+
+/* ============ EDITORIAL ============ */
+.Container_Publisher {
+    display: flex;
+    flex-direction: column;
+    gap: 1.1rem;
+}
+
+.PublisherLogoRow {
+    display: flex;
+    align-items: center;
+    gap: 0.85rem;
+    margin-bottom: 0.25rem;
+}
+
+.PublisherLogo img {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 6px;
+    border: 1px solid var(--border-color);
+    background: var(--color-surface-container-low);
   
 }
-.DivCatg {
-    width: 70px;
 
-    grid-column: 2 / 3;
+    .PublisherLogoRow a,
+    .PublisherLogoRow button {
+        background: none;
+        border: none;
+        padding: 0;
+        color: var(--color-accent-amber);
+        font-weight: 600;
+        font-size: 0.85rem;
+        cursor: pointer;
+    }
+
+.PublisherFields > div + div {
+    margin-top: 1.1rem;
+}
+
+/* ============ AUTOR ============ */
+.DivConatiner {
+   
+    display: flex;
+    flex-direction: row;
+    gap: 1.1rem;
+}
+
+.DivInput_Autor {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+    .DivInput_Autor div .DivSearch {
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        border:1px solid var(--secondary-border-color);
+         
+        
+    }
+
+        .DivInput_Autor div .DivSearch button {
+            padding: 10px;
+            color: white;
+            background: var(--color-nav-text-golden);
+            cursor:pointer;
+        }
+        .DivInput_Autor div .DivSearch input {
+            border: none;
+        }
+        .DivInput_Autor textarea {
+            width: 100%;
+            min-height: 150px;
+            resize: vertical;
+            font-family: inherit;
+        }
+.DivImage img{
+    width:150px;
+}
+
  
-}
-.DivForm {
-    width: 70px;
-    grid-column: 3/3;
-   
+/* ============ BOTONES ============ */
+.BtnCancel,
+.BtnSave {
+    font-family: inherit;
+    font-size: 0.88rem;
+    font-weight: 600;
+    border-radius: 8px;
+    padding: 0.65rem 1.4rem;
+    cursor: pointer;
+    border: 1px solid transparent;
+    transition: transform 0.1s ease, background 0.15s ease;
 }
 
-.BookInfo_Section1 div input {
-    width: auto;
-    height: auto;
-    padding: 8px;
-   
+.BtnCancel {
+    background: var(--color-surface-container-lowest);
+    color: var(--color-on-surface-variant);
+    border-color: var(--color-outline-variant);
 }
-.BookInfo_Section1 div input {
-    border: 1px solid var(--secondary-border-color);
-    border-radius:3px;
-    
-}
-    .BookInfo_Section1 div div {
-        width: auto;
-        height: auto;
-        padding: 8px;
-        border: 1px solid var(--secondary-border-color);
-          border-radius:3px;
-    }
-.BookInfo_Section1 div div select{
-    border:none;
 
-}
-    .BookInfo_Section1 div div select:focus, input:focus {
-        outline: none
+    .BtnCancel:hover {
+        background: var(--color-surface-container);
     }
+
+.BtnSave {
+    background: var(--color-tertiary);
+    color: var(--color-on-tertiary);
+}
+
+    .BtnSave:hover {
+        transform: translateY(-1px);
+    }
+
+/* ============ FOOTER ============ */
+.FooterRow {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 1.25rem;
+    border-top: 1px solid var(--border-color);
+}
+
+.LastModified {
+    font-style: italic;
+    font-size: 0.82rem;
+    color: var(--color-outline);
+}
+
+/* ============ RESPONSIVE ============ */
+@media (max-width: 900px) {
+    .GridLayout {
+        grid-template-columns: 1fr;
+    }
+
+    .DivContainerInfo,
+    .BookInfo_Section1,
+    .DivInput_Autor {
+        grid-template-columns: 1fr;
+    }
+
+    .PageHeader,
+    .FooterRow {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.85rem;
+    }
+}

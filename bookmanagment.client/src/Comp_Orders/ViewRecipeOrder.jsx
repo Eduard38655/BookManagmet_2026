@@ -9,10 +9,7 @@ function ViewRecipeOrder() {
               <i className="fa-solid fa-eye"></i>
           </button>
 
-
-          <button>
-              <i className="fa-solid fa-print"></i>
-          </button>
+         
       </div>
   );
 }

@@ -1,5 +1,8 @@
+import dayjs from "dayjs"
+import { useNavigate } from "react-router-dom"
+ 
 function PromotionsContent({ AllPromotions }) {
-
+    const navigate=useNavigate()
     return (
         <table>
 
@@ -11,7 +14,8 @@ function PromotionsContent({ AllPromotions }) {
                     <th>Compra mínima</th>
                     <th>Descuento</th>
                     <th>Estado</th>
-                    <th>Fecha</th>
+                    <th>Empieza</th>
+                    <th>Termina</th>
                     <th>Acciones</th>
                 </tr>
             </thead>
@@ -29,9 +33,20 @@ function PromotionsContent({ AllPromotions }) {
                         <td>{item.discountValue}</td>
                         <td>{item.status}</td>
                         <td>
-                            {item.startDate} - {item.endDate}
+                            {dayjs(item.startDate).format("DD/MM/YYYY") }
+                             
                         </td>
-                        <td><i className="fa-solid fa-pen"></i></td>
+                        <td>
+                           
+                            {dayjs(item.endDate).format("DD/MM/YYYY")}
+
+                        </td>
+                        <td>
+                            <button onClick={() => navigate(`/promotions/editar/${item.id}`)}>
+
+                                <i className="fa-solid fa-pen"></i>
+                            </button>
+                        </td>
 
                     </tr>
 

@@ -12,6 +12,8 @@ function InventoryPage() {
     const [currentItems, setCurrentItems] = useState([]);
     const [ShowDialog, SetDialog] = useState(false)
 
+    /*Editar Articulos */
+  
     useEffect(() => {
         const fetchData = async () => {
             try {
@@ -72,8 +74,7 @@ function InventoryPage() {
 
     return (<>
 
-        {ShowDialog && <DialogInv /> }
-
+         
         <article className={style.Container_Inv}>
 
             <div className={style.SubContainer}>
@@ -156,6 +157,7 @@ function InventoryPage() {
                         Book_Data={currentItems}
                         SetBook_Data={SetBook_Data}
                         SetDialog={SetDialog}
+                      
                     />
                     <EmpPagination currentItems={currentItems} setCurrentItems={setCurrentItems} AllEmployee={Book_Data} />
 

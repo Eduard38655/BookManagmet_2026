@@ -8,7 +8,7 @@ namespace BookManagment.Server.Controllers
     [Route("promos")]
     public class PromotionsController : ControllerBase
     {
-      private readonly BookstoreEcommerceDbContext _context;
+        private readonly BookstoreEcommerceDbContext _context;
         public PromotionsController(BookstoreEcommerceDbContext context)
         {
             _context = context;
@@ -20,14 +20,25 @@ namespace BookManagment.Server.Controllers
             var promotions = await _context.Promotions.Include(x => x.Books)
                 .ThenInclude(x => x.Category).ToListAsync();
 
-          
 
-            return Ok( new {data= promotions ,ok=true} );
+
+            return Ok(new { data = promotions, ok = true });
 
 
 
 
         }
 
+
+        [HttpGet("getById/{PromoID}")]
+        public IActionResult GetByIdinFO([FromRoute] int PromoID)
+        {
+            var GetPromo = _context.Promotions.Include(x => x.Books);
+
+
+            var categories = _context.Categories.ToList();
+            return Ok(new { ok = true, data = GetPromo, category = categories });
+
+        }
     }
 }
