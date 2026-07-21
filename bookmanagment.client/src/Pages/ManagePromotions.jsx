@@ -8,16 +8,29 @@ import PromoCategoryMag from "../Comp_Promotions/PromoCategoryMag"
 import { useForm, FormProvider } from "react-hook-form";
 import dayjs from "dayjs";
 ///:operacion/:PromoID
- 
+import { useNavigate } from "react-router-dom"
 function ManagePromotions() {
+    const navigate = useNavigate()
+    const { PromoID, operacion } = useParams()
 
-    const { PromoID } = useParams()
     const [PromotionsDetails, SetPromotiosBooks] = useState([])
+    const methods = useForm({
+        defaultValues: {
+            name: "",
+            discountType: "",
+            code: "",
+            imageUrl: "",
+            startDate: "",
+            status: "",
+            endDate: "",
+            minPurchase: 0
+        }
+    });
 
 
     useEffect(() => {
 
-
+        if (operacion == "crear") return;
 
         const fetchPromos = async () => {
 
@@ -45,33 +58,10 @@ function ManagePromotions() {
 
     }, []);
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-    const methods = useForm({
-        defaultValues: {
-            name: "",
-            discountType: "",
-            code: "",
-            imageUrl: "",
-            startDate: "",
-            status: "",
-            endDate: "",
-            minPurchase: 0
-        }
-    });
+     
 
     useEffect(() => {
+        if (operacion == "crear") return;
         if (PromotionsDetails.data) {
             methods.reset({
                 name: PromotionsDetails.data.name,
@@ -89,14 +79,22 @@ function ManagePromotions() {
     }, [PromotionsDetails, methods]);
   
     const onSubmit = (data) => {
-        console.log(data);
+        var url = ""
 
-        const res = fetch(`http://localhost:5186/promos/UpdateById`, {
-            method: "PUT",
+        if (operacion == "crear") {
+            url = "promos/CrearPromo"
+        }
+        else {
+            url = "promos/UpdateById"
+        }
+
+        fetch(`http://localhost:5186/${url}`, {
+            method: operacion == "crear" ? "POST" : "PUT",
             headers: {
                 "Content-Type": "application/json"
             },
-            body: JSON.stringify({
+
+            body: JSON.stringify( {
                 Id: PromoID,
                 Code: data.code,
                 Name: data.name,
@@ -104,19 +102,30 @@ function ManagePromotions() {
                 DiscountValue: data.discountValue,
                 MinPurchase: data.minPurchase,
                 StartDate: data.startDate,
-                EndDate: data.data.endDate,
-                Status: data.data.status,
-               ImageUrl: data.imageUrl,
-               Description:data.description
+                EndDate: data.endDate,
+                Status: data.status,
+                ImageUrl: data.imageUrl,
+                Description: data.description
+            }
+            
+            
+            
+            )
+        })
+            .then(async (res) => {
+                
+                const data = await res.text()
+                if (data.ok) {
+
+                    navigate("/promotions")
+                }
 
 
             })
-                .then((res) => res.json())
-                .then((data) => {
-
-                    console.log(data)
-                })
-        })
+            .catch((err) => {
+              
+                console.error(err);
+            });
 
     };
 
