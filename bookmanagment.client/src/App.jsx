@@ -21,6 +21,7 @@ import './index.css'
 import EditInvPage from "../src/Pages/EditInvPage"
 import { useParams, Outlet } from "react-router-dom"
 import ManagePromotions from "../src/Pages/ManagePromotions"
+import CliManagmetPag from "../src/Pages/CliManagmetPag"
 function App() {
     const { BookId } = useParams(); 
 
@@ -64,8 +65,11 @@ function App() {
                     
 
 
-                    <Route path="/Customer" element={<CustomerPage />} />
-                    <Route path="/orders" element={<OrdersPage />} />
+                    <Route path="/customer" element={<CustomerPage />}/>
+                    <Route path="/customer/:clienteId" element={<CliManagmetPag />} />
+                   
+
+                     <Route path="/orders" element={<OrdersPage />} />
                     <Route path="/promotions" element={<PromotionsPage />} />
                   
                     <Route path="/promotions/:operacion/:PromoID" element={< ManagePromotions />} />

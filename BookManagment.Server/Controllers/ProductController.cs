@@ -195,6 +195,30 @@ namespace BookManagment.Server.Controllers
         }
 
 
+        [HttpDelete("DeleteBook")]
+        public async Task<IActionResult> DeleteBook([FromBody] int BookId)
+        {
+
+            var DeleteBook = await _context.Books.FindAsync(BookId);
+
+            if (DeleteBook != null)
+            {
+
+                return NotFound(new { ok = false, message = "Hubo un error" });
+
+            }
+
+            _context.Books.Remove(DeleteBook);
+            await _context.SaveChangesAsync();
+
+            return Ok(new { ok = true, message = "Book Eliminado correctamete!" });
+
+
+
+
+        }
+
+
 
     }
 }

@@ -30,6 +30,21 @@ function InventoryContent({ Book_Data, SetBook_Data, SetDialog  }) {
         setCurrentPage(page);
     };
 
+
+    function DeleteBook(BookId) {
+        fetch("product/DeleteBook", {
+
+            method: "DELETE",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({BookId})
+        })
+            .then((res) => res.json())
+
+            .then((data) => {
+                console.log(data)
+            })
+    }
+
     return (
         <>
             <table className={style.DivInvTable }>
@@ -84,7 +99,7 @@ function InventoryContent({ Book_Data, SetBook_Data, SetDialog  }) {
                                 </button>
 
                                 {"  "}
-                                <button>
+                                <button onClick={()=>DeleteBook(book.id) }>
                                     <i className="fa-regular fa-trash-can"></i>
                                 </button>
                             </td>

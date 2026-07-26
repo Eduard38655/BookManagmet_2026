@@ -1,8 +1,11 @@
 import { useState, useEffect } from "react";
-import CustomerContet from "../CustomerComp/CustomerContent"
+import CustomerContet from "../Comp_Customer/CustomerContent"
+import EmpPagination from "../Comp_Empleados/EmpPagination";
+import style from "../Styles/Cliente.module.css"
 function CustomerPage() {
     const [Customers, Set_Customer] = useState([])
-
+    const [AllEmployee, SetAllEmployee] = useState([])
+    const [currentItems, setCurrentItems] = useState([]);
 
     useEffect(() => {
         const GetAll_Customer = async () => {
@@ -34,30 +37,44 @@ function CustomerPage() {
         GetAll_Customer();
 
     }, [])
-  return (
-      <>
-          <div>
-              <div>
+    return (
+        <article className={style.Container_Page_Emp}>
+
+            <div className={style.DivTitleEmp}>
+              <div >
                   <h3>Gestion de Usuarios</h3>
               <p>Administre cuentas y accessos del sistema </p>
               </div>
-              <button><i className="fa-solid fa-user-plus"></i>Crear usuario</button>
-          </div>
-          <div>
-              <div>
+                <button><i className="fa-solid fa-user-plus"></i>{" " }Crear Cliente</button>
+            </div>
+
+            <div className={style.DivFilter_Container}>
+
+                <div className={style.SearchInput}>
                   <i className="fa-solid fa-magnifying-glass"></i>
                   < input type="text" placeholder="Buscar usuario" />
               </div>
 
-              <select>
-                  <option>Estado</option>
-                  <option>Activos</option>
-                  <option>Inactivo</option>
-              </select>
-              <buttons><i className="fa-solid fa-filter"></i>Filtros</buttons>
+ 
+                <div className={style.SearchBySelect}>
+                    <select>
+                        <option>Estado</option>
+                        <option>Activos</option>
+                        <option>Inactivo</option>
+                    </select>
+                </div>
+
+                <button>
+                    <i className="fa-solid fa-filter"></i>{" "}
+                    Filtros
+                </button>
           </div>
-          <CustomerContet Customers={Customers} Set_Customer={Set_Customer } />
-      </>
+          <div className={style.DivTable_Container}>
+              <CustomerContet Customers={currentItems} Set_Customer={Set_Customer} />
+              <EmpPagination currentItems={currentItems} setCurrentItems={setCurrentItems} AllEmployee={Customers} />
+
+          </div>
+      </article>
   );
 }
 

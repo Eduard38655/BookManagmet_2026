@@ -208,12 +208,12 @@ align-items:center;
 /*Dashboard Nav*/
 
 .nav_Container {
-    width: 17%;
+    width: 23%;
     height: 100%;
     background: var(--color-surface-container-low);
     position: sticky;
     top: 0;
-   
+   border-right:1px solid var(--border-color);
 }
 
 .SubContainer {

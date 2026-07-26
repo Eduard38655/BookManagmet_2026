@@ -1,0 +1,346 @@
+
+.DivTable_Container {
+    width: 100%;
+    height: 100%;
+    border: 1px solid var(--secondary-border-color);
+    border-radius: 7px;
+}
+
+.Container_Page_Emp {
+    width: 100%;
+    height: 100%;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    justify-content: space-between;
+}
+
+
+table {
+    width: 100%;
+    height: 100%;
+    border-radius: 35px;
+    border-collapse: collapse;
+}
+
+thead {
+    background: #f8fafc;
+    height: 100%;
+}
+
+th {
+    height: 100%;
+    padding: 16px;
+    text-align: left;
+    font-size: 14px;
+    font-weight: 600;
+    color: #64748b;
+    border-radius: 7px;
+    background: var(--color-surface-container-low);
+}
+
+
+
+
+.Container_Page_Emp table button {
+    background: none;
+    border: none;
+    text-align: end;
+    font-size: 0.9rem;
+    cursor: pointer;
+}
+
+    .Container_Page_Emp table button:hover {
+        background: none;
+    }
+
+.Container_Page_Emp table td img {
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+    border-radius: 10px;
+    border: 1px solid var(--border-color);
+}
+
+.Container_Page_Emp table td:nth-child(1) {
+    height: 100%;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+    .Container_Page_Emp table td:nth-child(1) span {
+        color: var(--text-dark-color);
+        font-size: 0.9rem;
+    }
+
+        .Container_Page_Emp table td:nth-child(1) span small {
+            color: var(--color-outline);
+        }
+
+.Container_Page_Emp table tbody tr {
+    padding: 16px;
+    border-bottom: 1px solid var(--secondary-border-color);
+}
+
+.Container_Page_Emp table td {
+    height: 100%;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var( --color-outline);
+    padding: 16px;
+}
+
+.Container_Page_Emp table th {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--text-dark-color);
+    border-bottom: 1px solid var(--secondary-border-color);
+}
+
+.Container_Page_Emp table .active {
+    text-transform: capitalize;
+    color: var(--color-accent-amber);
+    font-size: 0.8rem;
+}
+
+.Container_Page_Emp table .inactive {
+    text-transform: capitalize;
+    color: var(--color-on-surface-variant);
+    font-size: 0.8rem;
+}
+
+.DivTitleEmp {
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+    .DivTitleEmp div {
+        width: auto;
+        height: auto;
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+    }
+
+    .DivTitleEmp button {
+        width: auto;
+        height: 40px;
+        background: var(--color-accent-amber);
+        color: #ffffff;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 0.8rem;
+        font-weight: 550;
+        padding: 10px;
+    }
+
+
+.DivFilter_Container {
+    width: 100%;
+    height: auto;
+    display: flex;
+    padding: 15px;
+    background-color: var( --color-surface);
+    border: 1px solid var(--secondary-border-color);
+    border-radius: 7px;
+    align-items: center;
+    gap: 10px;
+}
+
+.SearchInput {
+    width: 40%;
+    height: 40px;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    background: #ffffff;
+    padding: 0px 10px;
+    border-radius: 5px;
+    border: 1px solid var(--secondary-border-color);
+}
+
+    .SearchInput input {
+        width: 100%;
+        border: none;
+        background: none;
+        color: var(--text-dark-color);
+        font-size: 1rem;
+    }
+
+        .SearchInput input::placeholder {
+            color: var(--color-outline);
+            font-size: 0.8rem;
+        }
+
+        .SearchInput input:focus {
+            outline: none;
+        }
+
+
+.SearchBySelect {
+    width: auto;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+    .SearchBySelect  {
+        padding: 5px;
+        display: flex;
+        align-items: center;
+        border: 1px solid var(--secondary-border-color);
+        border-radius: 4px;
+    }
+
+    .SearchBySelect select {
+        width: 100%;
+        padding: 5px;
+        background: none;
+        border: none;
+    }
+
+        .SearchBySelect select option {
+            width: 100%;
+        }
+
+        .SearchBySelect select:focus {
+            outline: none;
+        }
+
+.DivFilter_Container button {
+    width: 155px;
+    height: 40px;
+    background: var(--color-primary);
+    color: #ffffff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    border: 1px solid var(--secondary-border-color);
+}
+
+/*ManageCliente*/
+.SubContainer {
+    width:100%;
+    height:auto;
+    padding:15px;
+    display:flex;
+    flex-direction:row;
+    gap:20px;
+}
+.DivFormContainer {
+    width: 30%;
+    padding: 15px;
+    background: white;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    border: 1px solid var(--secondary-border-color);
+    border-radius:5px;
+}
+
+
+.DivInput {
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding:0px 10px 0px 10px;
+}
+    .DivInput input {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid var(--secondary-border-color);
+        border-radius: 5px;
+    }
+.DivProfile{
+    width:100%;
+    height:auto;
+    display:flex;
+    flex-direction:row;
+    justify-content:space-between;
+    gap:10px;
+
+}
+.DivProfiel img{
+    width:130px;
+    height:130px;
+    object-fit:cover;
+    border-radius:100%;
+}
+.DivButtons {
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap:10px;
+    padding:10px;
+}
+    .DivButtons button {
+        width: 100%;
+        padding: 5px;
+        border: 1px solid var(--secondary-border-color);
+        cursor: pointer;
+        border-radius: 5px;
+    }
+
+.DivContainerSales{
+    width:60%;
+    height:auto;
+    display:flex;
+    flex-direction:column;
+    justify-content:space-between;
+    gap:20px;
+}
+.DivTitle {
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction:column;
+    justify-content: space-between;
+    gap: 20px;
+}
+    .DivTitle div {
+        width: 70%;
+        height: auto;
+        display: flex;
+        flex-direction: row;
+        gap: 20px;
+      
+    }
+.DivInputSearch {
+    width: 100%;
+    background: white;
+    padding: 10px;
+    border: 1px solid var(--secondary-border-color);
+    cursor: pointer;
+    border-radius: 5px;
+}
+.DivInputSearch input{
+    border:none;
+}
+    .DivInputSearch input:focus{
+        outline:none;
+    }
+.DivTitle div button {
+    padding: 10px;
+    border: 1px solid var(--secondary-border-color);
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.DivProfileInfo{
+    width:100%;
+    height:auto;
+    display:flex;
+    flex-direction:column;
+    gap:20px;
+ 
+}

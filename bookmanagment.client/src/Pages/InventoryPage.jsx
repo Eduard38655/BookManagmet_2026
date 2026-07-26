@@ -111,20 +111,7 @@ function InventoryPage() {
                         </button>
                     </div>
                 </div>
-
-
-
-
-
-
-
-
-
-                <WarningStock
-                    Book_Data={Book_Data}
-                    SetBook_Data={SetBook_Data}
-                />
-
+ 
                 <div className={style.DivContainer_Filter}>
 
                     <div className={style.DivContainer_Input}>

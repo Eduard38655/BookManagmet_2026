@@ -72,14 +72,14 @@ function DashMenu() {
                           </NavLink>
                       </li>
                   ))}
+                  <li>
+                      <button onClick={LogOut()} >Logout{" "}  <i className="fa-solid fa-arrow-right-from-bracket"></i></button>
+
+                  </li>
               </ul>
 
               </div>
-               <div className={style.DivLogout}>
-                  <button onClick={LogOut()} >Logout{" "}  <i className="fa-solid fa-arrow-right-from-bracket"></i></button>
-
-
-              </div>
+               
                
          
 
