@@ -76,6 +76,14 @@ namespace BookManagment.Server.Controllers
 
             var user = await _context.Users.FindAsync(EmployeeId);
 
+            if (user == null)
+            {
+                return NotFound(new
+                {
+                    message = "Empleado no encontrado."
+                });
+            }
+
             user.FullName = dto.full_name;
             user.Email = dto.email;
             user.Phone = dto.phone;
@@ -85,19 +93,7 @@ namespace BookManagment.Server.Controllers
             user.RoleId = dto.roleid;
 
 
-            if (user == null)
-            {
-                return NotFound(new
-                {
-                    message = "Empleado no encontrado."
-                });
-            }
-
-
             var empleado = await _context.Employees.FirstOrDefaultAsync(x => x.UserId == EmployeeId);
-
-            empleado.Position = dto.position;
-            empleado.Status = dto.status;
 
             if (empleado == null)
             {
@@ -107,6 +103,8 @@ namespace BookManagment.Server.Controllers
                 });
             }
 
+            empleado.Position = dto.position;
+            empleado.Status = dto.status;
 
 
             await _context.SaveChangesAsync();

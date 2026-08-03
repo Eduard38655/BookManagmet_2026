@@ -3,6 +3,7 @@ using BookManagment.Server.Models;
 using BookManagment.Server.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using System.Data;
 using System.Security.Claims;
 
 
@@ -103,37 +104,42 @@ public class UserController : ControllerBase
 
 
 
-            var token = _jwtTokenService.GenerateToken(
+        var token = _jwtTokenService.GenerateToken(
 
-            user.Id.ToString(),
+        user.Id.ToString(),
+        user.Email.ToString(),
+        user.Role.ToString()
 
-            user.Email,
-
-            user.CustomerID?.ToString() ?? string.Empty
-
-        );
+    );
 
 
+        var options = new CookieOptions
+        {
+            HttpOnly = true,
+            // Secure must be true when SameSite=None for modern browsers
+            Secure = true,
+            // Allow cookie in cross-site contexts (required when client and API are on different origins)
+            SameSite = SameSiteMode.None,
+            Expires = DateTime.UtcNow.AddHours(2),
+            Path = "/",
+            IsEssential = true
+        };
 
-     
+        Response.Cookies.Append("user_token", token, options);
 
+
+        // NOTE: Se expone temporalmente el token en la respuesta para depuración.
+        // En producción no devolver el token en el body cuando se usa HttpOnly cookie.
         return Ok(new
         {
             success = true,
-
-            token = token,
-
-
+            token = token, // temporal - eliminar en producción
             user = new
             {
                 id = user.Id,
-
                 email = user.Email,
-
                 fullName = user.FullName,
-
                 avatar = user.AvatarUrl,
-
                 role = user.Role
             }
         });
@@ -148,7 +154,7 @@ public class UserController : ControllerBase
 
 
         return Ok(new { data = users, ok = true });
-            
+
 
 
     }
@@ -156,7 +162,7 @@ public class UserController : ControllerBase
 
 
 
-
+    /*verificar esta ruta*/
 
     [HttpGet("profile")]
     public IActionResult Profile()
@@ -173,5 +179,35 @@ public class UserController : ControllerBase
     }
 
 
-    
+
+    [HttpGet("auth/me")]
+    public IActionResult Get()
+    {
+
+        var userId = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+        var email = User.FindFirst(ClaimTypes.Email)?.Value;
+        var role = User.FindFirst(ClaimTypes.Role)?.Value;
+
+
+
+        if (userId == null || email == null || role == null)
+        {
+
+            return BadRequest(new { valid = false, message = "No se pudo validar tus credenciales" });
+        }
+
+
+
+        return Ok(new
+        {
+            valid = true,
+            userId,
+            email,
+            role
+        });
+    }
+
+
+
+
 }

@@ -14,8 +14,8 @@ function LoginPage() {
         formState: { errors },
     } = useForm({
         defaultValues: {
-            email: "maria.admin@libros.com",
-            password: "$2y$10$adminhash",
+            email: "laura.customer2@email.com",
+            password: "$2y$10$customerhash2",
         },
     });
 
@@ -27,7 +27,7 @@ function LoginPage() {
                     method: "POST",
                     headers: {
                         "Content-Type": "application/json",
-                    },
+                    }, credentials: "include",
                     body: JSON.stringify({
                         Email: data.email,
                         PasswordHash: data.password,
@@ -39,12 +39,9 @@ function LoginPage() {
 
             if (response.user) {
                 setUser(response.user);
-                localStorage.setItem(
-                    "User_Token",
-                    response.token
-                );
 
-                navigate("/");
+                navigate("/home"); 
+                 
             }
         } catch (error) {
             console.log(error);
@@ -53,164 +50,154 @@ function LoginPage() {
 
     return (
         <div className={style.container}>
-            {/* IZQUIERDA */}
-            <div className={style.left}>
-                <img
-                    src={Imagen }
-                    alt="Library"
-                />
 
-                <div className={style.overlay}>
-                    <h1>
-                        Enter the Sanctuary of
-                        <br />
-                        Knowledge.
-                    </h1>
+            <div className={style.MainformContainer} >
 
-                    <p>
-                        Your personal collection,
-                        curated recommendations,
-                        and reading history await
-                        your return.
-                    </p>
+
+
+                {/* IZQUIERDA */}
+                <div className={style.left}>
+                    <img
+                        src={Imagen}
+                        alt="Library"
+                    />
+
+                    <div className={style.overlay}>
+                        <h2>
+                            Enter the Sanctuary of
+                            <br />
+                            Knowledge.
+                        </h2>
+
+                        <p>
+                            Your personal collection,
+                            curated recommendations,
+                            and reading history await
+                            your return.
+                        </p>
+                    </div>
                 </div>
-            </div>
 
-            {/* DERECHA */}
-            <div className={style.right}>
-                <div className={style.formCard}>
-                    <h2>Modern Library</h2>
-                    <p>
-                        Welcome back! Sign in to
-                        your account.
-                    </p>
+                {/* DERECHA */}
+                <div className={style.right}>
+                    <div className={style.formCard}>
+                        <h2>Modern Library</h2>
+                        <p>
+                            Welcome back! Sign in to
+                            your account.
+                        </p>
 
-                    <form
-                        onSubmit={handleSubmit(
-                            onSubmit
-                        )}
-                    >
-                        {/* EMAIL */}
-                        <label>
-                            Email Address
-                        </label>
+                        <form
+                            onSubmit={handleSubmit(
+                                onSubmit
+                            )}
+                        >
+                            {/* EMAIL */}
+                            <label>
+                                Email Address
+                            </label>
 
-                        <div className={style.inputBox}>
-                            <i className="fa-solid fa-envelope"></i>
-                            <input
-                                type="email"
-                                placeholder="name@example.com"
-                                {...register("email", {
-                                    required:
-                                        "El email es obligatorio",
-                                })}
-                            />
-                        </div>
-
-                        {errors.email && (
-                            <small>
-                                {
-                                    errors.email
-                                        .message
-                                }
-                            </small>
-                        )}
-                        <br />
-                        {/* PASSWORD */}
-                        <label>Password</label>
-
-                        <div className={style.inputBox}>
-                            <i className="fa-solid fa-lock"></i>
-
-                            <input
-                                type="password"
-                                placeholder="********"
-                                {...register(
-                                    "password",
-                                    {
+                            <div className={style.inputBox}>
+                                <i className="fa-solid fa-envelope"></i>
+                                <input
+                                    type="email"
+                                    placeholder="name@example.com"
+                                    {...register("email", {
                                         required:
-                                            "La contraseña es obligatoria",
-                                        minLength: {
-                                            value: 6,
-                                            message:
-                                                "Mínimo 6 caracteres",
-                                        },
+                                            "El email es obligatorio",
+                                    })}
+                                />
+                            </div>
+
+                            {errors.email && (
+                                <>
+                                    <small>
+                                        {
+                                            errors.email
+                                                .message
+                                        }
+                                    </small>
+                                    <br />
+                                </>
+                            )}
+                          
+                            <br />
+                            {/* PASSWORD */}
+                            <label>Password</label>
+
+                            <div className={style.inputBox}>
+                                <i className="fa-solid fa-lock"></i>
+
+                                <input
+                                    type="password"
+                                    placeholder="********"
+                                    {...register(
+                                        "password",
+                                        {
+                                            required:
+                                                "La contraseña es obligatoria",
+                                            minLength: {
+                                                value: 6,
+                                                message:
+                                                    "Mínimo 6 caracteres",
+                                            },
+                                        }
+                                    )}
+                                />
+
+                                <i className="fa-regular fa-eye"></i>
+                            </div>
+
+                            {errors.password && (
+                                <small>
+                                    {
+                                        errors.password
+                                            .message
                                     }
-                                )}
-                            />
+                                </small>
+                            )}
 
-                            <i className="fa-regular fa-eye"></i>
-                        </div>
-
-                        {errors.password && (
-                            <small>
-                                {
-                                    errors.password
-                                        .message
+                            <div
+                                className={
+                                    style.remember
                                 }
-                            </small>
-                        )}
+                            >
+                                <input
+                                    type="checkbox"
+                                />
+                                <span>
+                                    Remember me for 30
+                                    days
+                                </span>
+                            </div>
 
-                        <div
+                            <button
+                                type="submit"
+                                className={
+                                    style.loginBtn
+                                }
+                            >
+                                SIGN IN
+                            </button>
+                        </form>
+
+                        
+
+                        
+                        <p
                             className={
-                                style.remember
+                                style.register
                             }
                         >
-                            <input
-                                type="checkbox"
-                            />
+                            New to the library?
                             <span>
-                                Remember me for 30
-                                days
+                                {" "}
+                                Create an account
                             </span>
-                        </div>
-
-                        <button
-                            type="submit"
-                            className={
-                                style.loginBtn
-                            }
-                        >
-                            SIGN IN
-                        </button>
-                    </form>
-
-                    <div
-                        className={
-                            style.separator
-                        }
-                    >
-                        <span>
-                            OR CONTINUE WITH
-                        </span>
+                        </p>
                     </div>
-
-                    <div
-                        className={
-                            style.socials
-                        }
-                    >
-                        <button>
-                            <i className="fa-brands fa-google"></i> { " "} Google
-                        </button>
-
-                        <button>
-                            <i className="fa-brands fa-apple"></i> {" "} Apple
-                        </button>
-                    </div>
-
-                    <p
-                        className={
-                            style.register
-                        }
-                    >
-                        New to the library?
-                        <span>
-                            {" "}
-                            Create an account
-                        </span>
-                    </p>
                 </div>
+
             </div>
         </div>
     );

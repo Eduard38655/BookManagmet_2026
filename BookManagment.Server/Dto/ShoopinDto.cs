@@ -2,7 +2,7 @@
 {
     public class ShoopinDto
     {
-        public string CustomerId { get; set; }
+        public required string CustomerId { get; set; }
 
     }
 }

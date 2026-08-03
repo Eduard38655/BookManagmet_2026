@@ -46,7 +46,7 @@ function EditarEmp({ SetShowDialog, operation   }) {
         }
 
 
-        fetch(`http://localhost:5186/${url}` , {
+        fetch(`${import.meta.env.VITE_API_URL || 'https://localhost:5186'}/${url}` , {
 
             method: operation == "insert" ? "POST" : "PUT",
             headers: {
@@ -87,7 +87,7 @@ function EditarEmp({ SetShowDialog, operation   }) {
             setLoading(true);
             setFetchError(false);
             try {
-                const response = await fetch(`http://localhost:5186/employees/getempleadobyid/${EmployeeId}`);
+                const response = await fetch(`${import.meta.env.VITE_API_URL || 'https://localhost:5186'}/employees/getempleadobyid/${EmployeeId}`);
                 if (!response.ok) throw new Error("Error al obtener el empleado");
                 const data = await response.json();
                 const emp = data.data[0];

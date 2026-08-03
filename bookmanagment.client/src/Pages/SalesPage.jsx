@@ -6,7 +6,7 @@ function SalesPage() {
     useEffect(() => {
         const FetchOrders = async () => {
 
-            const response = await fetch("http://localhost:5186/salesdetails/getallsales");
+            const response = await fetch(`${import.meta.env.VITE_API_URL || 'https://localhost:5186'}/salesdetails/getallsales`);
             const data = await response.json();
             console.log(data)
             SetAllSales(data.data)

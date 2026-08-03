@@ -1,9 +1,21 @@
 import { useEffect, useState} from "react"
 import { useNavigate } from "react-router-dom";
 import style from "../Styles/BookPage.module.css"
+import EmpPagination from "../Comp_Empleados/EmpPagination";
 function BookContent({ Book_Data, SetBook_Data }) {
-
+    const [AllEmployee, SetAllEmployee] = useState([])
+    const [currentItems, setCurrentItems] = useState([]);
+    
+  
     const navigate = useNavigate()
+
+    /*
+    SetAllEmployee={SetAllEmployee} 
+    
+    AllEmployee={currentItems}
+    SetShowDialog={SetShowDialog} 
+    operation={operation} SetOperation={SetOperation} 
+    */
   return (
       <article className={style.Container_Details_Book_Content}>
 
@@ -23,7 +35,7 @@ function BookContent({ Book_Data, SetBook_Data }) {
 
           <div className={style.Container_Content }>
 
-              {Book_Data.map((book) => (
+              {currentItems.map((book) => (
 
                   <div key={book.id}   className={style.Book_Card }>
 
@@ -49,7 +61,10 @@ function BookContent({ Book_Data, SetBook_Data }) {
               ))}
 
 
+ 
+
           </div>
+          <EmpPagination currentItems={currentItems} setCurrentItems={setCurrentItems} AllEmployee={Book_Data} />
 
 
 

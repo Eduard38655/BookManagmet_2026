@@ -9,7 +9,7 @@ function EmpPagination({ AllEmployee,  currentItems, setCurrentItems }) {
     const [currentPage, setCurrentPage] = useState(0);
    
  
-    useEffect(() => {EmpPagination
+    useEffect(() => {//EmpPagination
         const totalPages = Math.max(1, Math.ceil(AllEmployee.length / itemsPerPage));
         const correctedPage = currentPage > totalPages - 1 ? 0 : currentPage;
 

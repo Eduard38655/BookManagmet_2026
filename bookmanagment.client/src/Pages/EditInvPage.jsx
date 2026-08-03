@@ -17,7 +17,7 @@ function EditInvPage() {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const response = await fetch(`http://localhost:5186/product/findbyid/${BookId}`);
+                const response = await fetch(`${import.meta.env.VITE_API_URL || 'https://localhost:5186'}/product/findbyid/${BookId}`);
                 const data_products = await response.json();
                 reset(data_products.data);
             } catch (err) {
@@ -29,7 +29,7 @@ function EditInvPage() {
 
     const onSubmit = async (data) => {
         try {
-            const response = await fetch(`http://localhost:5186/product/update/${BookId}`, {
+            const response = await fetch(`${import.meta.env.VITE_API_URL || 'https://localhost:5186'}/product/update/${BookId}`, {
                 method: "PUT",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify(data),

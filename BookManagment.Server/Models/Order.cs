@@ -36,6 +36,6 @@ public partial class Order
     public virtual Customer Customer { get; set; } = null!;
 
     public virtual Employee Employee { get; set; } = null!;
-    public virtual ICollection<OrderItem> OrderItems { get; set; }
+    public virtual ICollection<OrderItem> OrderItems { get; set; } = new HashSet<OrderItem>();
 
 }

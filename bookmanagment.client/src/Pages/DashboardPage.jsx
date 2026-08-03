@@ -11,7 +11,7 @@ function dashboardPage() {
             const token = localStorage.getItem("User_Token") || "";
 
             try {
-                const response = await fetch("http://localhost:5186/salesoverview/orders", {
+                const response = await fetch(`${import.meta.env.VITE_API_URL || 'https://localhost:5186'}/salesoverview/orders`, {
                     method: "GET",
                     headers: {
                         "Content-Type": "application/json",

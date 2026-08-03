@@ -69,12 +69,12 @@ namespace BookManagment.Server.Controllers
 
                                 Book = new
                                 {
-                                    oi.Book.Id,
+                                    oi.Book!.Id,
                                     oi.Book.Title,
 
                                     Category = new
                                     {
-                                        oi.Book.Category.Id,
+                                        oi.Book.Category!.Id,
                                         oi.Book.Category.Name
                                     }
                                 },

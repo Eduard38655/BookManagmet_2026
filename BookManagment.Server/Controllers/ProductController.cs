@@ -208,7 +208,7 @@ namespace BookManagment.Server.Controllers
 
             }
 
-            _context.Books.Remove(DeleteBook);
+            _context.Books.Remove(DeleteBook!);
             await _context.SaveChangesAsync();
 
             return Ok(new { ok = true, message = "Book Eliminado correctamete!" });

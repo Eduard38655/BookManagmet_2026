@@ -36,7 +36,7 @@ function ManagePromotions() {
 
 
 
-            const res = await fetch(`http://localhost:5186/promos/getById/${PromoID}`);
+            const res = await fetch(`${import.meta.env.VITE_API_URL || 'https://localhost:5186'}/promos/getById/${PromoID}`);
 
 
 
@@ -88,7 +88,7 @@ function ManagePromotions() {
             url = "promos/UpdateById"
         }
 
-        fetch(`http://localhost:5186/${url}`, {
+        fetch(`${import.meta.env.VITE_API_URL || 'https://localhost:5186'}/${url}`, {
             method: operacion == "crear" ? "POST" : "PUT",
             headers: {
                 "Content-Type": "application/json"

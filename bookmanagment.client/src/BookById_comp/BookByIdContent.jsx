@@ -6,7 +6,7 @@ function BookByIdContent({ Book_Data, SetBook_Data }) {
     function addItemShopping(BookId) {
         console.log(BookId)
         const token = localStorage.getItem("User_Token") || "";
-        fetch("http://localhost:5186/shopping/add/book", {
+        fetch(`${import.meta.env.VITE_API_URL || 'https://localhost:5186'}/shopping/add/book`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",

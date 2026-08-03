@@ -13,7 +13,7 @@ function BookByIdPage() {
     useEffect(() => {
         const id = Number(BookId)
         const fetchData = async () => {
-            const response = await fetch(`http://localhost:5186/product/findbyid/${id}` )
+            const response = await fetch(`${import.meta.env.VITE_API_URL || 'https://localhost:5186'}/product/findbyid/${id}` )
             const data_products = await response.json()
 
             console.log(data_products.data,id)

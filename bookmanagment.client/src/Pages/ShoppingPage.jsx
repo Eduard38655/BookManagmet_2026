@@ -9,7 +9,7 @@ function ShoppingPage() {
             const token = localStorage.getItem("User_Token") || "";
 
             try {
-                const response = await fetch("http://localhost:5186/shopping/getall", {
+                const response = await fetch(`${import.meta.env.VITE_API_URL || 'https://localhost:5186'}/shopping/getall`, {
                     method: "GET",
                     headers: {
                         "Content-Type": "application/json",

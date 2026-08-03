@@ -14,7 +14,7 @@ import style from "../Styles/Orders.module.css"
     useEffect(() => {
         const FetchOrders = async () => {
 
-            const response = await fetch("http://localhost:5186/salesoverview/orders");
+            const response = await fetch(`${import.meta.env.VITE_API_URL || 'https://localhost:5186'}/salesoverview/orders`);
             const data = await response.json();
             console.log(data)
             SetAllOrders(data.data)

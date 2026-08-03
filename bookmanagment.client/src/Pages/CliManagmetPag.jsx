@@ -20,7 +20,7 @@ function CliManagmetPag() {
 
         const FetchCliente = async () => {
 
-            const res = await fetch(`http://localhost:5186/customer/ClientById/${clienteId }`)
+            const res = await fetch(`${import.meta.env.VITE_API_URL || 'https://localhost:5186'}/customer/ClientById/${clienteId}`)
             const data = await res.json()
             console.log(data)
             SetDataInfo([data])

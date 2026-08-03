@@ -12,7 +12,7 @@ function PromotionsPage() {
 
         const FetchPromotions = async () => {
 
-            const response = await fetch("http://localhost:5186/promos/getallpromotions");
+            const response = await fetch(`${import.meta.env.VITE_API_URL || 'https://localhost:5186'}/promos/getallpromotions`);
 
             const data = await response.json();
             console.log(data.data,"ss")

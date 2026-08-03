@@ -3,7 +3,6 @@ using BookManagment.Server.Services;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
-using Npgsql;
 using System.Text;
 
 
@@ -20,9 +19,9 @@ var connectionString = builder.Configuration.GetConnectionString("DefaultConnect
 Console.WriteLine(connectionString);
 
 
- 
 
- 
+
+
 // JWT Service
 builder.Services.AddScoped<IJwtTokenService, JwtTokenService>();
 
@@ -35,9 +34,19 @@ builder.Services.AddCors(options =>
     options.AddPolicy("AllowLocalhost", policy =>
     {
         policy
-        .AllowAnyOrigin()
-        .AllowAnyMethod()
-        .AllowAnyHeader();
+          .WithOrigins(
+              "http://localhost:5173",
+              "https://localhost:5173",
+              "http://localhost:3000",
+              "https://localhost:3000",
+              "http://localhost:5174",
+              "https://localhost:5174",
+              "http://localhost:53879",
+              "https://localhost:53879"
+          )
+            .AllowAnyMethod()
+            .AllowAnyHeader()
+            .AllowCredentials();
     });
 });
 
@@ -48,49 +57,42 @@ builder.Services.AddCors(options =>
 // JWT Authentication
 builder.Services.AddAuthentication(options =>
 {
-    options.DefaultAuthenticateScheme =
-        JwtBearerDefaults.AuthenticationScheme;
-
-    options.DefaultChallengeScheme =
-        JwtBearerDefaults.AuthenticationScheme;
-
+    options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+    options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
 })
 .AddJwtBearer(options =>
 {
+    options.TokenValidationParameters = new TokenValidationParameters
+    {
+        ValidateIssuer = true,
+        ValidateAudience = true,
+        ValidateLifetime = true,
+        ValidateIssuerSigningKey = true,
 
-    options.TokenValidationParameters =
-        new TokenValidationParameters
+        ValidIssuer = builder.Configuration["Jwt:Issuer"],
+        ValidAudience = builder.Configuration["Jwt:Audience"],
+
+        IssuerSigningKey = new SymmetricSecurityKey(
+            Encoding.UTF8.GetBytes(builder.Configuration["Jwt:Key"]!))
+    };
+
+    options.Events = new JwtBearerEvents
+    {
+        OnMessageReceived = context =>
         {
+            // If no Authorization header is present, try to read token from cookie 'user_token'
+            if (string.IsNullOrEmpty(context.Request.Headers["Authorization"]))
+            {
+                if (context.Request.Cookies.TryGetValue("user_token", out var tokenFromCookie))
+                {
+                    context.Token = tokenFromCookie;
+                }
+            }
 
-            ValidateIssuer = true,
-
-            ValidateAudience = true,
-
-            ValidateLifetime = true,
-
-            ValidateIssuerSigningKey = true,
-
-
-            ValidIssuer =
-                builder.Configuration["Jwt:Issuer"],
-
-
-            ValidAudience =
-                builder.Configuration["Jwt:Audience"],
-
-
-            IssuerSigningKey =
-                new SymmetricSecurityKey(
-                    Encoding.UTF8.GetBytes(
-                        builder.Configuration["Jwt:Key"]!
-                    )
-                )
-
-        };
-
+            return Task.CompletedTask;
+        }
+    };
 });
-
-
 
 
 
@@ -135,22 +137,15 @@ if (app.Environment.IsDevelopment())
 
 
 
+app.UseHttpsRedirection();
 
 app.UseCors("AllowLocalhost");
 
-
-app.UseHttpsRedirection();
-
-
-// JWT middleware
 app.UseAuthentication();
 
 app.UseAuthorization();
 
-
-
 app.MapControllers();
-
 
 app.MapFallbackToFile("/index.html");
 
