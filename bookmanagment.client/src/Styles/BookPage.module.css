@@ -50,28 +50,28 @@
 }
 
 
- 
+
 .Main_Container_Book_Page {
-    width:auto;
-    height:100%;
-    display:flex;
-    flex-direction:row;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+ 
     padding:10px;
-    gap:30px; 
+    gap: 10px;
 }
 
 .Aside_Filter_Container {
-    width: 20%;
+    width: 25%;
     height: 100vh;
     position: sticky;
     top: 0;
 }
- 
+
 .Aside_Content {
     width: 100%;
     height: auto;
- 
- 
+    padding: 20px;
 }
 
 .Car_filters {
@@ -158,58 +158,62 @@
     /*BookContent * Componete*/
 
 .Container_Details_Book_Content{
-    width:70%;
+    width:auto;
  height:100%;
 display:flex;
 flex-direction:column;
-gap:20px;
+
+gap:30px;
  
 
 }
 .Div_Filter_By{
     width:100%;
     height:auto;
-    padding:10px;
+     
     display:flex;
     flex-direction:row;
-    justify-content:center;
+   
     justify-content:space-between;
+    align-items:center;
        
 }
 
-    .Div_Filter_By h3 {
-        color: ver(--text-dark-color);
-        font-size:2rem;
-        font-weight:750;
-    }
+    
+ 
 
     .Div_Filter_By div small {
-        font-size: 1rem;
+        font-size: 0.9rem;
         font-weight: 650;
-        color:var(--color-on-surface-variant);
+        color: var(--color-on-surface-variant);
     }
 
-    .Div_Filter_By div select{
-
-        width:150px;
-        height:30px;
-        color:var(--text-dark-color);
-        padding:0px;
-        font-size:1rem;
-        font-weight:650;
-
+    .Div_Filter_By div select {
+        width: 150px;
+        height: 30px;
+        color: var(--text-dark-color);
+        padding: 0px;
+        font-size: 0.8rem;
+        font-weight: 650;
+        cursor: pointer;
+        border: 1px solid var(--border-color);
     }
-.Container_Content {
-    width:100%;
-    height:auto;
-    display:grid;
-    grid-template-columns:repeat(3,1fr);
-    gap:20px;
-}
+        .Div_Filter_By div select option {
+            font-size: 0.8rem;
+            font-weight: 600;
+            cursor: pointer;
+        }
+        .Container_Content {
+            width: 100%;
+            height: auto;
+            display: grid;
+            grid-template-columns: repeat(3,1fr);
+            gap: 20px;
+        }
 
 .Book_Card {
     width: 300px;
-    height: auto;
+    height: 370px;
     background: red;
     display: flex;
     flex-direction: column;
@@ -222,26 +226,30 @@ gap:20px;
 }
     .Book_Card img {
         width: 100%;
-        height: 220px;
+        height: 200px;
         object-fit:fill;
         border-radius: 5px 5px 0px 0px;
         cursor: pointer;
     }
 .Content_Card {
-    width: 100%;
+    width: 90%;
     height: auto;
     padding: 15px;
     display: flex;
     flex-direction: column;
     gap: 10px;
+   
 }
-.Div_Categories{
-    width:auto;
-    height:auto;
-    display:flex;
-    flex-direction:row;
-    gap:7px;
-    flex-wrap:wrap;
+.Div_Categories {
+    width: auto;
+    height: auto;
+    display: flex;
+    flex-direction: row;
+    gap: 7px;
+    flex-wrap: wrap;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
     .Div_Categories span {
         width: auto;
@@ -257,9 +265,13 @@ gap:20px;
     }
 .Content_Card h4 {
     color: var(--text-dark-color);
-    font-size:1.1rem;
+    font-size: 0.9rem;
     font-weight: 800;
-
+    flex-wrap: wrap;
+    width: 200px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 .Content_Card p {
     color: var(--color-nav-text);
@@ -691,7 +703,7 @@ gap:20px;
     .Div_Title_reviews small {
         font-size: 0.8rem;
         color: var(--color-on-surface-variant);
-        font-weight: 500;
+        font-weight: 550;
     }
     .Div_Title_reviews h4 {
         font-size: 2rem;
@@ -713,3 +725,53 @@ gap:20px;
 color:var(--text-dark-color);
 font-size:1.2rem;
 }
+
+
+.Div_Search {
+    width: 65%;
+    background: white;
+    padding: 10px;
+    border: 1px solid var(--border-color);
+    display: flex;
+    gap: 10px;
+    padding: 10px;
+    align-items: center;
+    border-radius: 4px;
+    font-size: 1.2rem;
+}
+    .Div_Search:hover {
+        border: 1px solid var( --color-info);
+    }
+
+    .Div_Search input {
+        width: 100%;
+        background: none;
+        border: none;
+        padding: 5px;
+        font-size: 1rem;
+        font-weight:550;
+    }
+
+    .Div_Search input:focus{
+        outline:none;
+
+    }
+        .Div_Search input::placeholder {
+            font-size: 0.9rem;
+            font-weight: 500;
+            letter-spacing: 0.5px;
+        }
+
+
+.NotFoundItems {
+    width: 800px;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: gray;
+    gap: 10px;
+}
+     
+ 

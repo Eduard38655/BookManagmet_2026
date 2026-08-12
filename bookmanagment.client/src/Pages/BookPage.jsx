@@ -8,7 +8,7 @@ function BookPage() {
 
     const [Book_Data, SetBook_Data] = useState([])
     const [BackUp_Book, SetBackUp_Data] = useState([])
-
+    const [currentItems, setCurrentItems] = useState([]);
     useEffect(() => {
         const fetchData = async () => {
             const response = await fetch("product/get")
@@ -28,9 +28,9 @@ function BookPage() {
     }, []) 
     return (
 
-        <article className={style.Main_Container_Book_Page } >
-            <FilterBook BackUp_Book={BackUp_Book} SetBackUp_Data={SetBackUp_Data} SetBook_Data={SetBook_Data} />
-            <BookContent Book_Data={Book_Data} SetBook_Data={SetBook_Data} />
+        <article className={style.Main_Container_Book_Page}  >
+            <FilterBook BackUp_Book={BackUp_Book}    currentItems={currentItems} setCurrentItems={setCurrentItems} />
+            <BookContent BackUp_Book={BackUp_Book} SetBook_Data={SetBook_Data} setCurrentItems={setCurrentItems} currentItems={currentItems} />
         </article>
              
       

@@ -30,43 +30,51 @@ function EmpPagination({ AllEmployee,  currentItems, setCurrentItems }) {
     };
 
     return (
-        <div className={style.DivPagination_Container} >
-            
-                <span>Mostrando {currentItems.length} a {pageCount} de {AllEmployee.length} Empleados  </span>
 
-            
-            <div className={style.paginationContainer}>
-                <button
-                    className={style.pageLink_button}
-                    onClick={() => goToPage(currentPage - 1)}
-                    disabled={currentPage === 0}
-                >
-                    <i className="fa-solid fa-angle-left"></i>
-                </button>
+        <>
+            {currentItems.length >= 9 && <>
 
-                {Array.from({ length: pageCount }, (_, i) => (
-                    <button
-                        key={i}
-                        className={
-                            i === currentPage
-                                ? `${style.inactivePage} ${style.activePage}`
-                                : style.pageLink
-                        }
-                        onClick={() => goToPage(i)}
-                    >
-                        {i + 1}
-                    </button>
-                ))}
 
-                <button
-                    className={style.pageLink_button}
-                    onClick={() => goToPage(currentPage + 1)}
-                    disabled={currentPage === pageCount - 1}
-                >
-                    <i className="fa-solid fa-angle-right"></i>
-                </button>
-            </div>
-        </ div>
+                <div className={style.DivPagination_Container} >
+
+                    <span>Mostrando {currentItems.length} a {pageCount} de {AllEmployee.length} Empleados  </span>
+
+
+                    <div className={style.paginationContainer}>
+                        <button
+                            className={style.pageLink_button}
+                            onClick={() => goToPage(currentPage - 1)}
+                            disabled={currentPage === 0}
+                        >
+                            <i className="fa-solid fa-angle-left"></i>
+                        </button>
+
+                        {Array.from({ length: pageCount }, (_, i) => (
+                            <button
+                                key={i}
+                                className={
+                                    i === currentPage
+                                        ? `${style.inactivePage} ${style.activePage}`
+                                        : style.pageLink
+                                }
+                                onClick={() => goToPage(i)}
+                            >
+                                {i + 1}
+                            </button>
+                        ))}
+
+                        <button
+                            className={style.pageLink_button}
+                            onClick={() => goToPage(currentPage + 1)}
+                            disabled={currentPage === pageCount - 1}
+                        >
+                            <i className="fa-solid fa-angle-right"></i>
+                        </button>
+                    </div>
+                </ div>
+            </>}
+
+        </>
     );
 }
 

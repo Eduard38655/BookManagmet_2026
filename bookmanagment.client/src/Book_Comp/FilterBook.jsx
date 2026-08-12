@@ -1,24 +1,22 @@
 import { useEffect, useState } from "react";
 
 import style from "../Styles/BookPage.module.css"
-function FilterBook({ BackUp_Book, SetBackUp_Data, SetBook_Data }) {
+function FilterBook({ BackUp_Book,    currentItems, setCurrentItems }) {
     const [category, SetCategory] = useState([])
     const [format_book, SetFormat] = useState([])
-    const [selected_category, SetSelected_Category] = useState([])
-    const [selected_format, Setselected_format] = useState([])
-    const [filter, setFilter] = useState([])
+ 
 
+ 
+    const [selectedFormat, setSelectedFormat] = useState([])
+  
     useEffect(() => {
-        const categories = [];
+        let categories = [];
         const formats=[]
 
         BackUp_Book.forEach(book => {
             if (!formats.includes(book.format)) {
                 formats.push(book.format);
             }
-
-
-
 
             if (!categories.includes(book.category)) {
                 categories.push(book.category);
@@ -35,55 +33,82 @@ function FilterBook({ BackUp_Book, SetBackUp_Data, SetBook_Data }) {
       
     }, [BackUp_Book]);
 
+   
 
-    function Search_category(choose_category) {
-        const details = []
-        const data = BackUp_Book.map((e) => {
-            return e.category == choose_category ? details.push(e) : "not found"
-     
-           
-        })
+    const [seleted, SetSelected] = useState([])
+    function Search_category(choose_category, isChecked) {
+
+        let newSelected;
+
+        if (isChecked) {
+            newSelected = [...seleted, choose_category];
+        } else {
+            newSelected = seleted.filter(
+                c => c !== choose_category
+            );
+        }
+
+        SetSelected(newSelected);
+
+        if (newSelected.length === 0) {
+            setCurrentItems(BackUp_Book);
+            return;
+        }
+
+        const details = BackUp_Book.filter(book =>
+            newSelected.includes(book.category)
+        );
+
+        setCurrentItems(details);
+
+     }
+
+
+    
+    
+    function Search_format(choose_format, isChecked) {
+        let chosenFormats;
+
+  
+
+        if(isChecked) {
+            chosenFormats = [...selectedFormat, choose_format];
+        } else {
+            chosenFormats = selectedFormat.filter(f => f !== choose_format);
+        }
+
+        setSelectedFormat(chosenFormats);
+
+
+        if (currentItems.length === 0) {
+            setCurrentItems(BackUp_Book);
+            return;
+        }
+        
+        const details = BackUp_Book.filter(book =>
+            chosenFormats.includes(book.format)
+        );
  
 
-        setFilter((prev) => [...prev, ...details])
-    }
+        setCurrentItems(details)
 
-    function Search_format(choose_format) {
-        const details = []
-        const data = BackUp_Book.map((e) => {
-            return e.format == choose_format ? details.push(e) : "not found"
-
-
-        })
-
-
-        setFilter((prev) => [...prev, ...details])
     }
 
 
 
     function clear_filter() {
-        SetBook_Data(BackUp_Book)
+        let checkBox = document.getElementsByTagName("input")
+
+        for (let i = 0; i < checkBox.length; i++) {
+            if (checkBox[i].type === "checkbox") {
+                checkBox[i].checked = false
+            }
+        }
+        setCurrentItems(BackUp_Book)
     }
 
-    useEffect(() => {
-        console.log(filter)
-
-        SetBook_Data(filter)
-
-    }, [filter])
-
-
-
-    function Buscar_precio(valor) {
-        const min = valor.min
-        const max = valor.max
-        const values_filtres = BackUp_Book.filter((e) => e.precio >= max || e.precio >= min)
-
-        setFilter(values_filtres)
-
-    }
-
+    
+   
 
    
 
@@ -105,7 +130,7 @@ function FilterBook({ BackUp_Book, SetBackUp_Data, SetBook_Data }) {
 
                                     <div key={index} className={style.Div_Content_op }>
 
-                                        <input type="checkbox" onChange={() => Search_category(c)} />
+                                        <input type="checkbox" value={c} onChange={(e)=>Search_category(c,e.target.checked)} />
                                         {" " }
                                         <label >{c}</label>
                                     </div>
@@ -115,17 +140,7 @@ function FilterBook({ BackUp_Book, SetBackUp_Data, SetBook_Data }) {
 
 
                         </div>
-
-                        <div className={style.Container_Optiones}>
-
-                            <label>Price Range</label>
-
-                            <div className={style.Div_Price }>
-                                <input type="price" placeholder="Min" onChange={(e) => Buscar_precio({ min: e.target.value })} />
-                                { " - " }
-                                <input type="price" placeholder="Max" onChange={(e) => Buscar_precio({ max: e.target.value })} />
-                            </div>
-                        </div>
+ 
 
 
 
@@ -140,7 +155,7 @@ function FilterBook({ BackUp_Book, SetBackUp_Data, SetBook_Data }) {
 
                                     <div key={index} className={style.Div_Content_op}>
 
-                                        <input type="checkbox" onChange={() => Search_format(f)} /> {" " }
+                                        <input type="checkbox" onChange={(e) => Search_format(f, e.target.checked)} /> {" "}
                                         <label  >{f}</label>
                                     </div>
                                 ))}
