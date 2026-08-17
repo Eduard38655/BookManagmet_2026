@@ -1,5 +1,5 @@
 import { Outlet } from "react-router-dom";
-import style from "../Styles/BookPage.module.css";
+import style from "../Styles/Shopping.module.css";
 
 function ShoppingLayout() {
     return (

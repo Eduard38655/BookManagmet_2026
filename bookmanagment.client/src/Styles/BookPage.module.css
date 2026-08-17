@@ -45,8 +45,9 @@
     --border-color: #e5e7eb;
     --back-ground-text: #1628390d;
     --Background-info: #fc8f34;
-    --proegess-background:#944a00;
-    --color-porcentage:74777d;
+    --proegess-background: #944a00;
+    --color-porcentage: 74777d;
+    
 }
 
 
@@ -57,22 +58,23 @@
     display: flex;
     flex-direction: row;
  
-    padding:10px;
+    padding:15px;
     gap: 10px;
 }
 
 .Aside_Filter_Container {
-    width: 25%;
+    width: 30%;
     height: 100vh;
     position: sticky;
-    top: 0;
+    top: 70px; /* mismo offset que usabas con fixed */
+    align-self: start; /* importante si el padre es flex o grid */
 }
-
-.Aside_Content {
-    width: 100%;
-    height: auto;
-    padding: 20px;
-}
+  
+    .Aside_Content {
+        width: 100%;
+        height: auto;
+        padding: 20px;
+    }
 
 .Car_filters {
     width: auto;
@@ -155,20 +157,32 @@
 
     }
 
+.Aside_Filter_Container button {
+    background: var( --Background-info);
+    padding: 10px;
+    font-weight: 500;
+    font-size: 0.8rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    color: var(--text-dark-color);
+}
     /*BookContent * Componete*/
 
 .Container_Details_Book_Content{
-    width:auto;
- height:100%;
+    width:100%;
+ height:auto;
 display:flex;
 flex-direction:column;
-
+ 
+ 
 gap:30px;
  
+ 
 
-}
+} 
 .Div_Filter_By{
-    width:100%;
+    width:auto;
     height:auto;
      
     display:flex;
@@ -734,7 +748,8 @@ font-size:1.2rem;
     border: 1px solid var(--border-color);
     display: flex;
     gap: 10px;
-    padding: 10px;
+    padding: 5px;
+    
     align-items: center;
     border-radius: 4px;
     font-size: 1.2rem;

@@ -1,16 +1,15 @@
 import { Outlet } from "react-router-dom";
 import DashMenu from "../Components/DashMenu";
 
-function AdminLayout() {
+function HomeLayout() {
     return (
         <>
-             
-            <main className="DashboardContainer">
-                <DashMenu />
+            <DashMenu />
+            <main className="HomeContainer">
                 <Outlet />
             </main>
         </>
     );
 }
 
-export default AdminLayout;
+export default HomeLayout

@@ -1,67 +1,77 @@
 import style from "../Styles/Header.module.css"
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation,NavLink } from "react-router-dom";
 import { useParams } from "react-router-dom";
 import { useEffect } from "react"
 import { UserContext } from "../Context/UserContext";
 import { useContext } from "react";
 import { useNavigate } from "react-router-dom"  
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+
+import {
+    faMagnifyingGlass,
+    faUser,
+   faCartShopping  
+ 
+} from "@fortawesome/free-solid-svg-icons";
 function Header() {
     const location = useLocation();
     const BookId = location.pathname.split("/")[2];
     const { user, setUser } = useContext(UserContext)
     const navigate = useNavigate();
 
-    
 
-  return (
-      <>
-          <header className={style.Header_Container }>
-              <h1>Moddern Library</h1>
-              <ul>
-                  <li className={location.pathname === "/home" ? style.active : style.inactive}>
-                      <Link to="/home">Home</Link>
-                  </li>
+    const RoutesHeader = [
+        { Route: "/", name: "Home",id:1 },
+        { Route: "/browse",name:"Browse" ,id:2},
+        { Route: "/arrivals", name: "New Arrivals",id:3 },
+        { Route: "/sellers", name: "Best Sellers",id:4 }]
 
-                  <li
-                      className={
-                          location.pathname === "/browse" ||
-                              location.pathname === `/browse/${BookId}`
-                              ? style.active
-                              : style.inactive
-                      }
-                  >
-                      <Link to="/browse">Browse</Link>
-                  </li>
 
-                  <li className={location.pathname === "/arrivals" ? style.active : style.inactive}>
-                      <Link to="/arrivals">New Arrivals</Link>
-                  </li>
+    return (
+        <div className={style.MainContainer_Header}> 
+         
 
-                  <li className={location.pathname === "/sellers" ? style.active : style.inactive}>
-                      <Link to="/sellers">Best Sellers</Link>
-                  </li>
 
-                  <li className={location.pathname === "/genres" ? style.active : style.inactive}>
-                      <Link to="/genres">Genres</Link>
-                  </li>
-              </ul>
-              <div className={style.Header_Icons}>
-                  <button onClick={() => navigate("/dashboard") }>
-                      {user && user.length > 0 ? (
-                          user.map((user) => (
-                              <span key={user.id}>{user.avatar}</span>
-                          ))
-                      ) : (<i className="fa-regular fa-user"></i>)}
-                  </button>
-                  <button onClick={() =>   navigate("/shoppingcart")  }>
-                      <i className="fa-solid fa-cart-shopping"></i>
-                  </button>
-                
-              </div>
+                <header className={style.Header_Container}>
+                    <h1><span>Moddern</span> Library</h1>
+                <ul>
+                    {RoutesHeader.map((r, index) => (
+                        <li key={index}>
+                            <NavLink
+                                to={r.Route}
+                                className={({ isActive }) =>
+                                    isActive ? style.active : style.inactive
+                                }
+                            >
+                                {r.name}
+                            </NavLink>
+                        </li>
+                    ))}
+                </ul>
+                    <div className={style.Header_Icons}>
+                        <button onClick={() => navigate("/dashboard")}>
 
-          </header>
 
-      </>
+
+                            {user && user.length > 0 ? (
+                                user.map((user) => (
+                                    <span key={user.id}>{user.avatar}</span>
+                                ))
+                            ) : (<>
+                                <FontAwesomeIcon icon={faUser} />
+                            </>)}
+                        </button>
+                        <button onClick={() => navigate("/cart")}>
+                            <FontAwesomeIcon icon={faCartShopping} />
+                        </button>
+
+                    </div>
+
+                </header>
+
+       
+
+      </div>
   );
 }
 

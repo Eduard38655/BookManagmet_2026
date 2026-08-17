@@ -190,3 +190,11 @@
     color: var(--color-accent-amber);
     border-color: rgba(230, 126, 34, 0.2);
 }
+
+
+
+.DashboardContainer{
+    width:100%;
+    display:flex;
+    flex-direction:row;
+}

@@ -1,46 +1,87 @@
-import ShoppingCart from "../ShoppingCart/ShoppingCartContent"; 
+import ShoppingCart from "../ShoppingCart/ShoppingCartContent";
 import OrderSummary from "../ShoppingCart/OrderSummary";
+import style from "../Styles/Shopping.module.css";
+import { useEffect, useState } from "react";
 
-import { useEffect, useState } from "react";  
 function ShoppingPage() {
+
     const [cartData, setCartData] = useState([]);
+
+    const [currentPage, setCurrentPage] = useState(1);
+
+    const itemsPerPage = 3;
+
     useEffect(() => {
-        const GetAll_Books = async () => {
-            const token = localStorage.getItem("User_Token") || "";
 
-            try {
-                const response = await fetch(`${import.meta.env.VITE_API_URL || 'https://localhost:5186'}/shopping/getall`, {
-                    method: "GET",
-                    headers: {
-                        "Content-Type": "application/json",
-                        ...(token ? { Authorization: `Bearer ${token}` } : {})
-                    }
-                });
+        const getLocal = localStorage.getItem("selectedBooks");
 
-                if (!response.ok) {
-                    const errorData = await response.json().catch(() => ({ message: response.statusText }));
-                    console.error("Error fetching cart:", errorData);
-                    return;
-                }
+        const parseLocal = JSON.parse(getLocal);
 
-                const data = await response.json();
-                setCartData(data.data) 
-                console.log("Cart data:", data);
-            } catch (error) {
-                console.error("GetAll_Books error:", error);
-            }
-        };
+        setCartData(parseLocal || []);
 
-        GetAll_Books();
+    }, []);
 
-    }, [])
+    // Último elemento de la página
+    const indexOfLastItem = currentPage * itemsPerPage;
+
+    // Primer elemento de la página
+    const indexOfFirstItem = indexOfLastItem - itemsPerPage;
+
+    // Elementos que se mostrarán
+    const currentItems = cartData.slice(
+        indexOfFirstItem,
+        indexOfLastItem
+    );
+
+    // Cantidad total de páginas
+    const totalPages = Math.ceil(
+        cartData.length / itemsPerPage
+    );
 
     return (
         <>
-            <ShoppingCart cartData={cartData} setCartData={setCartData} />
-            <OrderSummary cartData={cartData} setCartData={setCartData} />
+            <div className={style.DivTitle}>
+                <h2>Your Cart</h2>
+                <p>
+                    Review your selections before proceeding to checkout
+                </p>
+            </div>
+
+            <div className={style.SubContainer}>
+
+                <ShoppingCart
+                    cartData={currentItems}
+                    setCartData={setCartData}
+                />
+
+                <OrderSummary
+                    cartData={cartData}
+                    setCartData={setCartData}
+                />
+
+            </div>
+
+            <div className={style.DivPagination}>
+
+                <button
+                    disabled={currentPage === 1}
+                     onClick={() => setCurrentPage(currentPage - 1)}
+                >
+                    {"<"}
+                </button>
+
+               
+
+                <button
+                    disabled={currentPage === totalPages}
+                     onClick={() => setCurrentPage(currentPage + 1)}
+                >
+                    {">"}
+                </button>
+
+            </div>
         </>
-  );
+    );
 }
 
 export default ShoppingPage;

@@ -56,35 +56,53 @@
     
 }
 .Header_Container {
-    width: 100vh;
-    height: auto;
-    padding: 15px;
+    width: 100%;
+    height: 80px;
     display: flex;
+    padding: 5px;
     flex-direction: row;
-    justify-content: space-between;
-    background-color: var( --color-on-secondary);
-    border-bottom: 1px solid var(--border-color)
+    justify-content: space-around;
+    background: white;
+    border-bottom: 1px solid var( --border-color);
+    align-content: center;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    z-index: 100;
 }
 
-    .Header_Container h1 {
-        font-size: 1.6rem;
-        font-weight: 800;
-        color: var(--text-dark-color)
-    }
 
-    .Header_Container ul {
-        width: auto;
-        height: auto;
-        padding: 20px;
-        display: flex;
-        flex-direction: row;
-        gap: 20px;
-        list-style: none;
-        cursor: pointer
-    }
-    .Header_Container ul li a {
-        text-decoration: none;
-    }
+.MainContainer_Header {
+    width: 100%;
+    height: 100px;
+   
+}
+
+.Header_Container h1 {
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: var(--text-dark-color)
+}
+        .Header_Container h1 span {
+            color: var(--color-accent-amber);
+        }
+
+        .Header_Container ul {
+            width:65%;
+            height: auto;
+            padding: 20px;
+            display: flex;
+            flex-direction: row;
+            gap: 20px;
+            list-style: none;
+            cursor: pointer;
+            align-items: center;
+        }
+            .Header_Container ul li a {
+                text-decoration: none;
+                font-size: 0.9rem;
+                font-weight: 450;
+            }
 
     .active a,
     .active {
@@ -94,9 +112,7 @@
     }
 
 .inactive a, .inactive {
-       
-    font-size: 1rem;
-    font-weight: 700;
+   
     color: var(--color-nav-text);
     border-bottom: none;
  
@@ -120,270 +136,292 @@ align-items:center;
         border: none;
         font-size: 1.1rem;
         cursor: pointer;
-        border: 1px solid var(--border-color);
-        padding: 7px;
-        border-radius: 30px;
+         
     }
 
 
-/*Footer*/
-.Footer_Container {
-    width: 100%;
-    height: 100%;
-    padding: 25px;
-    display: flex;
-    flex-direction: column;
-    background: var(--color-on-primary-container);
-}
-.Container_Content {
-    width: auto;
-    height: auto;
-    padding: 20px;
-    display: flex;
-    flex-direction: row;
-    justify-content:space-around;
-}
-
-.Footer_Title {
+.DivSearch{
     width:auto;
-
+    height:auto;
+    padding:12px;
+    background:white;
+    border-radius:5px;
 }
-    .Footer_Title h4 {
-        color: var(--color-on-secondary);
-        font-size:1.7rem;
-        font-weight:750;
-    }
-    .Footer_Title p {
-        color: var(--color-outline-variant);
-        font-weight: 550;
-    }
-.Div_ul {
-    width: auto;
-    height: auto;
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-}
-    .Div_ul label {
-        color: var(--color-on-secondary);
-        font-size: 0.9rem;
-        font-weight: 600;
-    }
 
-    .Div_ul ul {
+.DivSearch input{
+width:100%;
+height:100%;
+ 
+border:none;
+}
+    .DivSearch input:focus{
+        outline:none;
+    }
+    /*Footer*/
+    .Footer_Container {
+        width: 100%;
+        height: 100%;
+        padding: 25px;
         display: flex;
         flex-direction: column;
-        gap: 10px;
-    }
-    .Div_ul ul li {
-        text-decoration: none;
-        list-style: none;
-         font-weight: 550;
-        font-size: 0.9rem;
-        cursor:pointer;
+        background: var(--color-on-primary-container);
     }
 
-        .Div_ul ul li a {
-            list-style: none;
-            text-decoration: none;
+    .Container_Content {
+        width: auto;
+        height: auto;
+        padding: 20px;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+    }
+
+    .Footer_Title {
+        width: auto;
+    }
+
+        .Footer_Title h4 {
+            color: var(--color-on-secondary);
+            font-size: 1.7rem;
+            font-weight: 750;
+        }
+
+        .Footer_Title p {
+            color: var(--color-outline-variant);
+            font-weight: 550;
+        }
+
+    .Div_ul {
+        width: auto;
+        height: auto;
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+    }
+
+        .Div_ul label {
+            color: var(--color-on-secondary);
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+
+        .Div_ul ul {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+            .Div_ul ul li {
+                text-decoration: none;
+                list-style: none;
+                font-weight: 550;
+                font-size: 0.9rem;
+                cursor: pointer;
+            }
+
+                .Div_ul ul li a {
+                    list-style: none;
+                    text-decoration: none;
+                    color: var(--color-outline-variant);
+                }
+
+    .Div_Info {
+        width: 100%;
+        height: auto;
+        padding: 25px;
+    }
+
+        .Div_Info p {
+            text-align: center;
+            font-size: 0.9rem;
             color: var(--color-outline-variant);
         }
 
-.Div_Info {
-    width: 100%;
-    height: auto;
-    padding: 25px;
-}
-    .Div_Info p {
-        text-align: center;
-        font-size: 0.9rem;
-        color: var(--color-outline-variant);
+    .Line_info {
+        width: 100%;
+        height: 1px;
+        border-bottom: 1px solid gray;
     }
-.Line_info {
-    width: 100%;
-    height: 1px;
-    border-bottom: 1px solid gray;
-}
+    /*Dashboard Nav*/
 
-/*Dashboard Nav*/
+    .nav_Container {
+        width: 23%;
+        height: 100%;
+        background: var(--color-surface-container-low);
+        position: sticky;
+        top: 0;
+        border-right: 1px solid var(--border-color);
+    }
 
-.nav_Container {
-    width: 23%;
-    height: 100%;
-    background: var(--color-surface-container-low);
-    position: sticky;
-    top: 0;
-   border-right:1px solid var(--border-color);
-}
-
-.SubContainer {
-    width: 100%;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-   
-}
-
-.Header_Container {
-    width: 100%;
-    height: auto;
-    display: flex;
-    flex-direction: row;
-    gap: 15px;
-    align-content: center;
-    align-items: center;
-    border-bottom: 2px solid var(--border-color);
-    background:none;
-  
-}
- 
-.Header_Container img {
-    width: 50px;
-    height: 50px;
-    border-radius: 15px;
-    object-fit: cover;
-    border: 1px solid var(--border-color)
-}
-    .Header_Container div {
-        width: auto;
+    .SubContainer {
+        width: 100%;
         height: auto;
-    
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    }
+
+/*
+
+        .Header_Container {
+        width: 100%;
+        height: auto;
         display: flex;
         flex-direction: row;
-        gap: 30px;
-        justify-content:space-between;
-    }
+        gap: 15px;
+        align-content: center;
+        align-items: center;
+        border-bottom: 2px solid var(--border-color);
+        background: none;
+      
 
-    .Header_Container div h3 {
-        font-size:1rem;
-    font-weight:700;
-    color:var(--text-dark-color);
+    } 
+   */
+
+        .Header_Container img {
+            width: 50px;
+            height: 50px;
+            border-radius: 15px;
+            object-fit: cover;
+            border: 1px solid var(--border-color)
         }
 
-    .Header_Container div small {
+        .Header_Container div {
+            width: auto;
+            height: auto;
+            display: flex;
+            flex-direction: row;
+            gap: 30px;
+            justify-content: space-between;
+        }
+
+            .Header_Container div h3 {
+                font-size: 1rem;
+                font-weight: 700;
+                color: var(--text-dark-color);
+            }
+
+            .Header_Container div small {
+                font-size: 0.8rem;
+                font-weight: 500;
+                color: var(--color-nav-text);
+            }
+
+    .nav_Container ul {
+        width: 100%;
+        list-style: none;
+        padding: 15px;
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+    }
+
+
+
+
+    .nav_Container li a {
+        display: block;
+        text-decoration: none;
+        font-size: 1rem;
+        font-weight: 550;
+        color: var(--color-nav-text);
+        padding: 10px;
+    }
+
+
+
+    .DivLogout {
+        width: 100%;
+        height: auto;
+        display: flex;
+        align-content: center;
+        align-items: center;
+        justify-content: center;
+        padding: 20px;
+        border-top: 2px solid var(--border-color);
+        border-right: 2px solid var(--border-color);
+    }
+
+    .nav_Container button {
+        width: 200px;
+        height: auto;
+        padding: 10px;
+        border-radius: 7px;
+        background: var(--color-error);
+        border: none;
+        color: white;
         font-size: 0.8rem;
-        font-weight: 500;
-        color:var(--color-nav-text);
+        font-weight: 550;
+        cursor: pointer;
+    }
+    /**/
+
+
+
+    .SubContainer ul li a:hover {
+        padding: 10px;
+        color: var(--color-nav-text-golden);
+        background: var(--back-nav-golden);
     }
 
-.nav_Container ul {
-   width:100%;
-    list-style: none;
-    padding: 15px;
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
- 
-   
-}
-
-
-
-
-.nav_Container li a {
-    display: block;
-    text-decoration: none;
-    font-size: 1rem;
-    font-weight: 550;
-    color: var(--color-nav-text);
-    padding:10px;
-}
-
-        
-
-.DivLogout {
-    width: 100%;
-    height: auto;
-    display: flex;
-    align-content: center;
-    align-items: center;
-    justify-content: center;
-    padding: 20px;
-    border-top: 2px solid var(--border-color);
-    border-right: 2px solid var(--border-color);
-}
-.nav_Container button {
-    width: 200px;
-    height: auto;
-    padding:10px;
- 
-    border-radius:7px;
-    background:var(--color-error);
-    border:none;
-    color:white;
-    font-size:0.8rem;
-font-weight:550;        
-    cursor:pointer;
-}
-/**/
-
- 
- 
-.SubContainer ul li a:hover {
-    padding: 10px;
-    color: var(--color-nav-text-golden);
-    background: var(--back-nav-golden);
-}
-.SubContainer ul .activo {
-    color: var(--color-nav-text-golden);
-    background: var(--back-nav-golden);
-    display: block;
-    padding: 10px;
-    border-radius: 4px;
-    text-decoration: none;
-}
-
- 
-.MobielHeader_Container{
-    display:none;
-}
-
-@media (max-width: 768px) {
-
-     .Header_Container{
-        display:none;
+    .SubContainer ul .activo {
+        color: var(--color-nav-text-golden);
+        background: var(--back-nav-golden);
+        display: block;
+        padding: 10px;
+        border-radius: 4px;
+        text-decoration: none;
     }
+
 
     .MobielHeader_Container {
-        width: 100%;
-        height: auto;
-       
-        display: flex;
-       
-        gap: 20px;
-        flex-direction: column;
-        justify-content: space-between;
-        background-color: var( --color-on-secondary);
-        border-bottom: 1px solid var(--border-color);
-        box-shadow: 5px 5px 10px #888888;
-    }
-    .MobileMenu {
-        width: auto;
- 
-    }
-    .MobileHeader_Icons{
-        background:red;
+        display: none;
     }
 
-    .MobielHeader_Container ul {
-        width: 100%;
-        height: auto;
-        display: flex;
-        flex-direction: column;
-        list-style: none;
-        cursor: pointer;
-        position: absolute;
-        z-index: 1000;
-        background-color: var( --color-on-secondary);
-    }
-     
+    @media (max-width: 768px) {
 
-    .MobielHeader_Container ul li {
-        padding: 10px;
-        border-top: 1px solid gray;
-        font-size: 0.7rem;
-    }
+        .Header_Container {
+            display: none;
+        }
+
+        .MobielHeader_Container {
+            width: 100%;
+            height: auto;
+            display: flex;
+            gap: 20px;
+            flex-direction: column;
+            justify-content: space-between;
+            background-color: var( --color-on-secondary);
+            border-bottom: 1px solid var(--border-color);
+            box-shadow: 5px 5px 10px #888888;
+        }
+
+        .MobileMenu {
+            width: auto;
+        }
+
+        .MobileHeader_Icons {
+            background: red;
+        }
+
+        .MobielHeader_Container ul {
+            width: 100%;
+            height: auto;
+            display: flex;
+            flex-direction: column;
+            list-style: none;
+            cursor: pointer;
+            position: absolute;
+            z-index: 1000;
+            background-color: var( --color-on-secondary);
+        }
+
+
+            .MobielHeader_Container ul li {
+                padding: 10px;
+                border-top: 1px solid gray;
+                font-size: 0.7rem;
+            }
 
                 .MobielHeader_Container ul li a {
                     text-decoration: none;
@@ -391,27 +429,27 @@ font-weight:550;
                     font-weight: 500;
                 }
 
-    .DivTitle {
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-        align-content: center;
-        align-items: center;
-        padding: 10px;
-    }
-    .DivTitle h1 {
-        font-size: 1.5rem;
-        font-weight: 550;
-  
-    }
-
-        .DivTitle button {
+        .DivTitle {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-content: center;
+            align-items: center;
             padding: 10px;
-            border-radius: 10px;
-            font-size: 1.1rem;
-            background: none;
-            border: 1px solid var(--border-color);
         }
+
+            .DivTitle h1 {
+                font-size: 1.5rem;
+                font-weight: 550;
+            }
+
+            .DivTitle button {
+                padding: 10px;
+                border-radius: 10px;
+                font-size: 1.1rem;
+                background: none;
+                border: 1px solid var(--border-color);
+            }
 
         .MobileHeader_Icons {
             display: flex;
@@ -419,13 +457,12 @@ font-weight:550;
             gap: 10px;
         }
 
-        .MobileHeader_Icons button {
-            padding: 10px;
-            border-radius: 10px;
-            font-size: 1.1rem;
-            background: none;
-            border: 1px solid var(--border-color);
-        }
-   
-}
+            .MobileHeader_Icons button {
+                padding: 10px;
+                border-radius: 10px;
+                font-size: 1.1rem;
+                background: none;
+                border: 1px solid var(--border-color);
+            }
+    }
  

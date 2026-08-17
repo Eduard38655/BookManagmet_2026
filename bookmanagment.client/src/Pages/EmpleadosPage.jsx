@@ -30,7 +30,7 @@ function EmpleadosPage() {
     const [operation, SetOperation] = useState("update")
     
     return (
-        <>
+        < >
             {ShowDialog && <EditarEmp SetShowDialog={SetShowDialog} operation={operation} SetOperation={SetOperation} />}
             <article className={style.Container_Page_Emp}>
 

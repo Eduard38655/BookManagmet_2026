@@ -1,11 +1,24 @@
 import { useNavigate } from "react-router-dom";
-import style from "../Styles/BookPage.module.css"
+import style from "../Styles/BookPage.module.css";
 import EmpPagination from "../Comp_Empleados/EmpPagination";
 import { useEffect, useState } from "react";
+
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+
+import {
+    faMagnifyingGlass,
+  
+    faBasketShopping,
+    faCircleCheck
+} from "@fortawesome/free-solid-svg-icons";
+
+
+<FontAwesomeIcon icon={faBasketShopping} />
 function BookContent({ currentItems, setCurrentItems, BackUp_Book }) {
 
     const navigate = useNavigate()
     const [selected, SetSelected] = useState([])
+
     function FindRelavance(value) {
         const ResetData = [...BackUp_Book];
 
@@ -31,15 +44,48 @@ function BookContent({ currentItems, setCurrentItems, BackUp_Book }) {
         setCurrentItems(filtered)
     }
 
+   
+     
+   
+    
+    useEffect(() => {
+
+
+      /*Agregando los productos al local storage */
+
+
+        let GetLocal = localStorage.getItem("selectedBooks")
+
+        let Parse_Local = GetLocal ? JSON.parse(GetLocal) : []
+
+        if (!GetLocal) {
+
+            return
+        }
+    
+    
+    
+   
+        if (GetLocal.length > 0) {
+          
+            SetSelected(Parse_Local)
+            return
+        }
+
+    }, [])
+
 
     useEffect(() => {
 
-        console.log(selected)
+        localStorage.setItem("selectedBooks", JSON.stringify(selected))
+
+         
 
     }, [selected])
 
 
-
+   
+   
     return (
         <>
             <article className={style.Container_Details_Book_Content}>
@@ -47,7 +93,8 @@ function BookContent({ currentItems, setCurrentItems, BackUp_Book }) {
                 <div className={style.Div_Filter_By}>
 
                     <div className={style.Div_Search}>
-                        <i className="fa-solid fa-magnifying-glass"></i>
+                        <FontAwesomeIcon icon={faMagnifyingGlass} />
+
                         <input type="text" placeholder="Search books..." onChange={(e) => {
                             FilterByName(e.target.value)
                         }} />
@@ -91,18 +138,14 @@ function BookContent({ currentItems, setCurrentItems, BackUp_Book }) {
 
                                 <div className={style.Div_Buttons}>
                                     <span> $ {book.price}</span>
-                                    <button onClick={() => {
-                                        SetSelected((prev)=>[...prev, book.id])
-                                    }} >
-                                        {selected.includes(book.id) ? <>
-                                           
-                                            <i className="fa-regular fa-circle-check"></i>
-                                        </> : <>
-                                            <i className="fa-solid fa-bag-shopping"></i>
-                                        </>}
-                                     
 
+                                    <button type="button" onClick={() => SetSelected((prev) => prev.filter((b) => b.id === book.id).length > 0 ? prev.filter((b) => b.id !== book.id) : [...prev,  {quant:1,...book}   ])}>
+                                        <FontAwesomeIcon
+                                            icon={selected.filter((b) => b.id === book.id).length > 0 ? faCircleCheck : faBasketShopping}
+                                        />
+                                 
                                     </button>
+
                                 </div>
                             </div>
                         ))}

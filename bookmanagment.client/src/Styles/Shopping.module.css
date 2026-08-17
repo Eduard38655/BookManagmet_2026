@@ -1,0 +1,296 @@
+:root {
+    /* Surface Colors */
+    --color-surface: #f8f9fa;
+    --color-surface-dim: #d9dadb;
+    --color-surface-bright: #f8f9fa;
+    --color-surface-container-lowest: #ffffff;
+    --color-surface-container-low: #f3f4f5;
+    --color-surface-container: #ecedee;
+    --color-surface-container-high: #e7e8e9;
+    --color-surface-container-highest: #e1e2e3;
+    --color-on-surface: #1a1c1e;
+    --color-on-surface-variant: #43474e;
+    --color-outline: #73777f;
+    --color-outline-variant: #c3c7cf;
+    /* Primary Brand Colors (Academic Blue) */
+    --color-primary: #2c3e50;
+    --color-on-primary: #ffffff;
+    --color-primary-container: #d3e4ff;
+    --color-on-primary-container: #001c38;
+    /* Secondary Colors (Deep Gray/Blue) */
+    --color-secondary: #535f70;
+    --color-on-secondary: #ffffff;
+    --color-secondary-container: #d7e3f7;
+    --color-on-secondary-container: #101c2b;
+    /* Tertiary Colors (Amber/Gold Accents) /
+  --color-tertiary: #a05a2c; / Used for CTAs and highlights */
+    --color-on-tertiary: #ffffff;
+    --color-tertiary-container: #ffdbca;
+    --color-on-tertiary-container: #331200;
+    /* State Colors */
+    --color-error: #ba1a1a;
+    --color-on-error: #ffffff;
+    --color-success: #2e7d32;
+    --color-warning: #f9a825;
+    --color-info: #0277bd;
+    /* Fixed Accents (Used in the UI for consistent emphasis) */
+    --color-accent-amber: #e67e22;
+    --color-accent-blue: #2980b9;
+    --font_family: 'Cormorant Garamond', serif;
+    --color-nav-text: #43474c;
+    --underline-header: #a55a1d;
+    --header-bg: #191c1d;
+    --text-dark-color: #162839;
+    --border-color: #e5e7eb;
+    --back-ground-text: #1628390d;
+    --color-nav-text-golden: #663100;
+    --back-nav-golden: #fc8f34;
+}
+
+
+.Main_Container_Book_Page {
+    height:100%;
+    padding: 20px;
+ 
+    display: flex;
+    flex-direction: column;
+    
+    gap: 30px;
+}
+
+    .Main_Container_Book_Page img {
+        width: 110px;
+        height: 130px;
+      
+    }
+
+.DivTitle {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid var(--border-color);
+}
+    .DivTitle h2 {
+     
+        color: var(--text-dark-color);
+    }
+
+    .DivTitle p {
+        color: var(--color-secondary);
+        font-size:0.9rem;
+    }
+ 
+.SubContainer {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    justify-content: space-between;
+    padding: 20px;
+}
+.Container_Producto{
+    width:65%;
+
+    display:flex;
+    flex-direction:column;
+    gap:10px;
+}
+.DivCard {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom:10px;
+}
+.DivContent {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+ 
+.DivTitle_Card {
+    width:auto;
+    display:flex;
+    flex-direction:column;
+    gap:10px;
+  justify-content:center;
+}
+    .DivTitle_Card h3 {
+        font-size: 1.3rem;
+        font-weight: 600;
+        color: var(--text-dark-color);
+    }
+    .DivTitle_Card p {
+        font-size: 0.9rem;
+        font-weight: 450;
+        color: var(--color-nav-text);
+    }
+
+    .DivTitle_Card span {
+        font-size: 1rem;
+        font-weight: 600;
+        color: var(--text-dark-color);
+    }
+.ContainerButtons{
+    width:auto;
+    display:flex;
+    flex-direction:column;
+    gap:10px;
+  justify-content:center;
+}
+
+    .ContainerButtons div {
+        width: auto;
+        background: white;
+        display: flex;
+        justify-content: space-around;
+        border: 1px solid var(--border-color);
+        border-radius: 5px;
+        font-size: 0.8rem;
+        font-weight: 550;
+        align-content: center;
+        align-items: center;
+        padding: 7px;
+    }
+
+    .ContainerButtons div button {
+        background: none;
+        border: none;
+        cursor: pointer;
+        font-size: 1.1rem;
+        font-weight: 550;
+    }
+.ButtonDelete {
+    background: none;
+    border: none;
+    font-weight: 450;
+    font-size: 0.8rem;
+    cursor: pointer;
+    color: var(--color-error);
+}
+
+
+.DivPagination {
+    width:auto;
+    display:flex;
+    gap:5px;
+}
+    .DivPagination button {
+        padding: 5px;
+        border: 1px solid gray;
+        color: var( --color-nav-text);
+        cursor:pointer;
+    }
+
+
+
+
+
+
+
+ /*Vender */
+
+.DivOrderSummary {
+    width: 30%;
+    height: 100%;
+    padding: 20px;
+    display: flex;
+    background: white;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 30px;
+    border:1px solid var(--border-color);
+    border-radius:5px;
+}
+    .DivOrderSummary h3{
+        color:var(--text-dark-color);
+    }
+    .DivOrderSummary ul {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        list-style: none;
+        color: var( --color-secondary);
+        border-top: 1px solid var(--border-color);
+      
+        border-bottom: 1px solid var(--border-color);
+        
+        padding-top: 10px;
+        padding-bottom: 10px;
+        font-size: 0.9rem;
+        font-weight: 450;
+    }
+        .DivOrderSummary ul li {
+            width:100%;
+            justify-content:space-between;
+            display: flex;
+        }
+.DivTotal {
+    width: 100%;
+    justify-content: space-between;
+    display: flex;
+    font-weight: 550;
+    font-size: 1.5rem;
+}
+
+    .DivTotal span{
+        font-weight:550;
+        font-size:1.5rem;
+    }
+
+    .DivButton {
+        width: 100%;
+        display: flex;
+        gap: 7px;
+    }
+
+    .DivButton input {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid var(--border-color);
+        text-transform:uppercase;
+    }
+
+    .DivButton input:focus{
+        outline:none;
+       
+    }
+
+
+        .DivButton input::placeholder {
+            margin-right: 70px;
+            text-transform: capitalize;
+        }
+
+    .DivButton button {
+        padding: 10px;
+        border: 1px solid gray;
+        background:none;
+        cursor:pointer;
+    }
+.ContainerCheckOut {
+    display:flex;
+    flex-direction:column;
+    gap:7px;
+}
+.DivOrderSummary .ButtonCheckOut {
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid var(--border-color);
+    background: var(--color-accent-amber);
+    color: white;
+    font-size: 0.9rem;
+    font-weight: 600;
+    cursor: pointer;
+}
+.DivText {
+    text-align: center;
+    color: var(--text-dark-color);
+    font-weight:500;
+}

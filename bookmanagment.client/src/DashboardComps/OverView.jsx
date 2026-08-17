@@ -5,7 +5,7 @@ import { useEffect, useState } from "react";
 function OverView({ Orders, SetOrders }) {
 
     const [OverView, SetoverView] = useState({});
-
+    /*
     useEffect(() => {
 
         if (!Orders?.data) return;
@@ -37,10 +37,9 @@ function OverView({ Orders, SetOrders }) {
 
     }, [Orders]);
 
+    */
 
-    useEffect(() => {
-        console.log(OverView);
-    }, [OverView]);
+
 
 
     return (

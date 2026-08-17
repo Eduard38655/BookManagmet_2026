@@ -28,6 +28,12 @@ import PromotionsLayout from './Layouts/PromotionsLayout'
 import EmployeesLayout from './Layouts/EmployeesLayout'
 import SalesLayout from './Layouts/SalesLayout'
 import ProtectedRoute from "../src/Services/ProtectedRoute"
+
+import HomePage from "../src/Pages/HomePage";
+import HomeLayout from "../src/Layouts/HomeLayout";
+
+ 
+
 function App() {
     return (
         <>
@@ -36,6 +42,10 @@ function App() {
                 {/* Login Route */}
                 <Route element={<LoginLayout />}>
                     <Route path="/login" element={<LoginPage />} />
+                </Route>
+
+                <Route element={<HomeLayout />}>
+                    <Route path="/" element={<HomePage />} />
                 </Route>
 
                 <Route element={<ProtectedRoute /> } >

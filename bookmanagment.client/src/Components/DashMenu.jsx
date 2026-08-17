@@ -38,25 +38,7 @@ function DashMenu() {
        
 
           <div className={style.SubContainer}>
-         
-
-
-                  <div className={style.Header_Container}  >
-                      {user.map((u) => (
-                          <>
-
-                              < img src={u.avatar} />
-                              <div>
-                                  <h3>{u.role} Console</h3>
-                                  <small>Modern library Managment</small>
-                              </div>
-
-                          </>
-
-                      ))}
-
-
-                  </div>
+          
 
               <ul>
                   {menu.map((item) => (

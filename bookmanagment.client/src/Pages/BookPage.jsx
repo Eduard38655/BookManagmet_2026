@@ -30,7 +30,7 @@ function BookPage() {
 
         <article className={style.Main_Container_Book_Page}  >
             <FilterBook BackUp_Book={BackUp_Book}    currentItems={currentItems} setCurrentItems={setCurrentItems} />
-            <BookContent BackUp_Book={BackUp_Book} SetBook_Data={SetBook_Data} setCurrentItems={setCurrentItems} currentItems={currentItems} />
+            <BookContent BackUp_Book={BackUp_Book} SetBook_Data={SetBook_Data} setCurrentItems={setCurrentItems} currentItems={currentItems} Book_Data={Book_Data} />
         </article>
              
       
